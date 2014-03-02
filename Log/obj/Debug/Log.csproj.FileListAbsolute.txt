@@ -1,0 +1,6 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Debug\Log.exe.config
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Debug\Log.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Debug\Log.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Debug\Log.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Debug\Log.pdb

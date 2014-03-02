@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OpinionSharing.Agt.AAT" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGIAAAAQBAAQAEAACEAAAAAAAAKABAAGQEABAAAiA=</HashCode>
+      <FileName>Agt\AAT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.BWMessage" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAIAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Agt\Agent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.Agent" Collapsed="true">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAABAAABAkUCEBAAMwCCAAFAEAEIWiAUEoAQAAAQ=</HashCode>
+      <FileName>Agt\Agent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.AgentState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAABAAQAEAAAAACAAQBAgAEAQgAAAAIAAAAA=</HashCode>
+      <FileName>Agt\AgentState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.Candidate" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAoAAQEAAAAQCAAAEAICIABAAAAESAAAAA=</HashCode>
+      <FileName>Agt\Candidate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.MessageQueue" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAAAAAAAAAAAABAAAAgAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Agt\Original\DontReply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.DontReply" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQAAAAAAAAAAAAAACAIAAAAAAAAAAAQ=</HashCode>
+      <FileName>Agt\Original\DontReply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.NoMoreBelief" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Agt\Original\NoMoreBelief.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.Trast" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAgAAAAAAAAAAAAAAJAAAAAAAAAAgA=</HashCode>
+      <FileName>Agt\Trast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.UserSensor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAgAAAAIAAAAAAAABAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Agt\UserSensor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.Original.BelieveOnlySensor" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Agt\Original\BelieveOnlySensor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.Original.EatingWords" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>Agt\Original\EatingWords.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.OSEnvironment" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAQAEAAAAAEAAAAAAQAAAAAAAAAQEAIA=</HashCode>
+      <FileName>Env\Environment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.ExpResult" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.ExpAgentsParam" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.ExpAccuracy" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAEAAAAAAAAAAAAAAABAAAAAAAIAAA=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.Experiment" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBBACAACAAAAAUABAAAiAEIIAAAAAABEYAAAOAJKAAI=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.Link" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAEAAAgAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Net\Link.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.Network" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgEAAAAAAAAAAFAAAAAAAAAAAAAAQACAAQAAAIACA=</HashCode>
+      <FileName>Net\Network.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.NetworkGenerator" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.CompleteNetworkGenerator" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.RandomNetworkGenerator" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.SmallworldRingNetworkGenerator" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAgAAAAAAAAAAAAAEgAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.Node" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAgAAEAAAggAAAAAAAAAAAAAAAAAQAAgA=</HashCode>
+      <FileName>Net\Node.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OpinionSharing.Subject.Sensor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIQgEAAEIAAAAAIEAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Subject\Sensor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OpinionSharing.Subject.TheFact" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIAIAAgAAAAAAA=</HashCode>
+      <FileName>Subject\TheFact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Util.InitableRandom" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAQAIAQAAAAEAAAACAAAQAABQAAAADAAgACAA=</HashCode>
+      <FileName>Util\InitableRandom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Util.RandomPool" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\StaticRandom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OpinionSharing.Agt.IAgent" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAQAAAAAAAAEIAgAAAAAAAAAA=</HashCode>
+      <FileName>Agt\IAgent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OpinionSharing.Agt.IOpinionSender" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Agt\IOpinionSender.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OpinionSharing.Net.INode" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Net\INode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="OpinionSharing.Subject.BlackWhiteSubject" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subject\BlackWhiteSubject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="OpinionSharing.Agt.AgentChangedHandler" Collapsed="true">
+    <Position X="9.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Agt\Agent.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="OpinionSharing.Agt.StateChangedHandler" Collapsed="true">
+    <Position X="15" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Agt\AgentState.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="OpinionSharing.Net.NodeCreater" Collapsed="true">
+    <Position X="11.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="OpinionSharing.Net.NodeCreaterCreater" Collapsed="true">
+    <Position X="13.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Meiryo UI" Size="9" />
+</ClassDiagram>

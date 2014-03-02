@@ -1,0 +1,6 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\ProcessManager\bin\Release\ProcessManager.exe.config
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\ProcessManager\bin\Release\ProcessManager.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\ProcessManager\bin\Release\ProcessManager.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\ProcessManager\obj\Release\ProcessManager.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\ProcessManager\obj\Release\ProcessManager.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\ProcessManager\obj\Release\ProcessManager.csprojResolveAssemblyReference.cache

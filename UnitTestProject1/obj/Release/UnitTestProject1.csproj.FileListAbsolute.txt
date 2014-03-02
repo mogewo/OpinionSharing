@@ -1,0 +1,9 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\bin\Release\UnitTestProject1.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\bin\Release\UnitTestProject1.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\obj\Release\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\obj\Release\UnitTestProject1.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\obj\Release\UnitTestProject1.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\bin\Release\OpinionSharingLibrary.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\bin\Release\OpinionSharingLibrary.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\bin\Release\Log.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\UnitTestProject1\bin\Release\Log.dll

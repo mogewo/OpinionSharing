@@ -1,0 +1,8 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\bin\Debug\OpinionSharing.exe.config
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\obj\Debug\OpinionSharing.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\obj\Debug\OpinionSharing.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\obj\Debug\OpinionSharing3.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\bin\Debug\OpinionSharing.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\bin\Debug\OpinionSharing.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\obj\Debug\OpinionSharing3.csproj.GenerateResource.Cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing22\OpinionSharing\obj\Debug\OpinionSharing.MyForm.resources

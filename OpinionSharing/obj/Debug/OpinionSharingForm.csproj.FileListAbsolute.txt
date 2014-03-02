@@ -1,0 +1,14 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\OpinionSharingForm.exe.config
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\OpinionSharingForm.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\OpinionSharingForm.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\OpinionSharingLibrary.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\Log.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\OpinionSharingLibrary.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Debug\Log.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.MyForm.resources
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.GUI.AgentStatePanel.resources
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.GUI.DoubleBufferedPanel.resources
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.csproj.GenerateResource.Cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.pdb

@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OpinionSharing.Agt.AAT">
+    <Position X="42" Y="29.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACABgAQAEAAGEQKCAAFAEKEBAgEQUIBAAAiA=</HashCode>
+      <FileName>Agt\AAT.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="thought" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.Agent">
+    <Position X="38" Y="30.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAkcAUAAAIgBAAAAAAAEIACAAAoAQAAAQ=</HashCode>
+      <FileName>Agt\Agent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="messageQueue" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.BeliefUpdater">
+    <Position X="49.25" Y="23.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAQAAAAAAAAAAQAAEAAAAAAAA=</HashCode>
+      <FileName>Agt\BeliefUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.BWMessage">
+    <Position X="32.25" Y="30.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgAAAAIAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Agt\BWMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="From" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Agt.Candidate">
+    <Position X="47.5" Y="23.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAoAAQEAAAAQCAACAAICIABAAAAESAAAAA=</HashCode>
+      <FileName>Agt\Candidate.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BeliefUpdater" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Agt.MessageQueue">
+    <Position X="35.25" Y="30.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAEQAAAAAEAAUABAAEAAAAAAAAAgBAAAA=</HashCode>
+      <FileName>Agt\MessageQueue.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ProcessQueue" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Agt.DRMessageBox">
+    <Position X="36.75" Y="37.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAAAAAAAAAAAABAAAAgAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Agt\Original\DontReply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.DontReply">
+    <Position X="39.5" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQAAAAAAAAAAAAAACAIAAAAAAAAAAAQ=</HashCode>
+      <FileName>Agt\Original\DontReply.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="messageBox" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Agt.NoMoreBelief">
+    <Position X="44" Y="37.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Agt\Original\NoMoreBelief.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.Thought" BaseTypeListCollapsed="true">
+    <Position X="46.5" Y="31" Width="1.5" />
+    <AssociationLine Name="opinion" Type="OpinionSharing.Subject.BlackWhiteSubject">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.405" Y="-0.511" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQIAAAAAAAYAEAAAAALAAQAAgAEAQgAAgAIAAAAE=</HashCode>
+      <FileName>Agt\Thought.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="opinion" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.Trast">
+    <Position X="34.5" Y="37.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAgAAAAAAAAAAAAAAJAAAAAAAAAAgA=</HashCode>
+      <FileName>Agt\Trast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.CandidateUpdaterSelector">
+    <Position X="45" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAGAAAACAAAAQAAAAEAQAAAAAIAKEBAAGAEABAAABA=</HashCode>
+      <FileName>Agt\CandidateUpdaterSelector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="candidates" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Agt.UserSensor" BaseTypeListCollapsed="true">
+    <Position X="52.5" Y="36.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAgAAAAIAAAAAAAABAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Agt\UserSensor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.186" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.Original.BelieveOnlySensor">
+    <Position X="41.75" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Agt\Original\BelieveOnlySensor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Agt.Original.EatingWords">
+    <Position X="46.25" Y="39.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>Agt\Original\EatingWords.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.OSEnvironment">
+    <Position X="44.25" Y="10.5" Width="1.5" />
+    <AssociationLine Name="Network" Type="OpinionSharing.Net.Network" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="44.875" Y="12.743" />
+        <Point X="44.875" Y="13.504" />
+        <Point X="35.25" Y="13.504" />
+        <Point X="35.25" Y="24.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Sensors" Type="OpinionSharing.Subject.Sensor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="44.875" Y="12.743" />
+        <Point X="44.875" Y="13.118" />
+        <Point X="45.812" Y="13.118" />
+        <Point X="45.812" Y="18.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.095" Y="1.02" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="TheFact" Type="OpinionSharing.Subject.TheFact" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="44.875" Y="12.743" />
+        <Point X="44.875" Y="13.118" />
+        <Point X="54" Y="13.118" />
+        <Point X="54" Y="17.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAQAEAAAAAEAAAAAAQAAAAAAAAAQEAIA=</HashCode>
+      <FileName>Env\Environment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Network" />
+      <Property Name="TheFact" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sensors" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Env.ExpResult">
+    <Position X="54.25" Y="29.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Accuracy" />
+      <Field Name="AgentsParam" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Env.ExpAgentsParam" Collapsed="true">
+    <Position X="56.75" Y="28.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.ExpAccuracy">
+    <Position X="57.5" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAEAAAAAAAAAAAAAAABAAAAAAAIAAA=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Env.Experiment">
+    <Position X="40" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBBACAACAAAAAUABAAAiAEIIAAAAAABEYAAAOAJKAAI=</HashCode>
+      <FileName>Env\Experiment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Environment" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Net.Link">
+    <Position X="37.25" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAEAAAgAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Net\Link.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Node1" />
+      <Field Name="Node2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Net.Network">
+    <Position X="34.5" Y="24.5" Width="1.5" />
+    <AssociationLine Name="Links" Type="OpinionSharing.Net.Link" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="36" Y="24.937" />
+        <Point X="36.375" Y="24.937" />
+        <Point X="36.375" Y="24.865" />
+        <Point X="37.25" Y="24.865" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgEAAAAAAAAAAFAAAAAAAAAAAAAAQACAAQAAAIACA=</HashCode>
+      <FileName>Net\Network.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Nodes" />
+      <Property Name="Links" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Net.NetworkGenerator" Collapsed="true">
+    <Position X="40.25" Y="40.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.CompleteNetworkGenerator" Collapsed="true">
+    <Position X="38" Y="41.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.RandomNetworkGenerator" Collapsed="true">
+    <Position X="40.5" Y="41.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.SmallworldRingNetworkGenerator" Collapsed="true">
+    <Position X="44" Y="41.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAgAAAAAAAAAAAAAEgAAAABAAAAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Net.Node" BaseTypeListCollapsed="true">
+    <Position X="31.75" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAgAAEAAAggAAAAAAAAAAAAAAAAAQAAgA=</HashCode>
+      <FileName>Net\Node.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Network" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="OpinionSharing.Subject.Sensor" BaseTypeListCollapsed="true">
+    <Position X="44" Y="18.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Agent" Type="OpinionSharing.Agt.Agent" ManuallyRouted="true">
+      <Path>
+        <Point X="45.531" Y="20.991" />
+        <Point X="45.531" Y="23.046" />
+        <Point X="41.323" Y="23.046" />
+        <Point X="41.323" Y="31.412" />
+        <Point X="40.25" Y="31.412" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIQgEAAEIAAAAAIEAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Subject\Sensor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="theFact" />
+      <Property Name="Agent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.412" />
+  </Class>
+  <Class Name="OpinionSharing.Subject.TheFact">
+    <Position X="53.25" Y="17.75" Width="1.5" />
+    <AssociationLine Name="Value" Type="OpinionSharing.Subject.BlackWhiteSubject">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.459" Y="0.888" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIAIAAgAAAAAAA=</HashCode>
+      <FileName>Subject\TheFact.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Value" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Util.InitableRandom" Collapsed="true">
+    <Position X="56.25" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAQAIAQAAAAEAAAACAAAQAABQAAAADAAgACAA=</HashCode>
+      <FileName>Util\InitableRandom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpinionSharing.Util.RandomPool">
+    <Position X="54" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\StaticRandom.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="dict" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="OpinionSharing.Agt.SubOpinion">
+    <Position X="32.25" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACABgAQAEEAGEQKCACBAEKEBAgEQEIBAAAiA=</HashCode>
+      <FileName>Agt\Original\SubOpinion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="thoughtStack" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OpinionSharing.Agt.ThoughtStack">
+    <Position X="29.5" Y="38" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAUAACAAAAA4BAgAAAALAAAAAAAEEAgAAAAAIgAAA=</HashCode>
+      <FileName>Agt\ThoughtStack.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="thoughts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="OpinionSharing.Agt.IAgent" Collapsed="true">
+    <Position X="32" Y="35" Width="1.5" />
+    <InheritanceLine Type="OpinionSharing.Agt.IOpinionSender" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="33.125" Y="34.004" />
+        <Point X="33.125" Y="35" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAMAAAAAAAAAAAAAAAEIAAAAAIAAAAAA=</HashCode>
+      <FileName>Agt\IAgent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OpinionSharing.Agt.IOpinionSender">
+    <Position X="32.5" Y="32.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Agt\IOpinionSender.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OpinionSharing.Net.INode">
+    <Position X="36.25" Y="27.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Net\INode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="OpinionSharing.Subject.BlackWhiteSubject" Collapsed="true">
+    <Position X="54" Y="32.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subject\BlackWhiteSubject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="OpinionSharing.Agt.AgentChangedHandler" Collapsed="true">
+    <Position X="47" Y="38.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Agt\Agent.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="OpinionSharing.Agt.StateChangedHandler" Collapsed="true">
+    <Position X="47" Y="36" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Agt\Thought.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="OpinionSharing.Net.NodeCreater" Collapsed="true">
+    <Position X="47" Y="36.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="OpinionSharing.Net.NodeCreaterCreater" Collapsed="true">
+    <Position X="47" Y="37.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Net\NetworkGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Meiryo UI" Size="9" />
+</ClassDiagram>

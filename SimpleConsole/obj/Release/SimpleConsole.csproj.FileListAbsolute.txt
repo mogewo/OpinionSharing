@@ -1,0 +1,10 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\SimpleConsole.exe.config
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\SimpleConsole.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\SimpleConsole.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\obj\Release\SimpleConsole.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\obj\Release\SimpleConsole.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\obj\Release\SimpleConsole.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\Log.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\OpinionSharingLibrary.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\Log.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\SimpleConsole\bin\Release\OpinionSharingLibrary.pdb

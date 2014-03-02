@@ -1,0 +1,7 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Debug\OpinionSharingLibrary.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Debug\OpinionSharingLibrary.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Debug\Log.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Debug\Log.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Debug\OpinionSharing.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Debug\OpinionSharingLibrary.dll
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Debug\OpinionSharingLibrary.pdb
