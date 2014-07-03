@@ -9,10 +9,10 @@ using System.IO;
 using OpinionSharing.Agt;
 using OpinionSharing.Env;
 using Env = OpinionSharing.Env;
-using OpinionSharing.Net;
+
+using GraphTheory;
 using OpinionSharing.Subject;
 
-using OpinionSharing.Util;
 
 using System.Diagnostics;
 
@@ -37,7 +37,6 @@ namespace OpinionSharingForm
             //networkTest();
             //agentTest();
             //buildCandidateTest();
-
             //Console.Read();
         }
 

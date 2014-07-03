@@ -38,8 +38,10 @@
             this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
             this.AccuracyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.expAccuracyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SettingTabControl = new System.Windows.Forms.TabControl();
             this.NetworkTab = new System.Windows.Forms.TabPage();
+            this.GeneratorCB = new System.Windows.Forms.ComboBox();
             this.PrepareButton = new System.Windows.Forms.Button();
             this.SensorNumTB = new System.Windows.Forms.TextBox();
             this.AgentNumLabel = new System.Windows.Forms.Label();
@@ -52,6 +54,7 @@
             this.ExpectedDegreeTB = new System.Windows.Forms.TextBox();
             this.PRewireTB = new System.Windows.Forms.TextBox();
             this.LearningTab = new System.Windows.Forms.TabPage();
+            this.SetAlgo_Button = new System.Windows.Forms.Button();
             this.TargetAwarenessRateLabel = new System.Windows.Forms.Label();
             this.LearningProcess = new System.Windows.Forms.ProgressBar();
             this.AlgoLabel = new System.Windows.Forms.Label();
@@ -70,22 +73,22 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.StartButton = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Label();
-            this.expAccuracyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.agentStatePanel = new OpinionSharingForm.GUI.AgentStatePanel();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.figurePanel = new OpinionSharingForm.GUI.FigurePanel();
-            this.SetAlgo_Button = new System.Windows.Forms.Button();
+            this.agentStatePanel = new OpinionSharingForm.GUI.AgentStatePanel();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
             this.SplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccuracyChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expAccuracyBindingSource)).BeginInit();
             this.SettingTabControl.SuspendLayout();
             this.NetworkTab.SuspendLayout();
             this.LearningTab.SuspendLayout();
             this.Animation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SeedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expAccuracyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // AnimationTimer
@@ -103,15 +106,17 @@
             // 
             // SplitContainer.Panel1
             // 
-            this.SplitContainer.Panel1.Controls.Add(this.AccuracyChart);
-            this.SplitContainer.Panel1.Controls.Add(this.SettingTabControl);
-            this.SplitContainer.Panel1.Controls.Add(this.agentStatePanel);
+            this.SplitContainer.Panel1.Controls.Add(this.figurePanel);
+            this.SplitContainer.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_Panel1_Paint);
             // 
             // SplitContainer.Panel2
             // 
-            this.SplitContainer.Panel2.Controls.Add(this.figurePanel);
-            this.SplitContainer.Size = new System.Drawing.Size(727, 551);
-            this.SplitContainer.SplitterDistance = 232;
+            this.SplitContainer.Panel2.Controls.Add(this.AccuracyChart);
+            this.SplitContainer.Panel2.Controls.Add(this.agentStatePanel);
+            this.SplitContainer.Panel2.Controls.Add(this.SettingTabControl);
+            this.SplitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer_Panel2_Paint);
+            this.SplitContainer.Size = new System.Drawing.Size(1451, 707);
+            this.SplitContainer.SplitterDistance = 1037;
             this.SplitContainer.TabIndex = 12;
             // 
             // AccuracyChart
@@ -123,7 +128,7 @@
             this.AccuracyChart.DataSource = this.expAccuracyBindingSource;
             legend1.Name = "Legend1";
             this.AccuracyChart.Legends.Add(legend1);
-            this.AccuracyChart.Location = new System.Drawing.Point(4, 358);
+            this.AccuracyChart.Location = new System.Drawing.Point(38, 523);
             this.AccuracyChart.Name = "AccuracyChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -141,9 +146,14 @@
             series1.Points.Add(dataPoint2);
             series1.Points.Add(dataPoint3);
             this.AccuracyChart.Series.Add(series1);
-            this.AccuracyChart.Size = new System.Drawing.Size(225, 190);
+            this.AccuracyChart.Size = new System.Drawing.Size(372, 190);
             this.AccuracyChart.TabIndex = 4;
             this.AccuracyChart.Text = "chart1";
+            this.AccuracyChart.Click += new System.EventHandler(this.AccuracyChart_Click);
+            // 
+            // expAccuracyBindingSource
+            // 
+            this.expAccuracyBindingSource.DataSource = typeof(OpinionSharing.Env.ExpAccuracy);
             // 
             // SettingTabControl
             // 
@@ -152,14 +162,15 @@
             this.SettingTabControl.Controls.Add(this.NetworkTab);
             this.SettingTabControl.Controls.Add(this.LearningTab);
             this.SettingTabControl.Controls.Add(this.Animation);
-            this.SettingTabControl.Location = new System.Drawing.Point(4, 3);
+            this.SettingTabControl.Location = new System.Drawing.Point(38, 12);
             this.SettingTabControl.Name = "SettingTabControl";
             this.SettingTabControl.SelectedIndex = 0;
-            this.SettingTabControl.Size = new System.Drawing.Size(225, 158);
+            this.SettingTabControl.Size = new System.Drawing.Size(372, 158);
             this.SettingTabControl.TabIndex = 3;
             // 
             // NetworkTab
             // 
+            this.NetworkTab.Controls.Add(this.GeneratorCB);
             this.NetworkTab.Controls.Add(this.PrepareButton);
             this.NetworkTab.Controls.Add(this.SensorNumTB);
             this.NetworkTab.Controls.Add(this.AgentNumLabel);
@@ -174,10 +185,26 @@
             this.NetworkTab.Location = new System.Drawing.Point(4, 22);
             this.NetworkTab.Name = "NetworkTab";
             this.NetworkTab.Padding = new System.Windows.Forms.Padding(3);
-            this.NetworkTab.Size = new System.Drawing.Size(217, 132);
+            this.NetworkTab.Size = new System.Drawing.Size(364, 132);
             this.NetworkTab.TabIndex = 0;
             this.NetworkTab.Text = "Network";
             this.NetworkTab.UseVisualStyleBackColor = true;
+            this.NetworkTab.Click += new System.EventHandler(this.NetworkTab_Click);
+            // 
+            // GeneratorCB
+            // 
+            this.GeneratorCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GeneratorCB.FormattingEnabled = true;
+            this.GeneratorCB.Items.AddRange(new object[] {
+            "BA",
+            "WS",
+            "Random",
+            "Leader"});
+            this.GeneratorCB.Location = new System.Drawing.Point(102, 57);
+            this.GeneratorCB.Name = "GeneratorCB";
+            this.GeneratorCB.Size = new System.Drawing.Size(105, 20);
+            this.GeneratorCB.TabIndex = 17;
+            this.GeneratorCB.SelectedIndexChanged += new System.EventHandler(this.GeneratorCB_SelectedIndexChanged);
             // 
             // PrepareButton
             // 
@@ -286,10 +313,20 @@
             this.LearningTab.Location = new System.Drawing.Point(4, 22);
             this.LearningTab.Name = "LearningTab";
             this.LearningTab.Padding = new System.Windows.Forms.Padding(3);
-            this.LearningTab.Size = new System.Drawing.Size(217, 132);
+            this.LearningTab.Size = new System.Drawing.Size(1024, 132);
             this.LearningTab.TabIndex = 1;
             this.LearningTab.Text = "Learning";
             this.LearningTab.UseVisualStyleBackColor = true;
+            // 
+            // SetAlgo_Button
+            // 
+            this.SetAlgo_Button.Location = new System.Drawing.Point(6, 48);
+            this.SetAlgo_Button.Name = "SetAlgo_Button";
+            this.SetAlgo_Button.Size = new System.Drawing.Size(196, 23);
+            this.SetAlgo_Button.TabIndex = 17;
+            this.SetAlgo_Button.Text = "Set Algorithm";
+            this.SetAlgo_Button.UseVisualStyleBackColor = true;
+            this.SetAlgo_Button.Click += new System.EventHandler(this.SetAlgo_Button_Click);
             // 
             // TargetAwarenessRateLabel
             // 
@@ -324,7 +361,7 @@
             this.TargetAwarenessRatTB.Name = "TargetAwarenessRatTB";
             this.TargetAwarenessRatTB.Size = new System.Drawing.Size(68, 19);
             this.TargetAwarenessRatTB.TabIndex = 14;
-            this.TargetAwarenessRatTB.Text = "0.94";
+            this.TargetAwarenessRatTB.Text = "0.9";
             this.TargetAwarenessRatTB.TextChanged += new System.EventHandler(this.TargetAwarenessRatTB_TextChanged);
             // 
             // AlgoCB
@@ -363,7 +400,7 @@
             this.Animation.Controls.Add(this.Step);
             this.Animation.Location = new System.Drawing.Point(4, 22);
             this.Animation.Name = "Animation";
-            this.Animation.Size = new System.Drawing.Size(217, 132);
+            this.Animation.Size = new System.Drawing.Size(1024, 132);
             this.Animation.TabIndex = 2;
             this.Animation.Text = "Animation";
             // 
@@ -484,9 +521,23 @@
             this.Step.TabIndex = 2;
             this.Step.Text = "Step";
             // 
-            // expAccuracyBindingSource
+            // fileSystemWatcher1
             // 
-            this.expAccuracyBindingSource.DataSource = typeof(OpinionSharing.Env.ExpAccuracy);
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // figurePanel
+            // 
+            this.figurePanel.AgentStatePanel = null;
+            this.figurePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.figurePanel.DrawLinks = true;
+            this.figurePanel.Environment = null;
+            this.figurePanel.Location = new System.Drawing.Point(3, 0);
+            this.figurePanel.Name = "figurePanel";
+            this.figurePanel.Size = new System.Drawing.Size(1031, 704);
+            this.figurePanel.TabIndex = 0;
             // 
             // agentStatePanel
             // 
@@ -495,40 +546,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.agentStatePanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.agentStatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.agentStatePanel.Location = new System.Drawing.Point(4, 167);
+            this.agentStatePanel.Location = new System.Drawing.Point(38, 176);
             this.agentStatePanel.Name = "agentStatePanel";
-            this.agentStatePanel.Size = new System.Drawing.Size(225, 185);
+            this.agentStatePanel.Size = new System.Drawing.Size(372, 341);
             this.agentStatePanel.TabIndex = 1;
             this.agentStatePanel.Load += new System.EventHandler(this.agentStatePanel_Load);
-            // 
-            // figurePanel
-            // 
-            this.figurePanel.AgentStatePanel = null;
-            this.figurePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.figurePanel.Environment = null;
-            this.figurePanel.Location = new System.Drawing.Point(-1, 0);
-            this.figurePanel.Name = "figurePanel";
-            this.figurePanel.Size = new System.Drawing.Size(492, 548);
-            this.figurePanel.TabIndex = 2;
-            this.figurePanel.Load += new System.EventHandler(this.figurePanel_Load);
-            // 
-            // SetAlgo_Button
-            // 
-            this.SetAlgo_Button.Location = new System.Drawing.Point(6, 48);
-            this.SetAlgo_Button.Name = "SetAlgo_Button";
-            this.SetAlgo_Button.Size = new System.Drawing.Size(196, 23);
-            this.SetAlgo_Button.TabIndex = 17;
-            this.SetAlgo_Button.Text = "Set Algorithm";
-            this.SetAlgo_Button.UseVisualStyleBackColor = true;
-            this.SetAlgo_Button.Click += new System.EventHandler(this.SetAlgo_Button_Click);
             // 
             // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 551);
+            this.ClientSize = new System.Drawing.Size(1451, 707);
             this.Controls.Add(this.SplitContainer);
             this.Name = "MyForm";
             this.Text = "OpinionSharing";
@@ -538,6 +566,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
             this.SplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AccuracyChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expAccuracyBindingSource)).EndInit();
             this.SettingTabControl.ResumeLayout(false);
             this.NetworkTab.ResumeLayout(false);
             this.NetworkTab.PerformLayout();
@@ -547,7 +576,7 @@
             this.Animation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SeedUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expAccuracyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -578,7 +607,7 @@
         private System.Windows.Forms.RadioButton BlackRadio;
         private System.Windows.Forms.RadioButton WhiteRadio;
         private System.Windows.Forms.TrackBar trackBar1;
-        private GUI.FigurePanel figurePanel;
+
         private System.Windows.Forms.Label AlgoLabel;
         private System.Windows.Forms.ComboBox AlgoCB;
         private System.Windows.Forms.Button InitButton;
@@ -593,5 +622,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart AccuracyChart;
         private System.Windows.Forms.BindingSource expAccuracyBindingSource;
         private System.Windows.Forms.Button SetAlgo_Button;
+        private System.Windows.Forms.ComboBox GeneratorCB;
+        private GUI.FigurePanel figurePanel;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,13 @@ using System.Threading.Tasks;
 using System.Drawing.Drawing2D;
 
 using OpinionSharing;
-using OpinionSharing.Net;
+
 using OpinionSharing.Agt;
 using OpinionSharing.Agt.Factory;
 using OpinionSharing.Agt.Algorithm;
 using OpinionSharing.Subject;
-using OpinionSharing.Util;
+using MyRandom;
+using GraphTheory.Net;
 using OpinionSharing.Env;
 
 using Log;
@@ -58,7 +60,8 @@ namespace OpinionSharingForm
 
 
             //環境を作成 エージェント数100, センサー数5, 平均リンク数8 , 
-            initEnv(100, 5, 8,0.12,0);
+            initEnv("WS",100, 5, 8,0.12,0);
+            SplitContainer.IsSplitterFixed = false;
 
         }
         
@@ -68,9 +71,9 @@ namespace OpinionSharingForm
                  "AAT",              
                  "DontReply",        
                  "NewDontReply",        
-                 "NoMoreBelief",       
+                 "LimitedBelief",       
                  "EatingWords",       
-                 "BelieveOnlySensor",  
+                 "PartialLimitedBelief",  
                  "SubOpinion",       
             };
 
@@ -105,8 +108,12 @@ namespace OpinionSharingForm
         }
 
 
-        private void initEnv(int agentNum, int sensorNum, int expectedDegree, double pRewire, int seed)
+        private void initEnv(string generatorstr,int agentNum, int sensorNum, int expectedDegree, double pRewire, int seed)
         {
+            StopAnimation();
+
+
+            GeneratorCB.SelectedItem = generatorstr;
             AgentNumTB.Text = agentNum.ToString();
             SensorNumTB.Text = sensorNum.ToString();
             ExpectedDegreeTB.Text = expectedDegree.ToString();
@@ -117,8 +124,31 @@ namespace OpinionSharingForm
             exp.SetEnvsetSeed(seed);
             
             //新しいネットワークジェネレータで
-            NetworkGenerator generator = new SmallworldRingNetworkGenerator(agentNum, expectedDegree, pRewire);
+            //NetworkGenerator generator = new WSmodelNetworkGenerator(agentNum, expectedDegree, pRewire);
 
+            NetworkGenerator generator = new WSmodelNetworkGenerator(agentNum, expectedDegree, pRewire);
+            
+            if (generatorstr == "WS")
+            {
+                generator = new WSmodelNetworkGenerator(agentNum, expectedDegree, pRewire);
+            }
+            else if (generatorstr == "BA")
+            {
+                generator = new BAModelNetworkGenerator(agentNum, 10,expectedDegree);//, pRewire);
+            }
+            else if (generatorstr == "Random")
+            {
+                generator = new RandomNetworkGenerator(agentNum, expectedDegree);//, pRewire);
+            }
+
+            else if (generatorstr == "Leader")
+            {
+                generator = new LeaderNetworkGenerator(agentNum, expectedDegree, pRewire);//, pRewire);
+            }
+
+
+
+            
 
             generator.NodeCreate += ()=> new AgentIO();
 
@@ -128,7 +158,6 @@ namespace OpinionSharingForm
             
 
             exp.Environment = env;
-
 
             //figurePanelネットワークのオブザーバ(まだ不完全)に環境を追加
             figurePanel.Environment = env;
@@ -308,6 +337,7 @@ namespace OpinionSharingForm
             string expectedDegreeStr = ExpectedDegreeTB.Text;
             string pRewireStr = PRewireTB.Text;
             string seedStr = SeedTB.Text;
+            string generatorStr = GeneratorCB.SelectedItem as String;
 
             int agentNum;
             int sensorNum;
@@ -347,7 +377,7 @@ namespace OpinionSharingForm
                 expectedDegree ));*/
 
 
-            initEnv(agentNum,sensorNum, expectedDegree, pRewire, seed);
+            initEnv(generatorStr,agentNum,sensorNum, expectedDegree, pRewire, seed);
 
 
             figurePanel.Invalidate();
@@ -465,6 +495,30 @@ namespace OpinionSharingForm
             string algoName = AlgoCB.SelectedValue as string;
 
             InitAlgorithm(algoName, h_trg);
+        }
+
+        private void GeneratorCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void AccuracyChart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NetworkTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SplitContainer_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SplitContainer_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 
