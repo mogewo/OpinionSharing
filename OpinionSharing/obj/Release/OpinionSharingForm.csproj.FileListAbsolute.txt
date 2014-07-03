@@ -13,3 +13,6 @@ C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Release\Opi
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Release\Log.pdb
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Release\OpinionSharingForm.GUI.FigurePanel.resources
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\bin\Release\Log.dll
+C:\gitproject\OpinionSharing\OpinionSharing\bin\Release\OpinionSharingForm.exe.config
+C:\gitproject\OpinionSharing\OpinionSharing\obj\Release\OpinionSharingForm.exe
+C:\gitproject\OpinionSharing\OpinionSharing\obj\Release\OpinionSharingForm.pdb
