@@ -26,19 +26,23 @@ namespace ProcessManager
 
                 Environment.Exit(0);
             }
-               
 
             List<Process> processes = new List<Process>();
-            var algoStrList = new string[] { "AAT", "DontReply", "NewDontReply", "NoMoreBelief", "BelieveOnlySensor"};
+            //var algoStrList = new string[] { "AAT", "DontReply", "NewDontReply", "LimitedBelief", "PartialLimitedBelief"};
+            var algoStrList = new string[] { "AAT","LimitedBelief", "PartialLimitedBelief"};
+            var netStrList = new string[] { "WS", "BA", "Random"};
 
             Console.WriteLine("exp about");
-           
 
-            foreach (string algoStr in algoStrList)
+
+            foreach (string netStr in netStrList)
             {
-                Console.WriteLine("algo: " + algoStr + ", seed: " + seed);
-                processes.Add(
-                    Process.Start(processName, algoStr + " " + seed));
+                foreach (string algoStr in algoStrList)
+                {
+                    Console.WriteLine("net: " + netStr + "algo: " + algoStr + ", seed: " + seed);
+                    processes.Add(
+                        Process.Start(processName, algoStr + " " + seed + " " + netStr));
+                }
             }
 
             foreach (var process in processes)
