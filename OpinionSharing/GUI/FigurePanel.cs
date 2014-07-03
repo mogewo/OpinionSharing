@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using OpinionSharing;
 using OpinionSharing.Agt;
 using OpinionSharing.Env;
-using OpinionSharing.Net;
+using GraphTheory.Net;
 using OpinionSharing.Subject;
 
 using System.Drawing.Drawing2D;
@@ -313,7 +313,7 @@ namespace OpinionSharingForm.GUI
                     Point p1 = new Point((int)agentViews[agent1].X, (int)agentViews[agent1].Y);
                     Point p2 = new Point((int)agentViews[agent2].X, (int)agentViews[agent2].Y);
 
-                    if (agent1 == selected || agent2 == selected)
+                    if (selected != null && (agent1.Algorithm == selected || agent2.Algorithm == selected))
                     {
                         g.DrawLine(selectedLinkPen, p1, p2);
                     }
