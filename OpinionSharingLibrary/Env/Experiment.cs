@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 using Log;
 
+using MyRandom;
+using GraphTheory.Net;
 
 namespace OpinionSharing.Env
 {
-    using Net;
     using Agt;
-    using Util;
     using Subject;
 
 
@@ -350,9 +350,9 @@ namespace OpinionSharing.Env
             //各エージェントは受け取った値を解釈する。
 
             /**
-            Parallel.ForEach(Environment.Network.Nodes, (node) =>
+            Parallel.ForEach(Environment.Network.Nodes, (newNode) =>
             {
-                (node as Agent).Listen();
+                (newNode as Agent).Listen();
             });
 
             //*/
@@ -369,9 +369,9 @@ namespace OpinionSharing.Env
         private void Think()
         {
             /* *
-            Parallel.ForEach(Environment.Network.Nodes, (node) =>
+            Parallel.ForEach(Environment.Network.Nodes, (newNode) =>
             {
-                (node as Agent).ProcessMessages();
+                (newNode as Agent).ProcessMessages();
             });
             //*/
 

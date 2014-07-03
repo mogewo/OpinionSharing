@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using OpinionSharing.Util;
-using OpinionSharing.Net;
+using MyRandom;
+using GraphTheory.Net;
 
 using OpinionSharing.Agt.Algorithm;
 using Log;

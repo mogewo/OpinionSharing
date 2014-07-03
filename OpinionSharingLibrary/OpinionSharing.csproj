@@ -76,22 +76,23 @@
     <Compile Include="Env\Environment.cs" />
     <Compile Include="Env\Experiment.cs" />
     <Compile Include="Env\ReturnValues.cs" />
-    <Compile Include="Net\INode.cs" />
-    <Compile Include="Net\Link.cs" />
-    <Compile Include="Net\Network.cs" />
-    <Compile Include="Net\NetworkGenerator.cs" />
-    <Compile Include="Net\Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subject\BlackWhiteSubject.cs" />
     <Compile Include="Subject\Sensor.cs" />
     <Compile Include="Subject\TheFact.cs" />
-    <Compile Include="Util\InitableRandom.cs" />
-    <Compile Include="Util\StaticRandom.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GraphTheory\GraphTheory.csproj">
+      <Project>{b9d66458-b337-42bc-92e4-881738826199}</Project>
+      <Name>GraphTheory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Log\Log.csproj">
       <Project>{00b3c865-b084-477a-8288-8ae1e54e24d5}</Project>
       <Name>Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RandomPool\MyRandom.csproj">
+      <Project>{a57abda1-7acd-4b47-a8ec-09b1ce499976}</Project>
+      <Name>MyRandom</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

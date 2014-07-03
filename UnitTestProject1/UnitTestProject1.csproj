@@ -55,6 +55,10 @@
     <Compile Include="UnitTest2.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GraphTheory\GraphTheory.csproj">
+      <Project>{b9d66458-b337-42bc-92e4-881738826199}</Project>
+      <Name>GraphTheory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpinionSharingLibrary\OpinionSharing.csproj">
       <Project>{1e8c885b-53cb-4a96-b750-8cffc23cf8cf}</Project>
       <Name>OpinionSharing</Name>

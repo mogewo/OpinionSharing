@@ -9,7 +9,7 @@ using OpinionSharing.Subject;
 
 namespace OpinionSharing.Agt.Algorithm
 {
-    public class EatingWords : NoMoreBelief
+    public class EatingWords : LimitedBelief
     {
 
         int opinionFormed = 0;

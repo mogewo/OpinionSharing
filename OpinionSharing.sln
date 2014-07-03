@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionSharingForm", "OpinionSharing\OpinionSharingForm.csproj", "{2B6E2BA8-9726-421E-85B1-9326FF6AAB90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionSharing", "OpinionSharingLibrary\OpinionSharing.csproj", "{1E8C885B-53CB-4A96-B750-8CFFC23CF8CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B9D66458-B337-42BC-92E4-881738826199} = {B9D66458-B337-42BC-92E4-881738826199}
+		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976} = {A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{AB66C4E4-015A-4890-BD74-89958CBAC17E}"
 EndProject
@@ -12,6 +16,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleConsole", "SimpleConsole\SimpleConsole.csproj", "{666BF668-4332-40E5-9EB3-08E41469C9B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessManager", "ProcessManager\ProcessManager.csproj", "{DC219457-4F1F-4786-B79D-6A19D56213DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTheory", "GraphTheory\GraphTheory.csproj", "{B9D66458-B337-42BC-92E4-881738826199}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976} = {A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRandom", "RandomPool\MyRandom.csproj", "{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +54,14 @@ Global
 		{DC219457-4F1F-4786-B79D-6A19D56213DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC219457-4F1F-4786-B79D-6A19D56213DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC219457-4F1F-4786-B79D-6A19D56213DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D66458-B337-42BC-92E4-881738826199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D66458-B337-42BC-92E4-881738826199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D66458-B337-42BC-92E4-881738826199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D66458-B337-42BC-92E4-881738826199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

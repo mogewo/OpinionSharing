@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 
 using OpinionSharing.Subject;
-using OpinionSharing.Util;
-
+using MyRandom;
 
 namespace OpinionSharing.Agt
 {

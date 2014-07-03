@@ -5,11 +5,11 @@ using System.Text;
 
 
 using OpinionSharing.Subject;
-using OpinionSharing.Util;
+using MyRandom;
 
 namespace OpinionSharing.Agt.Algorithm
 {
-    public class BelieveOnlySensor : AAT //NoMoreの上位互換。h_trg=1のとき、チート。
+    public class PartialLimitedBelief : AAT //NoMoreの上位互換。h_trg=1のとき、チート。
     {
 
 

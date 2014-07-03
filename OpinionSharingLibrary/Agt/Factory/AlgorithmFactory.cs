@@ -5,7 +5,7 @@ using System.Text;
 
 using OpinionSharing.Agt.Algorithm;
 using OpinionSharing.Agt.Updater;
-using OpinionSharing.Util;
+using MyRandom;
 
 namespace OpinionSharing.Agt.Factory
 {
@@ -17,8 +17,8 @@ namespace OpinionSharing.Agt.Factory
              {"AAT",              () => new AAT()},  
              {"DontReply",        () => new DontReply()},  
              {"NewDontReply",        () => new NewDontReply()},  
-             {"NoMoreBelief",     () => new NoMoreBelief()},  
-             {"BelieveOnlySensor",() => new BelieveOnlySensor()},  
+             {"LimitedBelief",     () => new LimitedBelief()},  
+             {"PartialLimitedBelief",() => new PartialLimitedBelief()},  
              {"EatingWords",      () => new EatingWords()},  
              {"SubOpinion",       () => new SubOpinion()},
              //{"StackOpinion",     () => new StackOpinion()},

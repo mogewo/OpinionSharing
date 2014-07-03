@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpinionSharing.Subject;
-using OpinionSharing.Net;
-using OpinionSharing.Util;
+using GraphTheory.Net;
+using MyRandom;
 
 
 namespace OpinionSharing.Agt

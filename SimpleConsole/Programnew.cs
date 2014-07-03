@@ -8,8 +8,8 @@ using OpinionSharing;
 using OpinionSharing.Agt;
 using OpinionSharing.Agt.Factory;
 using OpinionSharing.Agt.Algorithm;
-using OpinionSharing.Net;
-using OpinionSharing.Util;
+using MyRandom;
+using GraphTheory.Net;
 using OpinionSharing.Env;
 
 using Log;
@@ -22,6 +22,7 @@ namespace SimpleConsole
         static void DoExperiment(
             int EXP_ID, 
             string algoStr, 
+            string netStr,
             int size, 
             double h_trg, 
             int expd, 
@@ -40,7 +41,6 @@ namespace SimpleConsole
                 L.g("all").Write("envSeed: " + envSeed);
                 L.g("all").Write(" EXP_ID: "+ EXP_ID); //実験IDを
                 L.g("all").Write(" Algo: " + algoStr);//アルゴリズムの名前を表示
-
                 L.g("all").Write(" agentnum: " + size);
                 L.g("all").Write(" h_trg: " + h_trg);
                 L.g("all").Write(" expd: " + expd);
@@ -49,25 +49,35 @@ namespace SimpleConsole
             }
 
 
-
-
             {//実験一回し
-                Experiment exp = new Experiment(150,3000);//150ラウンド，3000ステップの実験
+                Experiment exp = new Experiment(150,2000);//150ラウンド，2000ステップの実験
 
                 exp.SetEnvsetSeed(envSeed);
                 exp.SetFactSeed(0);
 
+                NetworkGenerator generator = null;
                 //環境を作る
-                NetworkGenerator generator = new SmallworldRingNetworkGenerator(size, expd, 0.12);
+                if (netStr == "WS")
+                {
+                    generator = new WSmodelNetworkGenerator(size, expd, 0.12);
+                }
+                else if (netStr == "BA")
+                {
+                    generator = new BAModelNetworkGenerator(size, 4,2);
+                }
+                else if (netStr == "Random")
+                {
+                    generator = new RandomNetworkGenerator(size,16);
+                }
 
                 //シェルを作る
-                generator.NodeCreate += ()=> new AATBasedAgentIO();
+                generator.NodeCreate += ()=> new AgentIO();
 
                 //generateしてくれる。
                 OSEnvironment env = new OSEnvironment(generator, (int)(size * 0.05));
 
                 //エージェントに脳みそをいれてやる
-                foreach (AATBasedAgentIO agentIO in env.Network.Nodes)
+                foreach (AgentIO agentIO in env.Network.Nodes)
                 {
                     agentIO.Algorithm = (AlgorithmFactory.CreateAlgorithm(algoStr, h_trg));
                 }
@@ -98,13 +108,16 @@ namespace SimpleConsole
             // SimpleConsole 0 AAT 100 0.9 8 10 dir
 
             string algoStr = "NewDontReply";
+            string netStr = "WS";
             int seed = 0;
  
-            if(args.Length >= 2){
+            if(args.Length >= 3){
                 try
                 {
+                    //外から読めるのは，アルゴリズム，乱数シード，ネットワークトポロジーのみ．
                     algoStr = args[0];
                     seed = int.Parse(args[1]);
+                    netStr = args[2];
                 }
                 catch (FormatException)
                 {
@@ -114,10 +127,11 @@ namespace SimpleConsole
             }
 
             int[] sizeList = {100, 250, 500, 750, 1000, 1250, 1500, 1750, 2000};
-            double[] h_trgList = {0.88, 0.9 , 0.92, 0.94, 0.96, 0.98, 1.0};
-            int[] expdList = {4, 8, 12};
+            //double[] h_trgList = {0.88, 0.9 , 0.92, 0.94, 0.96, 0.98, 1.0};
+            double[] h_trgList = {0.94, 1.0};
+            int[] expdList = {8};
 
-            string dirname = algoStr + "_" + seed; // AAT_0/aveacc.log AAT_1/aveacc.log ... DontReply_1/roundacc.log DontReply_1/roundacc.log
+            string dirname = netStr + "_" + algoStr + "_" + seed; // AAT_0/aveacc.log AAT_1/aveacc.log ... DontReply_1/roundacc.log DontReply_1/roundacc.log
             //*/
 
             int EXP_ID = 0;
@@ -127,8 +141,10 @@ namespace SimpleConsole
                 foreach (double h_trg in h_trgList)
                 {
                     foreach (int expd in expdList){
-                        DoExperiment(EXP_ID,algoStr, size, h_trg, expd, seed, dirname);
+                        
+                        DoExperiment(EXP_ID,algoStr,netStr, size, h_trg, expd, seed, dirname);
                         EXP_ID++;
+
                     }
                 }
 

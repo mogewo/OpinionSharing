@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using OpinionSharing.Util;
 using OpinionSharing.Agt;
 using OpinionSharing.Subject;
 
+using MyRandom;
+using GraphTheory.Net;
+
+using GraphTheory;
+
 namespace OpinionSharing.Env
 {
-    using Net;
     using Subject;
 
 

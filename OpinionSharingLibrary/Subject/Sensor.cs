@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using OpinionSharing.Util;
+
+using MyRandom;
 using OpinionSharing.Agt;
 
 namespace OpinionSharing.Subject

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 
 using OpinionSharing.Subject;
-using OpinionSharing.Util;
+using MyRandom;
 
 namespace OpinionSharing.Agt
 {
-    public class NoMoreBelief : AAT
+    public class LimitedBelief : AAT
     {
 
         public override void Initialize()

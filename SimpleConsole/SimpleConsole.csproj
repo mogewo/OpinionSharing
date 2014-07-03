@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Programold.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Programnew.cs" />
   </ItemGroup>
@@ -49,6 +48,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GraphTheory\GraphTheory.csproj">
+      <Project>{b9d66458-b337-42bc-92e4-881738826199}</Project>
+      <Name>GraphTheory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Log\Log.csproj">
       <Project>{00b3c865-b084-477a-8288-8ae1e54e24d5}</Project>
       <Name>Log</Name>
@@ -56,6 +59,10 @@
     <ProjectReference Include="..\OpinionSharingLibrary\OpinionSharing.csproj">
       <Project>{1e8c885b-53cb-4a96-b750-8cffc23cf8cf}</Project>
       <Name>OpinionSharing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RandomPool\MyRandom.csproj">
+      <Project>{a57abda1-7acd-4b47-a8ec-09b1ce499976}</Project>
+      <Name>MyRandom</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
