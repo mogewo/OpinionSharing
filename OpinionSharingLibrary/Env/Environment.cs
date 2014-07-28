@@ -56,9 +56,10 @@ namespace OpinionSharing.Env
         }
 
 
+
         private void PrepareSensor(int sensorNum)
         {
-            //センサー
+           //センサー
             Sensors = new List<Sensor>();
 
             //センサーをもつエージェントを決める
@@ -70,7 +71,9 @@ namespace OpinionSharing.Env
                 Sensor s = new Sensor(TheFact);
 
                 //センサーにエージェントをセット(内部でAgentのhavesensorをtrueにしてる．微妙に密結合)
-                s.SetAgent((IAgent)this.Network.Nodes.ElementAt(i));
+                AgentIO agent = this.Network.Nodes.ElementAt(i) as AgentIO;
+                s.SetAgent(agent);
+                agent.SetSensor(s);
                 this.Sensors.Add(s);
             }
         }

@@ -30,6 +30,8 @@ namespace OpinionSharing.Agt
         //実際に処理する実装
         protected AgentAlgorithm algorithm ;
 
+        //センサーエージェントの場合はセンサーをもっている
+        protected Sensor sensor;
 
     #endregion
 
@@ -245,6 +247,16 @@ namespace OpinionSharing.Agt
 
     #endregion override public method
 
+
+        internal void SetSensor(Sensor s)
+        {
+            sensor = s;
+        }
+
+        public bool HasSensor()
+        {
+            return sensor != null;
+        }
     }
 }
 

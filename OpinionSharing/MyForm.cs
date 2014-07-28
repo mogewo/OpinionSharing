@@ -143,7 +143,7 @@ namespace OpinionSharingForm
 
             else if (generatorstr == "Leader")
             {
-                generator = new LeaderNetworkGenerator(agentNum, expectedDegree, pRewire);//, pRewire);
+                generator = new LeaderNetworkGenerator(agentNum, expectedDegree, pRewire,99);//, pRewire);
             }
 
 

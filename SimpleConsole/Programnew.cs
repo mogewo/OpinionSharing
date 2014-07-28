@@ -26,7 +26,8 @@ namespace SimpleConsole
             int size, 
             double h_trg, 
             int expd, 
-            int envSeed,
+            int envSeed,//環境のシード            
+            int linkNum,
             string dirname
         ){
             //ディレクトリを作成
@@ -38,10 +39,11 @@ namespace SimpleConsole
             //条件を表示
             {
                 L.g("all").WriteLine("");
-                L.g("all").Write("envSeed: " + envSeed);
+                L.g("all").Write("envSeed: " + envSeed);                
                 L.g("all").Write(" EXP_ID: "+ EXP_ID); //実験IDを
                 L.g("all").Write(" Algo: " + algoStr);//アルゴリズムの名前を表示
                 L.g("all").Write(" agentnum: " + size);
+                L.g("all").Write(" linkNum: " + linkNum);
                 L.g("all").Write(" h_trg: " + h_trg);
                 L.g("all").Write(" expd: " + expd);
 
@@ -53,7 +55,7 @@ namespace SimpleConsole
                 Experiment exp = new Experiment(150,2000);//150ラウンド，2000ステップの実験
 
                 exp.SetEnvsetSeed(envSeed);
-                exp.SetFactSeed(0);
+                exp.SetFactSeed(0);               
 
                 NetworkGenerator generator = null;
                 //環境を作る
@@ -69,6 +71,12 @@ namespace SimpleConsole
                 {
                     generator = new RandomNetworkGenerator(size,16);
                 }
+                //リーダーネットワークの導入　2014_0707追加
+                else if (netStr == "Leader")
+                {
+                    generator = new LeaderNetworkGenerator(size, expd, 0.12, linkNum);
+                }
+
 
                 //シェルを作る
                 generator.NodeCreate += ()=> new AgentIO();
@@ -107,16 +115,18 @@ namespace SimpleConsole
             /* basic settings */
             // SimpleConsole 0 AAT 100 0.9 8 10 dir
 
-            string algoStr = "NewDontReply";
-            string netStr = "WS";
-            int seed = 0;
+            //string algoStr = "NewDontReply";
+            //string netStr = "WS";
+            string algoStr = "AAT";//リーダーネットワークでAAT　2014_0707追加
+            string netStr = "Leader";
+            int envseed = 0;
  
             if(args.Length >= 3){
                 try
                 {
                     //外から読めるのは，アルゴリズム，乱数シード，ネットワークトポロジーのみ．
                     algoStr = args[0];
-                    seed = int.Parse(args[1]);
+                    envseed = int.Parse(args[1]); //今は使えないよ！
                     netStr = args[2];
                 }
                 catch (FormatException)
@@ -126,28 +136,40 @@ namespace SimpleConsole
                 }
             }
 
-            int[] sizeList = {100, 250, 500, 750, 1000, 1250, 1500, 1750, 2000};
+ //           int[] sizeList = { 100, 250, 500, 750, 1000, 1250, 1500, 1750, 2000 };
+            int[] sizeList = { 100};
+            int[] linkNumList = { 99 ,90, 80, 70, 60, 50, 40, 30, 20, 10, 0 };
             //double[] h_trgList = {0.88, 0.9 , 0.92, 0.94, 0.96, 0.98, 1.0};
-            double[] h_trgList = {0.94, 1.0};
+            double[] h_trgList = {0.94};
             int[] expdList = {8};
 
-            string dirname = netStr + "_" + algoStr + "_" + seed; // AAT_0/aveacc.log AAT_1/aveacc.log ... DontReply_1/roundacc.log DontReply_1/roundacc.log
+            //string dirname = netStr + "_" + algoStr + "_" + seed; // AAT_0/aveacc.log AAT_1/aveacc.log ... DontReply_1/roundacc.log DontReply_1/roundacc.log
             //*/
 
             int EXP_ID = 0;
 
-            foreach (int size in sizeList)
+
+            for (int i = 0; i < 10; i++)
             {
-                foreach (double h_trg in h_trgList)
+                envseed = i;
+
+                string dirname = netStr + "_" + algoStr + "_" + envseed + "_";
+
+                foreach (int size in sizeList)
                 {
-                    foreach (int expd in expdList){
-                        
-                        DoExperiment(EXP_ID,algoStr,netStr, size, h_trg, expd, seed, dirname);
-                        EXP_ID++;
-
+                    foreach (double h_trg in h_trgList)
+                    {
+                        foreach (int expd in expdList){
+                            foreach (int linkNum in linkNumList)
+                            {
+                                DoExperiment(EXP_ID, algoStr, netStr, size, h_trg, expd, envseed, linkNum, dirname);
+                                EXP_ID++;  
+                            }                                           
+                        }
                     }
-                }
 
+                }
+                
             }
         }
     }
