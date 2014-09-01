@@ -12,3 +12,6 @@ C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\Opini
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.csproj.GenerateResource.Cache
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.exe
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharing\obj\Debug\OpinionSharingForm.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharing\bin\Debug\OpinionSharingForm.exe.config
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharing\obj\Debug\OpinionSharingForm.exe
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharing\obj\Debug\OpinionSharingForm.pdb
