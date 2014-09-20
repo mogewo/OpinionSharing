@@ -1,5 +1,0 @@
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Release\OpinionSharingLibrary.csprojResolveAssemblyReference.cache
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Release\OpinionSharingLibrary.dll
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Release\OpinionSharingLibrary.pdb
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Release\OpinionSharingLibrary.dll
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Release\OpinionSharingLibrary.pdb

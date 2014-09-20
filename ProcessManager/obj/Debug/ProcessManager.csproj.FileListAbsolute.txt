@@ -1,6 +1,0 @@
-C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\ProcessManager\bin\Debug\ProcessManager.exe.config
-C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\ProcessManager\bin\Debug\ProcessManager.exe
-C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\ProcessManager\bin\Debug\ProcessManager.pdb
-C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\ProcessManager\obj\Debug\ProcessManager.csprojResolveAssemblyReference.cache
-C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\ProcessManager\obj\Debug\ProcessManager.exe
-C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\ProcessManager\obj\Debug\ProcessManager.pdb

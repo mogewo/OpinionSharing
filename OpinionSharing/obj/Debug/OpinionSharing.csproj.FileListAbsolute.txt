@@ -1,9 +1,0 @@
-C:\Users\将文\Dropbox\vsproject\OpinionSharing\OpinionSharing\bin\Debug\OpinionSharing.exe.config
-C:\Users\将文\Dropbox\vsproject\OpinionSharing\OpinionSharing\bin\Debug\OpinionSharing.exe
-C:\Users\将文\Dropbox\vsproject\OpinionSharing\OpinionSharing\bin\Debug\OpinionSharing.pdb
-C:\Users\将文\Dropbox\vsproject\OpinionSharing\OpinionSharing\obj\Debug\OpinionSharing.csprojResolveAssemblyReference.cache
-C:\Users\将文\Dropbox\vsproject\OpinionSharing\OpinionSharing\obj\Debug\OpinionSharing.exe
-C:\Users\将文\Dropbox\vsproject\OpinionSharing\OpinionSharing\obj\Debug\OpinionSharing.pdb
-C:\Users\将文\Dropbox\vsproject\OpinionSharing2\OpinionSharing\bin\Debug\OpinionSharing.exe.config
-C:\Users\将文\Dropbox\vsproject\OpinionSharing2\OpinionSharing\obj\Debug\OpinionSharing.exe
-C:\Users\将文\Dropbox\vsproject\OpinionSharing2\OpinionSharing\obj\Debug\OpinionSharing.pdb

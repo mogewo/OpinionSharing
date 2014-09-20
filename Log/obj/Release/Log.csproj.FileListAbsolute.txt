@@ -1,6 +1,0 @@
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Release\Log.pdb
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Release\Log.pdb
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Release\Log.csprojResolveAssemblyReference.cache
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Release\Log.dll.config
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Release\Log.dll
-C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Release\Log.dll
