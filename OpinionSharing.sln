@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTheory", "GraphTheory\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRandom", "RandomPool\MyRandom.csproj", "{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{5BF620DF-CB9A-4D9B-9CBB-834F4B641D8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A57ABDA1-7ACD-4B47-A8EC-09B1CE499976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF620DF-CB9A-4D9B-9CBB-834F4B641D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF620DF-CB9A-4D9B-9CBB-834F4B641D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF620DF-CB9A-4D9B-9CBB-834F4B641D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF620DF-CB9A-4D9B-9CBB-834F4B641D8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

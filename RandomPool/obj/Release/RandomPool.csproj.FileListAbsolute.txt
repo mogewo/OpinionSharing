@@ -1,0 +1,5 @@
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\RandomPool\bin\Release\RandomPool.exe.config
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\RandomPool\bin\Release\RandomPool.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\RandomPool\bin\Release\RandomPool.pdb
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\RandomPool\obj\Release\RandomPool.exe
+C:\Users\将文\Dropbox\vsproject\OpinionSharing4\RandomPool\obj\Release\RandomPool.pdb

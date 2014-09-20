@@ -5,3 +5,14 @@ C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\bin\Debu
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Debug\OpinionSharing.csprojResolveAssemblyReference.cache
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Debug\OpinionSharingLibrary.dll
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\OpinionSharingLibrary\obj\Debug\OpinionSharingLibrary.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\obj\Debug\OpinionSharing.csprojResolveAssemblyReference.cache
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\obj\Debug\OpinionSharingLibrary.dll
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\OpinionSharingLibrary.dll
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\OpinionSharingLibrary.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\GraphTheory.exe
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\Log.dll
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\MyRandom.exe
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\GraphTheory.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\Log.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\bin\Debug\MyRandom.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\OpinionSharingLibrary\obj\Debug\OpinionSharingLibrary.pdb

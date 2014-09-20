@@ -1,0 +1,250 @@
+
+envSeed: 0 EXP_ID: 0 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.685333333333333, 0.295466666666667, 0.0192, 
+
+envSeed: 0 EXP_ID: 1 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.701333333333333, 0.298666666666667, 1.73472347597681E-19, 
+
+envSeed: 0 EXP_ID: 2 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.691333333333333, 0.296666666666667, 0.012, 
+
+envSeed: 0 EXP_ID: 3 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.630733333333333, 0.305266666666667, 0.064, 
+
+envSeed: 0 EXP_ID: 4 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.687466666666666, 0.284466666666667, 0.0280666666666666, 
+
+envSeed: 0 EXP_ID: 5 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.689466666666667, 0.285866666666667, 0.0246666666666667, 
+
+envSeed: 0 EXP_ID: 6 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.681666666666667, 0.282, 0.0363333333333333, 
+
+envSeed: 0 EXP_ID: 7 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.646, 0.308733333333333, 0.0452666666666667, 
+
+envSeed: 0 EXP_ID: 8 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.6824, 0.3176, 1.73472347597681E-19, 
+
+envSeed: 0 EXP_ID: 9 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.687533333333333, 0.281133333333333, 0.0313333333333333, 
+
+envSeed: 0 EXP_ID: 10 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.686266666666666, 0.280933333333333, 0.0328, 
+
+envSeed: 1 EXP_ID: 11 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.800533333333333, 0.148133333333333, 0.0513333333333334, 
+
+envSeed: 1 EXP_ID: 12 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.7836, 0.2164, 1.73472347597681E-19, 
+
+envSeed: 1 EXP_ID: 13 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.761200000000001, 0.215, 0.0238, 
+
+envSeed: 1 EXP_ID: 14 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.762666666666666, 0.2154, 0.0219333333333334, 
+
+envSeed: 1 EXP_ID: 15 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.7816, 0.216666666666667, 0.00173333333333333, 
+
+envSeed: 1 EXP_ID: 16 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.779733333333333, 0.216933333333333, 0.00333333333333333, 
+
+envSeed: 1 EXP_ID: 17 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.806666666666666, 0.147933333333333, 0.0454000000000001, 
+
+envSeed: 1 EXP_ID: 18 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.800533333333333, 0.1594, 0.0400666666666667, 
+
+envSeed: 1 EXP_ID: 19 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.813266666666666, 0.139733333333333, 0.047, 
+
+envSeed: 1 EXP_ID: 20 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.811466666666667, 0.136066666666667, 0.0524666666666667, 
+
+envSeed: 1 EXP_ID: 21 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.806, 0.1516, 0.0424, 
+
+envSeed: 2 EXP_ID: 22 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.7792, 0.214866666666667, 0.00593333333333333, 
+
+envSeed: 2 EXP_ID: 23 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.782066666666666, 0.215266666666667, 0.00266666666666667, 
+
+envSeed: 2 EXP_ID: 24 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.781066666666666, 0.2148, 0.00413333333333333, 
+
+envSeed: 2 EXP_ID: 25 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.776666666666666, 0.2124, 0.0109333333333333, 
+
+envSeed: 2 EXP_ID: 26 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.757066666666667, 0.1942, 0.0487333333333333, 
+
+envSeed: 2 EXP_ID: 27 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.780733333333333, 0.205266666666667, 0.014, 
+
+envSeed: 2 EXP_ID: 28 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.779266666666666, 0.1882, 0.0325333333333333, 
+
+envSeed: 2 EXP_ID: 29 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.783333333333333, 0.150933333333333, 0.0657333333333334, 
+
+envSeed: 2 EXP_ID: 30 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.7954, 0.188066666666667, 0.0165333333333333, 
+
+envSeed: 2 EXP_ID: 31 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.795266666666666, 0.196933333333333, 0.0078, 
+
+envSeed: 2 EXP_ID: 32 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.7924, 0.196533333333333, 0.0110666666666667, 
+
+envSeed: 3 EXP_ID: 33 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.727466666666666, 0.268533333333333, 0.004, 
+
+envSeed: 3 EXP_ID: 34 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.7218, 0.272333333333333, 0.00586666666666667, 
+
+envSeed: 3 EXP_ID: 35 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.688200000000001, 0.2524, 0.0594000000000001, 
+
+envSeed: 3 EXP_ID: 36 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.723466666666666, 0.272, 0.00453333333333333, 
+
+envSeed: 3 EXP_ID: 37 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.724733333333333, 0.271266666666667, 0.004, 
+
+envSeed: 3 EXP_ID: 38 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.7238, 0.2712, 0.005, 
+
+envSeed: 3 EXP_ID: 39 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.7234, 0.271666666666667, 0.00493333333333333, 
+
+envSeed: 3 EXP_ID: 40 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.724, 0.271866666666667, 0.00413333333333333, 
+
+envSeed: 3 EXP_ID: 41 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.688866666666666, 0.256666666666667, 0.0544666666666667, 
+
+envSeed: 3 EXP_ID: 42 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.718066666666666, 0.274, 0.00793333333333333, 
+
+envSeed: 3 EXP_ID: 43 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.711066666666666, 0.2766, 0.0123333333333333, 
+
+envSeed: 4 EXP_ID: 44 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.834466666666666, 0.165466666666667, 6.6666666666667E-05, 
+
+envSeed: 4 EXP_ID: 45 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.834466666666666, 0.165466666666667, 6.6666666666667E-05, 
+
+envSeed: 4 EXP_ID: 46 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.816533333333333, 0.181466666666667, 0.002, 
+
+envSeed: 4 EXP_ID: 47 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.8174, 0.174533333333333, 0.00806666666666667, 
+
+envSeed: 4 EXP_ID: 48 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.829266666666666, 0.164933333333333, 0.0058, 
+
+envSeed: 4 EXP_ID: 49 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.875866666666666, 0.1158, 0.00833333333333333, 
+
+envSeed: 4 EXP_ID: 50 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.884733333333333, 0.100666666666667, 0.0146, 
+
+envSeed: 4 EXP_ID: 51 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.882933333333333, 0.108133333333333, 0.00893333333333333, 
+
+envSeed: 4 EXP_ID: 52 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.868266666666667, 0.111466666666667, 0.0202666666666667, 
+
+envSeed: 4 EXP_ID: 53 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.764266666666667, 0.193933333333333, 0.0418, 
+
+envSeed: 4 EXP_ID: 54 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.790266666666667, 0.170466666666667, 0.0392666666666667, 
+
+envSeed: 5 EXP_ID: 55 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.805133333333333, 0.125266666666667, 0.0696, 
+
+envSeed: 5 EXP_ID: 56 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.8624, 0.1288, 0.0088, 
+
+envSeed: 5 EXP_ID: 57 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.792866666666666, 0.153266666666667, 0.0538666666666667, 
+
+envSeed: 5 EXP_ID: 58 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.854733333333333, 0.128933333333333, 0.0163333333333333, 
+
+envSeed: 5 EXP_ID: 59 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.823333333333333, 0.130533333333333, 0.0461333333333333, 
+
+envSeed: 5 EXP_ID: 60 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.852933333333333, 0.113266666666667, 0.0338, 
+
+envSeed: 5 EXP_ID: 61 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.840933333333333, 0.1322, 0.0268666666666667, 
+
+envSeed: 5 EXP_ID: 62 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.852266666666667, 0.132533333333333, 0.0152, 
+
+envSeed: 5 EXP_ID: 63 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.83, 0.1608, 0.0092, 
+
+envSeed: 5 EXP_ID: 64 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.861, 0.1192, 0.0198, 
+
+envSeed: 5 EXP_ID: 65 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.819333333333334, 0.114866666666667, 0.0657999999999999, 
+
+envSeed: 6 EXP_ID: 66 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.775733333333332, 0.1944, 0.0298666666666667, 
+
+envSeed: 6 EXP_ID: 67 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.781133333333332, 0.189533333333333, 0.0293333333333334, 
+
+envSeed: 6 EXP_ID: 68 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.782733333333332, 0.183066666666667, 0.0342, 
+
+envSeed: 6 EXP_ID: 69 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.756133333333334, 0.185733333333333, 0.0581333333333333, 
+
+envSeed: 6 EXP_ID: 70 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.8098, 0.187066666666667, 0.00313333333333333, 
+
+envSeed: 6 EXP_ID: 71 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.8184, 0.176466666666667, 0.00513333333333333, 
+
+envSeed: 6 EXP_ID: 72 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.818933333333333, 0.174, 0.00706666666666667, 
+
+envSeed: 6 EXP_ID: 73 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.8194, 0.173533333333333, 0.00706666666666667, 
+
+envSeed: 6 EXP_ID: 74 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.809733333333333, 0.166533333333333, 0.0237333333333333, 
+
+envSeed: 6 EXP_ID: 75 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.8222, 0.161866666666667, 0.0159333333333333, 
+
+envSeed: 6 EXP_ID: 76 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.737533333333334, 0.155266666666667, 0.1072, 
+
+envSeed: 7 EXP_ID: 77 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.86, 0.132, 0.008, 
+
+envSeed: 7 EXP_ID: 78 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.860066666666666, 0.1396, 0.000333333333333333, 
+
+envSeed: 7 EXP_ID: 79 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.859866666666666, 0.134133333333333, 0.006, 
+
+envSeed: 7 EXP_ID: 80 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.859866666666666, 0.1316, 0.00853333333333333, 
+
+envSeed: 7 EXP_ID: 81 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.787933333333333, 0.1242, 0.0878666666666666, 
+
+envSeed: 7 EXP_ID: 82 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.818666666666667, 0.127, 0.0543333333333333, 
+
+envSeed: 7 EXP_ID: 83 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.821666666666667, 0.120133333333333, 0.0582, 
+
+envSeed: 7 EXP_ID: 84 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.8654, 0.104666666666667, 0.0299333333333333, 
+
+envSeed: 7 EXP_ID: 85 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.840666666666667, 0.1004, 0.0589333333333333, 
+
+envSeed: 7 EXP_ID: 86 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.8594, 0.0986, 0.042, 
+
+envSeed: 7 EXP_ID: 87 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.869466666666666, 0.119333333333333, 0.0112, 
+
+envSeed: 8 EXP_ID: 88 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8, 0.7618, 0.157866666666667, 0.0803333333333331, 
+
+envSeed: 8 EXP_ID: 89 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8, 0.810066666666667, 0.163533333333333, 0.0264, 
+
+envSeed: 8 EXP_ID: 90 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8, 0.770866666666666, 0.192333333333333, 0.0368, 
+
+envSeed: 8 EXP_ID: 91 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8, 0.794533333333333, 0.197866666666667, 0.0076, 
+
+envSeed: 8 EXP_ID: 92 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8, 0.820933333333333, 0.155866666666667, 0.0232, 
+
+envSeed: 8 EXP_ID: 93 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8, 0.807666666666666, 0.188466666666667, 0.00386666666666667, 
+
+envSeed: 8 EXP_ID: 94 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.786333333333333, 0.211733333333333, 0.00193333333333333, 
+
+envSeed: 8 EXP_ID: 95 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.764333333333333, 0.189466666666667, 0.0461999999999999, 
+
+envSeed: 8 EXP_ID: 96 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.758000000000001, 0.18, 0.062, 
+
+envSeed: 8 EXP_ID: 97 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.7882, 0.204266666666667, 0.00753333333333333, 
+
+envSeed: 8 EXP_ID: 98 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.7944, 0.195, 0.0106, 
+
+envSeed: 9 EXP_ID: 99 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,0.7772, 0.2138, 0.009, 
+
+envSeed: 9 EXP_ID: 100 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,0.708799999999999, 0.178933333333333, 0.112266666666667, 
+
+envSeed: 9 EXP_ID: 101 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,0.693533333333332, 0.172866666666667, 0.1336, 
+
+envSeed: 9 EXP_ID: 102 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,0.771933333333334, 0.202933333333333, 0.0251333333333333, 
+
+envSeed: 9 EXP_ID: 103 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,0.7702, 0.2042, 0.0256, 
+
+envSeed: 9 EXP_ID: 104 Algo: AAT agentnum: 100 linkNum: 50 h_trg: 0.94 expd: 8,0.6668, 0.171333333333333, 0.161866666666666, 
+
+envSeed: 9 EXP_ID: 105 Algo: AAT agentnum: 100 linkNum: 40 h_trg: 0.94 expd: 8,0.753933333333333, 0.221333333333333, 0.0247333333333333, 
+
+envSeed: 9 EXP_ID: 106 Algo: AAT agentnum: 100 linkNum: 30 h_trg: 0.94 expd: 8,0.743800000000001, 0.183866666666667, 0.0723333333333334, 
+
+envSeed: 9 EXP_ID: 107 Algo: AAT agentnum: 100 linkNum: 20 h_trg: 0.94 expd: 8,0.758266666666666, 0.173133333333333, 0.0686, 
+
+envSeed: 9 EXP_ID: 108 Algo: AAT agentnum: 100 linkNum: 10 h_trg: 0.94 expd: 8,0.726933333333333, 0.129, 0.144066666666667, 
+
+envSeed: 9 EXP_ID: 109 Algo: AAT agentnum: 100 linkNum: 0 h_trg: 0.94 expd: 8,0.733733333333333, 0.168666666666667, 0.0976, 
+
+envSeed: 0 EXP_ID: 0 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.685333333333333, 0.295466666666667, 0.0192, 
+
+envSeed: 1 EXP_ID: 1 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.800533333333333, 0.148133333333333, 0.0513333333333334, 
+
+envSeed: 2 EXP_ID: 2 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.7792, 0.214866666666667, 0.00593333333333333, 
+
+envSeed: 3 EXP_ID: 3 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.727466666666666, 0.268533333333333, 0.004, 
+
+envSeed: 4 EXP_ID: 4 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.834466666666666, 0.165466666666667, 6.6666666666667E-05, 
+
+envSeed: 5 EXP_ID: 5 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.805133333333333, 0.125266666666667, 0.0696, 
+
+envSeed: 6 EXP_ID: 6 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.775733333333332, 0.1944, 0.0298666666666667, 
+
+envSeed: 7 EXP_ID: 7 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.86, 0.132, 0.008, 
+
+envSeed: 8 EXP_ID: 8 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.7618, 0.157866666666667, 0.0803333333333331, 
+
+envSeed: 9 EXP_ID: 9 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.7772, 0.2138, 0.009, 
+
+envSeed: 0 EXP_ID: 0 Algo: AAT agentnum: 100 linkNum: 99 h_trg: 0.94 expd: 8,,0.685333333333333, 0.295466666666667, 0.0192, 
+
+envSeed: 0 EXP_ID: 1 Algo: AAT agentnum: 100 linkNum: 90 h_trg: 0.94 expd: 8,,0.701333333333333, 0.298666666666667, 1.73472347597681E-19, 
+
+envSeed: 0 EXP_ID: 2 Algo: AAT agentnum: 100 linkNum: 80 h_trg: 0.94 expd: 8,,0.691333333333333, 0.296666666666667, 0.012, 
+
+envSeed: 0 EXP_ID: 3 Algo: AAT agentnum: 100 linkNum: 70 h_trg: 0.94 expd: 8,,0.630733333333333, 0.305266666666667, 0.064, 
+
+envSeed: 0 EXP_ID: 4 Algo: AAT agentnum: 100 linkNum: 60 h_trg: 0.94 expd: 8,,0.687466666666666, 0.284466666666667, 0.0280666666666666, 

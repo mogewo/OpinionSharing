@@ -11,7 +11,8 @@ using OpinionSharing.Agt;
 using OpinionSharing.Subject;
 using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
-
+using GraphTheory.Net;
+using GraphTheory;
 
 namespace OpinionSharingForm.GUI
 {
@@ -95,12 +96,23 @@ namespace OpinionSharingForm.GUI
             //イベントを監視開始
             addEvents(registeredAgent);
 
+            //ネットワークの指標を計算
+            INode bodyAsINode = ((aat as AgentAlgorithm).Body as INode);
+
+            double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);
+
+
+            //表示を変更する
             Invoke(new Action(() =>  {
                 //ちょっと複雑・・・
                 IDLabel.Text = "ID" + (aat as AgentAlgorithm).ID;//結局Body=AgentIOを参照してる
                 AlgorithmLabel.Text = aat.GetType().Name;
                 TargetAwarenessRateLabel.Text = aat.TargetAwarenessRate.ToString();
                 PrepareCandidatesCB(aat);
+
+                otherStates.Text = "cluster = " + cluster + "\r\n" +                               
+                                   "friend = " + bodyAsINode.Neighbours.Count;
+
             }));
             
             Invalidate();
@@ -387,6 +399,11 @@ namespace OpinionSharingForm.GUI
                 aat.CurrentCandidate = newcand;
                 */
             }
+
+        }
+
+        private void Candidates_CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 

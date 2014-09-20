@@ -1,0 +1,12 @@
+C:\Users\将文\Dropbox\卒論共有_斎藤-石井\20140603_OpinionSharing4\RandomPool\bin\Debug\MyRandom.exe.config
+C:\Users\将文\Dropbox\卒論共有_斎藤-石井\20140603_OpinionSharing4\RandomPool\bin\Debug\MyRandom.exe
+C:\Users\将文\Dropbox\卒論共有_斎藤-石井\20140603_OpinionSharing4\RandomPool\bin\Debug\MyRandom.pdb
+C:\Users\将文\Dropbox\卒論共有_斎藤-石井\20140603_OpinionSharing4\RandomPool\obj\Debug\MyRandom.csprojResolveAssemblyReference.cache
+C:\Users\将文\Dropbox\卒論共有_斎藤-石井\20140603_OpinionSharing4\RandomPool\obj\Debug\MyRandom.exe
+C:\Users\将文\Dropbox\卒論共有_斎藤-石井\20140603_OpinionSharing4\RandomPool\obj\Debug\MyRandom.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\RandomPool\bin\Debug\MyRandom.exe.config
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\RandomPool\bin\Debug\MyRandom.exe
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\RandomPool\bin\Debug\MyRandom.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\RandomPool\obj\Debug\MyRandom.csprojResolveAssemblyReference.cache
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\RandomPool\obj\Debug\MyRandom.exe
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\RandomPool\obj\Debug\MyRandom.pdb

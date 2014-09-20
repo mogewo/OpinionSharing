@@ -4,3 +4,9 @@ C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\bin\Debug\Log.pdb
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Debug\Log.exe
 C:\Users\将文\Dropbox\vsproject\OpinionSharing4\Log\obj\Debug\Log.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\Log\bin\Debug\Log.dll.config
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\Log\bin\Debug\Log.dll
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\Log\bin\Debug\Log.pdb
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\Log\obj\Debug\Log.dll
+C:\Users\R.S\Desktop\卒研\20140728_OpinionSharing4\OpinionSharing\Log\obj\Debug\Log.pdb

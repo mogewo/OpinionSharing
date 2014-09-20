@@ -28,6 +28,7 @@ namespace SimpleConsole
             int expd, 
             int envSeed,//環境のシード            
             int linkNum,
+            double cluster,//クラスタ係数
             string dirname
         ){
             //ディレクトリを作成
@@ -44,6 +45,7 @@ namespace SimpleConsole
                 L.g("all").Write(" Algo: " + algoStr);//アルゴリズムの名前を表示
                 L.g("all").Write(" agentnum: " + size);
                 L.g("all").Write(" linkNum: " + linkNum);
+                L.g("all").Write(" cluster: " + cluster);//クラスタ係数
                 L.g("all").Write(" h_trg: " + h_trg);
                 L.g("all").Write(" expd: " + expd);
 
@@ -120,6 +122,7 @@ namespace SimpleConsole
             string algoStr = "AAT";//リーダーネットワークでAAT　2014_0707追加
             string netStr = "Leader";
             int envseed = 0;
+            double cluster = 0;
  
             if(args.Length >= 3){
                 try
@@ -162,7 +165,7 @@ namespace SimpleConsole
                         foreach (int expd in expdList){
                             foreach (int linkNum in linkNumList)
                             {
-                                DoExperiment(EXP_ID, algoStr, netStr, size, h_trg, expd, envseed, linkNum, dirname);
+                                DoExperiment(EXP_ID, algoStr, netStr, size, h_trg, expd, envseed, linkNum, cluster, dirname);
                                 EXP_ID++;  
                             }                                           
                         }
