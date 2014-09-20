@@ -74,7 +74,7 @@ namespace OpinionSharing.Agt
             //センサーエージェントの一覧を求める
             foreach (var node in net.Nodes)
             {
-                if ((node as AgentIO).HasSensor())
+                if ((node as AgentIO).HasSensor)
                 {
                     sensorAgents.Add(node as AgentIO);
                 }

@@ -90,6 +90,7 @@ namespace GraphTheory.Net
             }
         }
 
+        //使えない可能性あり
         public IEnumerable<Link> Links
         {
             get

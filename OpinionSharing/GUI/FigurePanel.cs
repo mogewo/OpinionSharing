@@ -7,21 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using OpinionSharing;
 using OpinionSharing.Agt;
 using OpinionSharing.Env;
 using GraphTheory.Net;
 using OpinionSharing.Subject;
-
 using System.Drawing.Drawing2D;
+
 
 namespace OpinionSharingForm.GUI
 {
-
     public partial class FigurePanel : UserControl
     {
-
         //エージェント描画用の追加の情報
         struct AgentView
         {
@@ -70,7 +67,6 @@ namespace OpinionSharingForm.GUI
         {
             InitializeComponent();
 
-            this.Click += FigurePanel_Click;
 
             this.MouseWheel += FigurePanel_MouseWheel;
 
@@ -209,11 +205,42 @@ namespace OpinionSharingForm.GUI
         {
             Point p = this.PointToClient(Control.MousePosition);
 
+
             foreach (var pair in agentViews)
             {
                 if (pair.Value.includes(p.X, p.Y))
-                {  
-                    AgentStatePanel.RegisterAgent(pair.Key.Algorithm as IAATBasedAgent);
+                {
+                    AgentIO io = pair.Key;
+
+                    if ((e as MouseEventArgs).Button == MouseButtons.Left)
+                    {
+                        AgentStatePanel.RegisterAgent(io.Algorithm as IAATBasedAgent);
+                    }
+                    else if ((e as MouseEventArgs).Button == MouseButtons.Right)
+                    {
+                        //なにかエージェントが選択中ならば
+                        if (AgentStatePanel.Agent != null)
+                        {
+                            var selected = (AgentStatePanel.Agent as AgentAlgorithm).Body;
+                            var net = selected.Network;
+
+                            if (io != selected)
+                            {
+                                var link = new Link(io, selected);
+
+                                if (io.Neighbours.Contains(selected))
+                                {
+                                    net.DisconnectNode(link);
+                                }
+                                else{
+                                    net.ConnectNode(link);
+                                }
+                                
+
+                            }
+                        }
+
+                    }
 
                     this.Invalidate();
                     return;
@@ -224,6 +251,7 @@ namespace OpinionSharingForm.GUI
             AgentStatePanel.RegisterAgent(null);
             this.Invalidate();
         }
+
 
 
 
@@ -273,6 +301,8 @@ namespace OpinionSharingForm.GUI
                 selectedLinkPen.Width = 3f;
             Pen sensorPen = new Pen(OrangeColor);
                 sensorPen.Width = 10;
+            Pen sensorNetworkPen = new Pen(OrangeColor);
+                sensorNetworkPen.Width = 10;
             Pen redPen = new Pen(Color.Red);
                 redPen.Width = 3;
             Pen meterPen = new Pen(Util.StaticColor.ConvertHSBtoARGB(hue, 1f - 0f, vOffset));
@@ -313,10 +343,27 @@ namespace OpinionSharingForm.GUI
                     Point p1 = new Point((int)agentViews[agent1].X, (int)agentViews[agent1].Y);
                     Point p2 = new Point((int)agentViews[agent2].X, (int)agentViews[agent2].Y);
 
+
+                    //センサーネットワークを表示する場合表示
+                    if (showSensorNetworkCB.Checked ){
+                        if (agent1.HasSensor || agent2.HasSensor)
+                        {
+                            g.DrawLine(sensorNetworkPen, p1, p2);
+                        }
+                        else if(showOnlySensorNetworkCB.Checked)
+                        {
+                            continue;
+                        }
+                    }
+
+
+                    //選択中のものならばそう表示
                     if (selected != null && (agent1.Algorithm == selected || agent2.Algorithm == selected))
                     {
                         g.DrawLine(selectedLinkPen, p1, p2);
                     }
+
+
                     else
                     {
                         g.DrawLine(linkPen, p1, p2);
@@ -332,6 +379,7 @@ namespace OpinionSharingForm.GUI
             //エージェントを描く
             foreach (AgentIO agentIO in Environment.Network.Nodes)
             {
+                
 
                 //******************各種サイズ**************************
                 float r = agentViews[agentIO].R;
@@ -354,8 +402,44 @@ namespace OpinionSharingForm.GUI
                 }
 
 
+                //センサーネットワークだけを表示する設定になっている場合
+                if(showSensorNetworkCB.Checked && showOnlySensorNetworkCB.Checked){
+                    //センサーネットワークに入っているか否か
+                    bool inNetwork = false;
+
+                    //センサーエージェントならば入っている
+                    if (agentIO.HasSensor)
+                    {
+                        inNetwork = true;
+
+                    }
+                    //それ以外でも，友達がセンサーネットワークならばOK
+                    else
+                    {
+                        //友達を調べる
+                        foreach (var neighbour in agentIO.Neighbours)
+                        {
+                            if ((neighbour as AgentIO).HasSensor)
+                            {
+                                inNetwork = true;
+                            }
+                        }
+                    }
+
+                    //ネットワークに入っているならば処理を続ける．
+                    if (inNetwork == true)
+                    {
+                        //ok
+                    }
+                    //ネットワーに入っていないならば処理を中断する．
+                    else
+                    {
+                        continue;
+                    }
+                }
+
                 //エージェントが描けない場合は丸書いて終わり
-                if (!(agentIO as AgentIO).Drawable)
+                if (!agentIO.Drawable)
                 {
 
                     g.FillEllipse(grayBrush, -r_outer / 2, -r_outer / 2, r_outer, r_outer);
@@ -398,10 +482,6 @@ namespace OpinionSharingForm.GUI
 
                 //初期値は今は使ってない
                 priorBeliefPen.Color = Util.StaticColor.ConvertHSBtoARGB(hue, 1f - priorBelief, (1 - vOffset) * priorBelief + vOffset);
-
-
-
-
 
 
 
@@ -511,6 +591,20 @@ namespace OpinionSharingForm.GUI
             return beliefList;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showSensorNetworkCB_CheckedChanged(object sender, EventArgs e)
+        {
+            Invalidate();
+        }
+
+        private void showOnlySensorNetworkCB_CheckedChanged(object sender, EventArgs e)
+        {
+            Invalidate();
+        }
 
     }
 }

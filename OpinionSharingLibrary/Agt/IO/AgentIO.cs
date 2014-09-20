@@ -253,9 +253,12 @@ namespace OpinionSharing.Agt
             sensor = s;
         }
 
-        public bool HasSensor()
+        public bool HasSensor
         {
-            return sensor != null;
+            get
+            {
+                return sensor != null;
+            }
         }
     }
 }
