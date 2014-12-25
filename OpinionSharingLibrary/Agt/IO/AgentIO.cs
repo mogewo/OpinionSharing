@@ -13,9 +13,9 @@ using OpinionSharing.Agt.Algorithm;
 
 namespace OpinionSharing.Agt
 {
-    public class AgentIO : IAgent, INode
+    public class AgentIO : Node, IAgent 
     {
-    #region private&protectedメンバ
+        #region private&protectedメンバ
 
         //class Human :DelegativeAgentをつくることを考えよう
         //ご近所をもつのはかなりFundamental. 送信用のアドレス帳のようなものか。
@@ -28,12 +28,16 @@ namespace OpinionSharing.Agt
         protected MessageQueue messageQueue = new MessageQueue();
 
         //実際に処理する実装
-        protected AgentAlgorithm algorithm ;
+        protected AgentAlgorithm algorithm;
 
         //センサーエージェントの場合はセンサーをもっている
         protected Sensor sensor;
 
-    #endregion
+        //インフルエンシャル（リーダーかも）の場合は目的をもっている
+        //　　11/13追記
+        protected Purpose purpose;
+
+        #endregion
 
 
         //*** constructor and properties ***//
@@ -55,11 +59,12 @@ namespace OpinionSharing.Agt
             //OnOpinionChanged(new OpinionEventArgs(Opinion));
         }
 
-    #region プロパティ
+        #region プロパティ
 
         public virtual AgentAlgorithm Algorithm
         {
-            get{
+            get
+            {
                 return algorithm;
             }
             set
@@ -75,7 +80,7 @@ namespace OpinionSharing.Agt
                     //引き継ぎ
                     value.InheritFrom(algorithm);
                 }
-                
+
                 //初めて登録されるとき 引き継ぎがない。
                 else
                 {
@@ -83,7 +88,7 @@ namespace OpinionSharing.Agt
                 }
 
                 //新アルゴリズムを登録
-                algorithm = value; 
+                algorithm = value;
 
                 //新アルゴリズムにイベントを追加
                 AddEvents();
@@ -98,15 +103,17 @@ namespace OpinionSharing.Agt
             }
         }
 
-        protected virtual void AddEvents(){
+        protected virtual void AddEvents()
+        {
 
-                algorithm.OpinionChanged += algorithm_OpinionChanged;
+            algorithm.OpinionChanged += algorithm_OpinionChanged;
 
         }
 
-        protected virtual void RemoveEvents(){
+        protected virtual void RemoveEvents()
+        {
 
-                algorithm.OpinionChanged -= algorithm_OpinionChanged;
+            algorithm.OpinionChanged -= algorithm_OpinionChanged;
 
         }
 
@@ -128,13 +135,14 @@ namespace OpinionSharing.Agt
         }
 
 
-    #endregion プロパティ
+        #endregion プロパティ
 
-    #region イベント 状態が変わったら通知する
+        #region イベント 状態が変わったら通知する
 
-        public event EventHandler<OpinionEventArgs> OpinionChanged; 
+        public event EventHandler<OpinionEventArgs> OpinionChanged;
 
-        protected virtual void OnOpinionChanged(OpinionEventArgs e){
+        protected virtual void OnOpinionChanged(OpinionEventArgs e)
+        {
             // Make a temporary copy of the event to avoid possibility of
             // a race condition if the last subscriber unsubscribes
             // immediately after the null check and before the event is raised.
@@ -146,10 +154,10 @@ namespace OpinionSharing.Agt
             }
         }
 
-    #endregion
+        #endregion
 
 
-    #region INodeを実装 ホントはNodeNetworkはジェネリクスで
+        #region INodeを実装 ホントはNodeNetworkはジェネリクスで
         //*** INode ***
         public int ID
         {
@@ -168,7 +176,8 @@ namespace OpinionSharing.Agt
         //これこそが大事なもの。アドレス帳
         public ISet<INode> Neighbours
         {
-            get {
+            get
+            {
                 if (node.Network == null)
                     return new HashSet<INode>();
 
@@ -176,13 +185,14 @@ namespace OpinionSharing.Agt
             }
         }
 
-    #endregion INodeを実装
+        #endregion INodeを実装
 
-    #region IOuterAgent を実装 詳細は委譲
+        #region IOuterAgent を実装 詳細は委譲
 
         //fromを自分にして、意見を送信する。
-        public virtual void SendOpinion(BlackWhiteSubject opinion, IAgent to){
-            to.ReceiveOpinion(new BWMessage(opinion,this));
+        public virtual void SendOpinion(BlackWhiteSubject opinion, IAgent to)
+        {
+            to.ReceiveOpinion(new BWMessage(opinion, this));
         }
 
         //自分はこれぐらい信じていいですよ がない=null
@@ -211,7 +221,7 @@ namespace OpinionSharing.Agt
         {
             messageQueue.Flip();
         }
-        
+
         //ラウンドの最初に実行する
         public virtual void RoundInit()
         {
@@ -225,7 +235,7 @@ namespace OpinionSharing.Agt
             algorithm.RoundFinished();
         }
 
-    #endregion IAgentを実装
+        #endregion IAgentを実装
 
         public virtual void ProcessMessages()
         {
@@ -239,13 +249,13 @@ namespace OpinionSharing.Agt
         {
         }
 
-    #region override public method
+        #region override public method
         public override string ToString()
         {
             return string.Format("[DelegativeAgent ID:{0} opinion:{1}]", ID, Opinion);
         }
 
-    #endregion override public method
+        #endregion override public method
 
 
         internal void SetSensor(Sensor s)
@@ -260,6 +270,28 @@ namespace OpinionSharing.Agt
                 return sensor != null;
             }
         }
+
+        //目的をセットする
+        //もしかしたらいらないかも
+        //internal void SetPurpose(Purpose p)
+        //{
+        //    purpose = p;
+        //}
+
+        //目的を持っているかどうか
+        //public bool HasPurpose
+        //{
+        //    get
+        //    {
+        //        return purpose != null;
+        //    }
+        //{
+        //    get
+        //    {
+        //        return sensor != null;
+
+        //    }
+        //}
     }
 }
 

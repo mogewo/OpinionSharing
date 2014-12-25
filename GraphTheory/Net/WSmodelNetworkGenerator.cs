@@ -36,6 +36,7 @@ namespace GraphTheory.Net
             Network net = new Network();
 
             INode[] Nodes = new INode[NodeNum];
+            
 
             //エージェントを登録
             for (int i = 0; i < NodeNum; i++)

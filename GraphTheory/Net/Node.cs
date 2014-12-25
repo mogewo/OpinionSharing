@@ -17,13 +17,15 @@ namespace GraphTheory.Net
         // 自分が属するネットワーク
         private Network net = null;
 
+        //距離配列
+        private Dictionary<int, double> distance = null;
 
 
         public Node()
         {
             id = maxId;
             maxId++;
-        }
+        }       
 
         
         public int ID
@@ -32,7 +34,7 @@ namespace GraphTheory.Net
             {
                 return id;
             }
-        }
+        }        
 
         public Network Network { 
             get { 
@@ -54,6 +56,14 @@ namespace GraphTheory.Net
             }
         }
 
+        public IDictionary<int, double> Distances
+        {
+            get
+            {
+                return distance;
+            }
+
+        }
 
         public override string ToString()
         {

@@ -36,7 +36,7 @@ namespace GraphTheory.Net
                 throw new Exception("the Node" + node.ToString() + " is already a member of some other network");
             }
         }
-
+        
         public void ConnectNodes(INode a1, INode a2)
         {
             //エージェントがネットワークに登録されてなかったら
@@ -79,6 +79,7 @@ namespace GraphTheory.Net
             DisconnectNode(ln.Node1, ln.Node2);
         }
 
+
         public IEnumerable<INode> Nodes
         {
             get
@@ -118,7 +119,14 @@ namespace GraphTheory.Net
             }
         }
 
-        
+        //距離
+        //選択したノードの距離を求めたい
+        //public ISet<int> GetDistance()
+        //{
+        //    return;
+
+        //}
+
 
 
         public ISet<INode> GetNeighbour(INode key)
@@ -146,6 +154,7 @@ namespace GraphTheory.Net
                 return sum / members.Keys.Count;
             }
         }
+              
 
         public override string ToString()
         {

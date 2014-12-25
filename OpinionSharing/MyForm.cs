@@ -29,6 +29,7 @@ namespace OpinionSharingForm
 {
     public partial class MyForm : Form
     {
+
         //問題領域クラス
         OSEnvironment env;
         Experiment exp = new Experiment();
@@ -209,8 +210,37 @@ namespace OpinionSharingForm
             }
         } */
 
+        /*簡単なcsv出力関数*/
+        private void WriteCsv()
+        {
+            var acc = env.EnvAccuracy;//EnvAccuracyで各数値計算（正解数，誤判定数，未決定数）
+            Step.Text = "Step: " + exp.Step;
+            //var points = AccuracyChart.Series["Accuracy"].Points;
+            //points[0].YValues[0] = accCsv.Correct;
+            //points[1].YValues[0] = accCsv.Incorrect;
+            //points[2].YValues[0] = accCsv.Undeter;
 
+            try
+            {
+                // appendをtrueにすると，既存のファイルに追記
+                //         falseにすると，ファイルを新規作成する
+                var append = true;
+                // 出力用のファイルを開く
 
+                //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+                //もしくは時間を取得してファイル名にする
+                using (var sw = new System.IO.StreamWriter(@"./SimpleTest.csv", append))
+                {
+                        sw.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
+                acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
+                }
+            }
+            catch (System.Exception e)
+            {
+                // ファイルを開くのに失敗したときエラーメッセージを表示
+                System.Console.WriteLine(e.Message);
+            }
+        }
 
 
         private void updateStepInfo()
@@ -312,6 +342,8 @@ namespace OpinionSharingForm
 
             Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
                 acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
+            //csv書き込み開始
+            this.WriteCsv();
 
             Invoke(new Action(updateStepInfo));
 

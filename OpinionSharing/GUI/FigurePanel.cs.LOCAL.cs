@@ -436,6 +436,7 @@ namespace OpinionSharingForm.GUI
                     {
                         continue;
                     }
+                    
                 }
 
                 //エージェントが描けない場合は丸書いて終わり
@@ -610,5 +611,6 @@ namespace OpinionSharingForm.GUI
         {
 
         }
+
     }
 }

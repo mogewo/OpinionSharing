@@ -10,10 +10,13 @@ namespace GraphTheory.Net
         //自分が属するネットワーク
         Network Network { get; set; }//Networkぐらいにしかいじってほしくない
 
-        //IDを返す
+        //IDを返すkikurage
         int ID { get;}
 
-        //近隣を返す
+        //近隣を返すkikurage
         ISet<INode> Neighbours{get;}//重複がないSet
+
+        //各ノードとの距離を返す
+        IDictionary<int, double> Distances { get; }
     }
 }

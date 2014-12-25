@@ -110,6 +110,7 @@
             this.otherStates.Name = "otherStates";
             this.otherStates.Size = new System.Drawing.Size(158, 54);
             this.otherStates.TabIndex = 10;
+            this.otherStates.TextChanged += new System.EventHandler(this.otherStates_TextChanged);
             // 
             // AgentStatePanel
             // 

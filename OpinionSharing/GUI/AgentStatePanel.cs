@@ -97,9 +97,29 @@ namespace OpinionSharingForm.GUI
             addEvents(registeredAgent);
 
             //ネットワークの指標を計算
+            /*bodyAsINodeでノードにエージェントを割り当てる*/
             INode bodyAsINode = ((aat as AgentAlgorithm).Body as INode);
+            List<Link> edgeAsLink = new List<Link>();
+            for (int i = 0; i < edgeAsLink.Count; i++)
+            {
+                edgeAsLink[i] = bodyAsINode.Network.Links.ElementAt(i);
+            }
+            //Link edgeAsLink = bodyAsINode.Network.Links as Link;
+            //List<int> netEdgeList = new List<int>();//これでは宣言しただけ，中身がないよ！中身は枝の情報，links?
+            //INode netEdge = bodyAsINode.Network.Links;
+            //for (int i = 0; i < length; i++)
+            //{
+            //    netEdge[i] = netEdge; 
+            //}
+            
 
-            double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);
+            
+
+            double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);//クラスター係数
+            //double closenessCentrality = NetworkIndexes.closenessCentrality(bodyAsINode, bodyAsINode.Network);//
+            double degreeCentrality = NetworkIndexes.degreeCentrality(bodyAsINode, bodyAsINode.Network);//次数中心性
+
+            //double betweenness = NetworkIndexes.betweenness(bodyAsINode, bodyAsINode.Network, edgeAsLink);//,bodyAsINode.Network.Links);//媒介中心性
 
 
             //表示を変更する
@@ -110,9 +130,12 @@ namespace OpinionSharingForm.GUI
                 TargetAwarenessRateLabel.Text = aat.TargetAwarenessRate.ToString();
                 PrepareCandidatesCB(aat);
 
-                otherStates.Text = "cluster = " + cluster + "\r\n" +                               
-                                   "friend = " + bodyAsINode.Neighbours.Count;
-
+                /*各指標の表示*/
+                otherStates.Text = "cluster = " + cluster + "\r\n" +                    //クラスター係数            
+                                   "friend = " + bodyAsINode.Neighbours.Count + "\r\n" +//次数
+                                   "degreeCentrality = " + degreeCentrality;            //次数中心性
+                                   //"closenessCentrality = " + closenessCentrality;
+                                   //"betweenness" + betweenness;                         //媒介中心性
             }));
             
             Invalidate();
@@ -146,7 +169,7 @@ namespace OpinionSharingForm.GUI
 
         #endregion
 
-        }
+            }
 
     #region イベント系
 
@@ -403,6 +426,11 @@ namespace OpinionSharingForm.GUI
         }
 
         private void Candidates_CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void otherStates_TextChanged(object sender, EventArgs e)
         {
 
         }

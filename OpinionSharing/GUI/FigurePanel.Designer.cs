@@ -67,6 +67,7 @@
             this.DoubleBuffered = true;
             this.Name = "FigurePanel";
             this.Size = new System.Drawing.Size(332, 332);
+            this.Load += new System.EventHandler(this.FigurePanel_Load);
             this.Click += new System.EventHandler(this.FigurePanel_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FigurePanel_Paint);
             this.Resize += new System.EventHandler(this.FigurePanel_Resize);

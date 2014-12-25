@@ -606,9 +606,5 @@ namespace OpinionSharingForm.GUI
             Invalidate();
         }
 
-        private void FigurePanel_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

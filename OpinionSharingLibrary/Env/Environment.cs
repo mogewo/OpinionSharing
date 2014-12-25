@@ -28,6 +28,10 @@ namespace OpinionSharing.Env
         //センサー
         public List<Sensor> Sensors { get; private set;}
 
+        //信用度　2014/11/13
+        public List<double> ImportanceLevel { get; private set;}
+
+
 
         internal void Initialize()
         {
@@ -47,6 +51,9 @@ namespace OpinionSharing.Env
 
             //センサーをもつエージェントをつくる
             PrepareSensor(sensorNum);
+
+            //インフルエンシャルの設定
+            //PreparePurpose();
         }
 
         private Network GenerateNetwork(NetworkGenerator generator)
@@ -78,6 +85,38 @@ namespace OpinionSharing.Env
             }
         }
 
+        //インフルエンシャルの割り当て
+        //private void PreparePurpose(double ImportanceLevel)//Network net INode node, BeliefUpdater importanceLevel)
+        //{
+        //    AgentIO sensorAgent = this.Network.Nodes
+        //    for (int i = 0; i < length; i++)
+        //    {
+			 
+        //    }
+            
+
+        //    //List<double> ImportanceLevelList = new List<double>{};
+        //    //for (int i = 0; i < this.Network.Nodes.Count(); i++)
+        //    //{
+        //    // AgentIO agent = this.Network.Nodes.ElementAt(i) as AgentIO;
+        //    //    AgentIO n
+        //    //    List<AgentIO> neighbours = new List<AgentIO>{};
+        //    //    if (agent.HasSensor)
+        //    //    {
+        //    //        agent = agent.Neighbours;
+        //    //    }
+		 	                                
+            
+        //    ////センサーの近隣エージェントかどうか
+        //    ////信用度の高いエージェントをセットする
+
+
+        //    //if ()
+        //    //{
+                
+        //    //}
+        //    //}
+        //}
 
         public override string ToString()
         {

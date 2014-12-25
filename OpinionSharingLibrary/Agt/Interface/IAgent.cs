@@ -12,6 +12,9 @@ namespace OpinionSharing.Agt
 
         event EventHandler<OpinionEventArgs> OpinionChanged;
         BlackWhiteSubject? Opinion { get; }
+        
+        //agentは目的をもつ，真ならばもち，偽ならもたない
+        //bool puropose { get; }
 
         void ReceiveOpinion(BWMessage message);
         void ProcessMessage(BWMessage message);
