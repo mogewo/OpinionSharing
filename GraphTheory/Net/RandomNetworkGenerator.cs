@@ -21,6 +21,8 @@ namespace GraphTheory.Net
         public override Network create()
         {
             Network net = new Network();
+            //計算量軽減のため，再計算を無効化する
+            net.EnableCalculateDistance = false;
 
             List<INode> nodes = new List<INode>();
 
@@ -60,6 +62,9 @@ namespace GraphTheory.Net
                 nodes = newnodes;
             }
 
+            //距離計算
+            net.EnableCalculateDistance = true;
+            net.updateDistance();
             return net;
         }
 

@@ -67,7 +67,7 @@
             this.Candidates_CB.FormattingEnabled = true;
             this.Candidates_CB.Location = new System.Drawing.Point(5, 72);
             this.Candidates_CB.Name = "Candidates_CB";
-            this.Candidates_CB.Size = new System.Drawing.Size(158, 187);
+            this.Candidates_CB.Size = new System.Drawing.Size(158, 151);
             this.Candidates_CB.TabIndex = 6;
             this.Candidates_CB.SelectedIndexChanged += new System.EventHandler(this.Candidates_CB_SelectedIndexChanged);
             // 
@@ -105,10 +105,10 @@
             // 
             this.otherStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.otherStates.Location = new System.Drawing.Point(5, 256);
+            this.otherStates.Location = new System.Drawing.Point(5, 220);
             this.otherStates.Multiline = true;
             this.otherStates.Name = "otherStates";
-            this.otherStates.Size = new System.Drawing.Size(158, 54);
+            this.otherStates.Size = new System.Drawing.Size(158, 90);
             this.otherStates.TabIndex = 10;
             this.otherStates.TextChanged += new System.EventHandler(this.otherStates_TextChanged);
             // 

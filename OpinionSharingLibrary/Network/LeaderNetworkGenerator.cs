@@ -41,6 +41,9 @@ namespace OpinionSharing.Agt
             //RandomPool.Get("envset").Init();
             Network net = new Network();
 
+            //計算量軽減のため，再計算を無効化する
+            net.EnableCalculateDistance = false;
+
             INode[] Nodes = new INode[NodeNum];
 
             //エージェントを登録
@@ -138,6 +141,9 @@ namespace OpinionSharing.Agt
             //
             RandomPool.Get("envset").Init();///ここでノード指定？環境のノードっぽい
 
+            //距離計算
+            net.EnableCalculateDistance = true;
+            net.updateDistance();
             return net;
         }        
        

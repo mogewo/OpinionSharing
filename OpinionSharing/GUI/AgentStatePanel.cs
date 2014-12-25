@@ -114,14 +114,9 @@ namespace OpinionSharingForm.GUI
             
 
             
-
-            double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);//クラスター係数
-            //double closenessCentrality = NetworkIndexes.closenessCentrality(bodyAsINode, bodyAsINode.Network);//
+            
+            double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);//クラスター係数           
             double degreeCentrality = NetworkIndexes.degreeCentrality(bodyAsINode, bodyAsINode.Network);//次数中心性
-
-            //double betweenness = NetworkIndexes.betweenness(bodyAsINode, bodyAsINode.Network, edgeAsLink);//,bodyAsINode.Network.Links);//媒介中心性
-
-
             //表示を変更する
             Invoke(new Action(() =>  {
                 //ちょっと複雑・・・
@@ -133,9 +128,9 @@ namespace OpinionSharingForm.GUI
                 /*各指標の表示*/
                 otherStates.Text = "cluster = " + cluster + "\r\n" +                    //クラスター係数            
                                    "friend = " + bodyAsINode.Neighbours.Count + "\r\n" +//次数
-                                   "degreeCentrality = " + degreeCentrality;            //次数中心性
-                                   //"closenessCentrality = " + closenessCentrality;
-                                   //"betweenness" + betweenness;                         //媒介中心性
+                                   "degreeCentrality" + degreeCentrality + "\r\n" +    //次数中心性
+                                    bodyAsINode.Status;
+                                   
             }));
             
             Invalidate();

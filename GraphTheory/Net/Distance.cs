@@ -12,39 +12,57 @@ namespace GraphTheory.Net
         /// ワーシャルフロイド法の実装
         /// 最短経路を求めます
         /// </summary>
-        public static int[,] warshall_Floyd(Network net)
+        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net)
         {
             int n = net.Nodes.Count();
-            Dictionary<INode, Dictionary<INode, int>> d = new Dictionary<INode, Dictionary<INode, int>>();
 
-            //dの初期化
-            for (int i = 0; i < n; i++)
+            //二次元連想配列
+            Dictionary<INode, Dictionary<INode, int>> d = new Dictionary<INode, Dictionary<INode, int>>();            
+            foreach (var nodeLeft in net.Nodes)
             {
-                for (int j = 0; j < n; j++)
+                 d[nodeLeft] = new Dictionary<INode,int>();
+                foreach (var nodeRight in net.Nodes)
                 {
-                    d[][] = Int32.MaxValue;//
-                }
+		           d[nodeLeft][nodeRight] = Int32.MaxValue;
+                }		   
             }
+
+           
 
             //接続されているリンクには距離を入れておく
             foreach (var link in net.Links)
             {
-                d[link.Node1.ID, link.Node2.ID] = 1;
-                d[link.Node2.ID, link.Node1.ID] = 1;
-            }            
+                d[link.Node1][link.Node2] = 1;
+                d[link.Node2][link.Node1] = 1;
+            }
 
-            for (int k = 0; k < n; k++)
+
+            foreach (var k in net.Nodes)
             {
-                for (int i = 0; i < n; i++)
+                foreach (var i in net.Nodes)
                 {
-                    for (int j = 0; j < n; j++)
+                    foreach (var j in net.Nodes)
                     {
-                        d[i, j] = System.Math.Min(d[i, j], d[i, k] + d[k, j]);                        
-                        //Console.WriteLine(d + "あああ");
+                        //iとjが繋がっている
+                        bool directConnected = d[i][j] != Int32.MaxValue;
+                        //iとjがk経由で繋がっている
+                        bool indirectConnected = (d[i][k] != Int32.MaxValue) && (d[k][j] != Int32.MaxValue);
+
+                        if (directConnected && indirectConnected)
+                        {
+                            d[i][j] = System.Math.Min(d[i][j], d[i][k] + d[k][j]);
+                        }
+                        else if (directConnected && !indirectConnected)
+                        {
+                            d[i][j] = d[i][j];
+                        }
+                        else if (!directConnected && indirectConnected)
+                        {
+                            d[i][j] = d[i][k] + d[k][j];
+                        }
                     }
                 }
             }
-
             return d;
         }
     }

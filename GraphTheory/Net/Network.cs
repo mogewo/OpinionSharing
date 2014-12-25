@@ -25,7 +25,7 @@ namespace GraphTheory.Net
         //距離計算
         public void updateDistance()
         {
-            int[,] distance = Distance.warshall_Floyd(this);
+            Dictionary<INode, Dictionary<INode, int>> distance = Distance.warshall_Floyd(this);
             foreach (var nodeLeft in Nodes)
             {
                 //とりあえず空にしとく（リンクの増減に対応するため）
@@ -36,9 +36,9 @@ namespace GraphTheory.Net
                     //自分自身を考慮しない
                     if (nodeLeft != nodeRight)
                     {
-                        int d = distance[nodeLeft.ID, nodeRight.ID];
+                        int d = distance[nodeLeft][nodeRight];
                         //接続されていない場合は書き込まない
-                        if (d != int.MaxValue)
+                        if (d != Int32.MaxValue)
                         {
                             nodeLeft.Distances[nodeRight] = d;
                         }

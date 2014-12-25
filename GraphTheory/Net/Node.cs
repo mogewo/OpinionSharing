@@ -20,6 +20,11 @@ namespace GraphTheory.Net
         //距離配列
         private Dictionary<INode, int> distance = new Dictionary<INode, int>();
 
+        public　string Status
+        {
+            get { return "test"; }
+
+        }
 
         public Node()
         {

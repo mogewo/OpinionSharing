@@ -279,6 +279,21 @@ namespace OpinionSharing.Agt
             }
         }
 
+
+        //表示したい情報を返す
+        public string Status
+        {
+            get
+            {
+                return  "closenessCentrality" + NetworkIndexes.closenessCentrality(node) + "\r\n" +
+                        "AverageDistance" + NetworkIndexes.averageDistanceNode(node) + "\r\n" +
+                        "maxDistance" + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
+                        "minDistance" + NetworkIndexes.minDistanceNode(node) + "\r\n";
+                       
+            }
+        }
+
+
         //目的をセットする
         //もしかしたらいらないかも
         //internal void SetPurpose(Purpose p)

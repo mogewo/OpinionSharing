@@ -34,7 +34,8 @@ namespace GraphTheory.Net
         {
             //RandomPool.Get("envset").Init();
             Network net = new Network();
-
+            //計算量軽減のため，再計算を無効化する
+            net.EnableCalculateDistance = false;
             INode[] Nodes = new INode[NodeNum];
             
 
@@ -96,6 +97,10 @@ namespace GraphTheory.Net
             }
 
             RandomPool.Get("envset").Init();
+
+            //距離計算
+            net.EnableCalculateDistance = true;
+            net.updateDistance();
 
             return net;
         }

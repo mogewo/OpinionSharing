@@ -40,6 +40,9 @@ namespace GraphTheory.Net
             //完全グラフを生成
             var net = cng.create();
 
+            //計算量軽減のため，再計算を無効化する
+            net.EnableCalculateDistance = false;
+
             //順次成長させていく NodeNumになるまで
             while(net.Nodes.Count() < NodeNum)
             {
@@ -61,6 +64,10 @@ namespace GraphTheory.Net
                     net.ConnectNodes(selectedNode,newNode);
                 }
             }
+
+            //距離計算
+            net.EnableCalculateDistance = true;
+            net.updateDistance();
 
             return net;
         }

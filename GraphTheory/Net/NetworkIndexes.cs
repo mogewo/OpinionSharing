@@ -302,9 +302,38 @@ namespace GraphTheory.Net
         /// 近接中心性の実装（単純に次数，実装済み）
         /// リーダー，コミュニティの検出などネットワーク分析
         /// </summary>
-        //public static double closenessCentrality(INode node, Network net)
-        //{
+        public static double closenessCentrality(INode node)
+        {
+            double cc;
+            double a = averageDistanceNode(node);
+            //0ならば異常値を返す
+            if (a == 0)
+            {
+                return -1;
+            }
+
+            cc = 1 / a;
+
+            return cc;
             
-        //}
+        }
+
+        //距離平均
+        public static double averageDistanceNode(INode node)
+        {
+           return node.Distances.Average(num => Convert.ToDouble(num.Value));
+        }
+        //最大距離
+        public static int maxDistanceNode(INode node)
+        {
+            return node.Distances.Max(num => Convert.ToInt32(num.Value));
+        }
+        //最小距離
+        public static double minDistanceNode(INode node)
+        {
+            return node.Distances.Min(num => Convert.ToInt32(num.Value));
+        }
+
+
     }
 }

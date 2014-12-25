@@ -18,5 +18,9 @@ namespace GraphTheory.Net
 
         //各ノードとの距離を返す
         IDictionary<INode, int> Distances { get; }
+
+        //ステータス
+        string Status { get;}
+
     }
 }
