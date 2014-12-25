@@ -41,12 +41,12 @@ namespace Test
             //double c = LeaderNetworkGenerator.cluster(leaderNet.Nodes.ElementAt(0),leaderNet);             
             //Console.WriteLine(leaderNet);
 
-            for (int i = 0; i < net.Nodes.Count(); i++)
-            {
-                double C = WSmodelNetworkGenerator.cluster(net.Nodes.ElementAt(i), net);
-                Console.Write("clusters{0} = ", i);
-                Console.WriteLine( + C);
-            }
+            //for (int i = 0; i < net.Nodes.Count(); i++)
+            //{
+            //    double C = WSmodelNetworkGenerator.cluster(net.Nodes.ElementAt(i), net);
+            //    Console.Write("clusters{0} = ", i);
+            //    Console.WriteLine( + C);
+            //}
             
 
         }
