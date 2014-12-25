@@ -18,7 +18,7 @@ namespace GraphTheory.Net
         private Network net = null;
 
         //距離配列
-        private Dictionary<int, double> distance = null;
+        private Dictionary<INode, int> distance = new Dictionary<INode, int>();
 
 
         public Node()
@@ -56,13 +56,12 @@ namespace GraphTheory.Net
             }
         }
 
-        public IDictionary<int, double> Distances
+        public IDictionary<INode, int> Distances
         {
             get
             {
                 return distance;
-            }
-
+            }            
         }
 
         public override string ToString()

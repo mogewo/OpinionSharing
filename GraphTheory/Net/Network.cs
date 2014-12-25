@@ -12,9 +12,40 @@ namespace GraphTheory.Net
     {
         //こいつがagentsとmembersをあらわす。エージェントからそのご近所さんへのマップ
         private Dictionary<INode, HashSet<INode>> members = new Dictionary<INode, HashSet<INode>>();
-
+        //距離の再計算を行うフラグ
+        private bool calculateDistance = true;
         public Network() {}
+        //再計算フラグのプロパティ
+        public bool EnableCalculateDistance
+        {
+            get { return calculateDistance; }
+            set { calculateDistance = value; }
+        }
 
+        //距離計算
+        public void updateDistance()
+        {
+            int[,] distance = Distance.warshall_Floyd(this);
+            foreach (var nodeLeft in Nodes)
+            {
+                //とりあえず空にしとく（リンクの増減に対応するため）
+                nodeLeft.Distances.Clear();
+                //全通り探索
+                foreach (var nodeRight in Nodes)
+                {
+                    //自分自身を考慮しない
+                    if (nodeLeft != nodeRight)
+                    {
+                        int d = distance[nodeLeft.ID, nodeRight.ID];
+                        //接続されていない場合は書き込まない
+                        if (d != int.MaxValue)
+                        {
+                            nodeLeft.Distances[nodeRight] = d;
+                        }
+                    }                   
+                }
+            }
+        }
         public void AddNode(INode node)
         {
             //Nodeがネットワークに属していなければ、OK. 自分に登録する
@@ -55,6 +86,11 @@ namespace GraphTheory.Net
             members[a1].Add(a2);
             members[a2].Add(a1);
 
+            //距離を再計算
+            if (calculateDistance)
+            {
+                updateDistance();
+            }           
         }
 
         public void ConnectNode(Link ln)
@@ -72,6 +108,11 @@ namespace GraphTheory.Net
             members[a1].Remove(a2);
             members[a2].Remove(a1);
 
+            //距離を再計算
+            if (calculateDistance)
+            {
+                updateDistance();
+            }           
         }
 
         public void DisconnectNode(Link ln)
@@ -118,17 +159,7 @@ namespace GraphTheory.Net
                 }
             }
         }
-
-        //距離
-        //選択したノードの距離を求めたい
-        //public ISet<int> GetDistance()
-        //{
-        //    return;
-
-        //}
-
-
-
+        
         public ISet<INode> GetNeighbour(INode key)
         {
             if (members.ContainsKey(key))

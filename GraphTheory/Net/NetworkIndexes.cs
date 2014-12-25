@@ -297,49 +297,14 @@ namespace GraphTheory.Net
         //    return q;
         //}
 
-        /// <summary>
-        /// 次数中心性の実装（単純に次数，実装済み）
-        /// リーダー，コミュニティの検出などネットワーク分析
-        /// </summary>
-        //public static double degreeCentrality()
-        //{
-
-        //}
 
         /// <summary>
         /// 近接中心性の実装（単純に次数，実装済み）
         /// リーダー，コミュニティの検出などネットワーク分析
         /// </summary>
-        public static double closenessCentrality(INode node, Network net)
-        {
-            int nodeID = node.ID;//nodeの固定
-            int nodeCount = net.Nodes.Count();//全ノード数
-            //Console.WriteLine(n);
-            int d = 0;//node(i)からnode(j)への距離
-            int k = node.Neighbours.Count();//次数
-            int triangleNum = 0;//三角形の総数
-            double closeness = 0.0;//近接中心性   
-
-            //
-
-            //近隣エージェントは別になるように
-            for (int i = 0; i < node.Neighbours.Count; i++)//node.Neighbours.Countで近隣エージェントの数、つまり次数
-            {
-                INode aNeighbour = node.Neighbours.ElementAt(i);
-
-                for (int j = 0; j < i; j++)
-                {
-                    INode bNeighbour = node.Neighbours.ElementAt(j);
-                    if (aNeighbour.Neighbours.Contains(bNeighbour))//友達同士かどうか
-                    {
-                        triangleNum++;
-                    }
-                }
-            }
-
-            closeness = (double)nodeCount - 1 / d; //doubleに変換しないとだめ！！！            
-            return closeness;
-
-        }
+        //public static double closenessCentrality(INode node, Network net)
+        //{
+            
+        //}
     }
 }

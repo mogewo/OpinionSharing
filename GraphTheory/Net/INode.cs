@@ -17,6 +17,6 @@ namespace GraphTheory.Net
         ISet<INode> Neighbours{get;}//重複がないSet
 
         //各ノードとの距離を返す
-        IDictionary<int, double> Distances { get; }
+        IDictionary<INode, int> Distances { get; }
     }
 }

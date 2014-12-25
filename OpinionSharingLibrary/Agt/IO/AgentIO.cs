@@ -13,7 +13,7 @@ using OpinionSharing.Agt.Algorithm;
 
 namespace OpinionSharing.Agt
 {
-    public class AgentIO : Node, IAgent 
+    public class AgentIO : INode, IAgent 
     {
         #region private&protectedメンバ
 
@@ -268,6 +268,14 @@ namespace OpinionSharing.Agt
             get
             {
                 return sensor != null;
+            }
+        }
+
+        public IDictionary<INode, int> Distances
+        {
+            get
+            {
+                return node.Distances;
             }
         }
 
