@@ -12,18 +12,28 @@ namespace GraphTheory.Net
         /// ワーシャルフロイド法の実装
         /// 最短経路を求めます
         /// </summary>
-        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net)
+        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net, out Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>> betweenessDistance, out List<int> candidatesBetweenessDistance)
         {
             int n = net.Nodes.Count();
             
             //二次元連想配列
-            Dictionary<INode, Dictionary<INode, int>> d = new Dictionary<INode, Dictionary<INode, int>>();            
+            Dictionary<INode, Dictionary<INode, int>> d = new Dictionary<INode, Dictionary<INode, int>>();  //距離連想配列
+            var b = new Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>>();                     //媒介距離連想配列
+            var c = new List<int>();                                                                        //媒介距離総数格納用の配列
+            //初期化
             foreach (var nodeLeft in net.Nodes)
             {
-                 d[nodeLeft] = new Dictionary<INode,int>();
+                d[nodeLeft] = new Dictionary<INode,int>();
+                b[nodeLeft] = new Dictionary<INode, Dictionary<INode, int>>();              
+
                 foreach (var nodeRight in net.Nodes)
                 {
-		           d[nodeLeft][nodeRight] = Int32.MaxValue;
+		            d[nodeLeft][nodeRight] = Int32.MaxValue;
+                    b[nodeLeft][nodeRight] = new Dictionary<INode, int>();                    
+                    foreach (var betweeness in net.Nodes)
+                    {
+                        b[nodeLeft][nodeRight][betweeness] = Int32.MaxValue;                        
+                    }
                 }		   
             }           
 
@@ -33,7 +43,6 @@ namespace GraphTheory.Net
                 d[link.Node1][link.Node2] = 1;
                 d[link.Node2][link.Node1] = 1;
             }
-
 
             foreach (var k in net.Nodes)
             {
@@ -49,6 +58,9 @@ namespace GraphTheory.Net
                         if (directConnected && indirectConnected)
                         {
                             d[i][j] = System.Math.Min(d[i][j], d[i][k] + d[k][j]);
+                            b[i][j][k] = d[i][j];
+                            
+                            c.Add(d[i][k] + d[k][j]);
                         }
                         else if (directConnected && !indirectConnected)
                         {
@@ -56,21 +68,14 @@ namespace GraphTheory.Net
                         }
                         else if (!directConnected && indirectConnected)
                         {
-                            d[i][j] = d[i][k] + d[k][j];                            
+                            d[i][j] = d[i][k] + d[k][j];
+                            b[i][j][k] = d[i][j];
+                            c.Add(d[i][j]);
                         }
                     }
                 }
             }
             return d;
-        }
-
-        /// <summary>
-        /// 自身を中継点としたの最短路測定
-        /// </summary>
-        public static int betweenessDistance(Network net)
-        {
-            warshall_Floyd(net);
-            return 0;
         }
     }
 }

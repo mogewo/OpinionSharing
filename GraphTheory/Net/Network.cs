@@ -25,7 +25,7 @@ namespace GraphTheory.Net
         //距離計算
         public void updateDistance()
         {
-            Dictionary<INode, Dictionary<INode, int>> distance = Distance.warshall_Floyd(this);
+            Dictionary<INode, Dictionary<INode, int>> distance = Distance.warshall_Floyd(this, );
             foreach (var nodeLeft in Nodes)
             {
                 //とりあえず空にしとく（リンクの増減に対応するため）

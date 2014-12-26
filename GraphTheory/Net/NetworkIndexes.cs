@@ -91,18 +91,18 @@ namespace GraphTheory.Net
         /// </summary>
         public static double betweenessCentrality(INode node, Network net)
         {
-            double b;//媒介中心性
+            double cb;//媒介中心性
             int allNodes = net.Nodes.Count();//ノードの総数
-            int g =  node.Distances.; //自分を中継路とした最短路総数
+            int g = ; //自分を中継路とした最短路総数
            
             //int d = node.Distances.Count;//自分を始点とした最短経路の数 こっちが正解？
             
 
             double n = ((allNodes - 1) * (allNodes - 2)) / 2;
 
-            b = g / n;
+            cb = g / n;
 
-            return b;
+            return cb;
         }
 
         /// <summary>
