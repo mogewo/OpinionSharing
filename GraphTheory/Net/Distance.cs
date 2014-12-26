@@ -12,14 +12,14 @@ namespace GraphTheory.Net
         /// ワーシャルフロイド法の実装
         /// 最短経路を求めます
         /// </summary>
-        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net, out Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>> betweenessDistance, out List<int> candidatesBetweenessDistance)
+        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net, out Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>> b, out List<int> c)
         {
             int n = net.Nodes.Count();
             
             //二次元連想配列
             Dictionary<INode, Dictionary<INode, int>> d = new Dictionary<INode, Dictionary<INode, int>>();  //距離連想配列
-            var b = new Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>>();                     //媒介距離連想配列
-            var c = new List<int>();                                                                        //媒介距離総数格納用の配列
+            b = new Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>>();                     //媒介距離連想配列
+            c = new List<int>();                                                                        //媒介距離総数格納用の配列
             //初期化
             foreach (var nodeLeft in net.Nodes)
             {
@@ -70,11 +70,13 @@ namespace GraphTheory.Net
                         {
                             d[i][j] = d[i][k] + d[k][j];
                             b[i][j][k] = d[i][j];
+
                             c.Add(d[i][j]);
                         }
                     }
                 }
             }
+            
             return d;
         }
     }
