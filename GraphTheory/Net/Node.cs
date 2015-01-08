@@ -27,6 +27,15 @@ namespace GraphTheory.Net
 
         }
 
+        public string CsvStatus
+        {
+            get
+            {
+                return "test";
+            }
+
+        }
+
         public Node()
         {
             id = maxId;

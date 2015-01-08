@@ -12,7 +12,7 @@ namespace GraphTheory.Net
         /// クラスタ係数の実装
         /// ネットワーク分析に用います
         /// </summary>
-        public static double cluster(INode node, Network net)
+        public static double cluster(INode node)
         {
             int nodeID = node.ID;//nodeの固定
             int k = node.Neighbours.Count;//次数
@@ -93,7 +93,7 @@ namespace GraphTheory.Net
         {
             double cb;//媒介中心性
             int allNodes = net.Nodes.Count();//ノードの総数
-            int g = ; //自分を中継路とした最短路総数
+            int g = 0; //自分を中継路とした最短路総数
            
             //int d = node.Distances.Count;//自分を始点とした最短経路の数 こっちが正解？
             

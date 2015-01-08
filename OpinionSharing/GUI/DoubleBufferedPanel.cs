@@ -17,5 +17,10 @@ namespace OpinionSharingForm.GUI
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw, true);
 
         }
+
+        private void DoubleBufferedPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,28 +12,28 @@ namespace GraphTheory.Net
         /// ワーシャルフロイド法の実装
         /// 最短経路を求めます
         /// </summary>
-        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net, out Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>> b)
+        public static Dictionary<INode, Dictionary<INode, int>> warshall_Floyd(Network net) //,out Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>> b)
         {
             int n = net.Nodes.Count();
             
             //二次元連想配列
             Dictionary<INode, Dictionary<INode, int>> d = new Dictionary<INode, Dictionary<INode, int>>();  //距離連想配列
-            b = new Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>>();                     //媒介距離連想配列
+            //b = new Dictionary<INode, Dictionary<INode, Dictionary<INode, int>>>();                     //媒介距離連想配列
 
 
             //初期化
             foreach (var nodeLeft in net.Nodes)
             {
                 d[nodeLeft] = new Dictionary<INode,int>();
-                b[nodeLeft] = new Dictionary<INode, Dictionary<INode, int>>();              
+                //b[nodeLeft] = new Dictionary<INode, Dictionary<INode, int>>();              
 
                 foreach (var nodeRight in net.Nodes)
                 {
 		            d[nodeLeft][nodeRight] = Int32.MaxValue;
-                    b[nodeLeft][nodeRight] = new Dictionary<INode, int>();                    
+                    //b[nodeLeft][nodeRight] = new Dictionary<INode, int>();                    
                     foreach (var betweeness in net.Nodes)
                     {
-                        b[nodeLeft][nodeRight][betweeness] = Int32.MaxValue;                        
+                        //b[nodeLeft][nodeRight][betweeness] = Int32.MaxValue;                        
                     }
                 }		   
             }           
@@ -59,7 +59,7 @@ namespace GraphTheory.Net
                         if (directConnected && indirectConnected)
                         {
                             d[i][j] = System.Math.Min(d[i][j], d[i][k] + d[k][j]);
-                            b[i][j][k] = d[i][j];
+                            //b[i][j][k] = d[i][j];
                                                        
                         }
                         else if (directConnected && !indirectConnected)
@@ -69,7 +69,7 @@ namespace GraphTheory.Net
                         else if (!directConnected && indirectConnected)
                         {
                             d[i][j] = d[i][k] + d[k][j];
-                            b[i][j][k] = d[i][j];
+                            //b[i][j][k] = d[i][j];
                            
                         }
                     }

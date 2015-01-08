@@ -35,6 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "DoubleBufferedPanel";
+            this.Load += new System.EventHandler(this.DoubleBufferedPanel_Load);
             this.ResumeLayout(false);
 
         }

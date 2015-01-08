@@ -33,9 +33,11 @@ namespace OpinionSharing.Agt
         //センサーエージェントの場合はセンサーをもっている
         protected Sensor sensor;
 
-        //インフルエンシャル（リーダーかも）の場合は目的をもっている
-        //　　11/13追記
-        protected Purpose purpose;
+        ////インフルエンシャル（リーダーかも）の場合は目的をもっている
+        ////　　11/13追記
+        //protected Purpose purpose;
+
+        //Network net;
 
         #endregion
 
@@ -285,14 +287,34 @@ namespace OpinionSharing.Agt
         {
             get
             {
-                return  "closenessCentrality" + NetworkIndexes.closenessCentrality(node) + "\r\n" +
-                        "AverageDistance" + NetworkIndexes.averageDistanceNode(node) + "\r\n" +
-                        "maxDistance" + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
-                        "minDistance" + NetworkIndexes.minDistanceNode(node) + "\r\n";
+                return "nodeID," + node.ID + "\r\n" +
+                        "degree," + this.Neighbours.Count + "\r\n" +
+                        "cluster," + NetworkIndexes.cluster(this) + "\r\n" +
+                        "degreeCentrality," + NetworkIndexes.degreeCentrality(this, Network) + "\r\n" +
+                        "closenessCentrality," + NetworkIndexes.closenessCentrality(node) + "\r\n" +
+                        "AverageDistance," + NetworkIndexes.averageDistanceNode(node) + "\r\n" +
+                        "maxDistance," + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
+                        "minDistance," + NetworkIndexes.minDistanceNode(node);
                        
             }
         }
 
+        public string CsvStatus
+        {
+            get
+            {
+                return 
+                        node.ID + "," +
+                        this.Neighbours.Count + "," +
+                        NetworkIndexes.cluster(this) + "," +
+                        NetworkIndexes.degreeCentrality(this, Network) + "," +
+                        NetworkIndexes.closenessCentrality(node) + "," +
+                        NetworkIndexes.averageDistanceNode(node) + "," +
+                        NetworkIndexes.maxDistanceNode(node) + "," +
+                        NetworkIndexes.minDistanceNode(node);
+
+            }
+        }
 
         //目的をセットする
         //もしかしたらいらないかも

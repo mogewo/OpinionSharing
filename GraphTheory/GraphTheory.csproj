@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Net\BAmodelNetworkGenerator.cs" />
     <Compile Include="Net\CompletNetworkGenerator.cs" />
-    <Compile Include="Net\Dijkstra.cs" />
     <Compile Include="Net\INode.cs" />
     <Compile Include="Net\Link.cs" />
     <Compile Include="Net\NetworkIndexes.cs" />

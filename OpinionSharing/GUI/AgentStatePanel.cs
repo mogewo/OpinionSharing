@@ -99,24 +99,11 @@ namespace OpinionSharingForm.GUI
             //ネットワークの指標を計算
             /*bodyAsINodeでノードにエージェントを割り当てる*/
             INode bodyAsINode = ((aat as AgentAlgorithm).Body as INode);
-            List<Link> edgeAsLink = new List<Link>();
-            for (int i = 0; i < edgeAsLink.Count; i++)
-            {
-                edgeAsLink[i] = bodyAsINode.Network.Links.ElementAt(i);
-            }
-            //Link edgeAsLink = bodyAsINode.Network.Links as Link;
-            //List<int> netEdgeList = new List<int>();//これでは宣言しただけ，中身がないよ！中身は枝の情報，links?
-            //INode netEdge = bodyAsINode.Network.Links;
-            //for (int i = 0; i < length; i++)
-            //{
-            //    netEdge[i] = netEdge; 
-            //}
-            
+            //double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);//クラスター係数           
+            //double degreeCentrality = NetworkIndexes.degreeCentrality(bodyAsINode, bodyAsINode.Network);//次数中心性
 
-            
-            
-            double cluster = NetworkIndexes.cluster(bodyAsINode, bodyAsINode.Network);//クラスター係数           
-            double degreeCentrality = NetworkIndexes.degreeCentrality(bodyAsINode, bodyAsINode.Network);//次数中心性
+
+      
             //表示を変更する
             Invoke(new Action(() =>  {
                 //ちょっと複雑・・・
@@ -126,10 +113,7 @@ namespace OpinionSharingForm.GUI
                 PrepareCandidatesCB(aat);
 
                 /*各指標の表示*/
-                otherStates.Text = "cluster = " + cluster + "\r\n" +                    //クラスター係数            
-                                   "friend = " + bodyAsINode.Neighbours.Count + "\r\n" +//次数
-                                   "degreeCentrality" + degreeCentrality + "\r\n" +    //次数中心性
-                                    bodyAsINode.Status;
+                otherStates.Text = bodyAsINode.Status;
                                    
             }));
             
@@ -165,6 +149,8 @@ namespace OpinionSharingForm.GUI
         #endregion
 
             }
+
+      
 
     #region イベント系
 

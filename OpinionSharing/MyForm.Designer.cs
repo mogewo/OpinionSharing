@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.6D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.3D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.1D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.6D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.3D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.1D);
             this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
+            this.figurePanel = new OpinionSharingForm.GUI.FigurePanel();
             this.AccuracyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.expAccuracyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.agentStatePanel = new OpinionSharingForm.GUI.AgentStatePanel();
             this.SettingTabControl = new System.Windows.Forms.TabControl();
             this.NetworkTab = new System.Windows.Forms.TabPage();
             this.GeneratorCB = new System.Windows.Forms.ComboBox();
@@ -74,8 +76,8 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.figurePanel = new OpinionSharingForm.GUI.FigurePanel();
-            this.agentStatePanel = new OpinionSharingForm.GUI.AgentStatePanel();
+            this.dump = new System.Windows.Forms.TabPage();
+            this.NetworkIndeces = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
@@ -89,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SeedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.dump.SuspendLayout();
             this.SuspendLayout();
             // 
             // AnimationTimer
@@ -119,33 +122,46 @@
             this.SplitContainer.SplitterDistance = 1037;
             this.SplitContainer.TabIndex = 12;
             // 
+            // figurePanel
+            // 
+            this.figurePanel.AgentStatePanel = null;
+            this.figurePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.figurePanel.DrawLinks = true;
+            this.figurePanel.Environment = null;
+            this.figurePanel.Location = new System.Drawing.Point(3, 0);
+            this.figurePanel.Name = "figurePanel";
+            this.figurePanel.Size = new System.Drawing.Size(1031, 704);
+            this.figurePanel.TabIndex = 0;
+            // 
             // AccuracyChart
             // 
             this.AccuracyChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.AccuracyChart.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.AccuracyChart.ChartAreas.Add(chartArea3);
             this.AccuracyChart.DataSource = this.expAccuracyBindingSource;
-            legend1.Name = "Legend1";
-            this.AccuracyChart.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.AccuracyChart.Legends.Add(legend3);
             this.AccuracyChart.Location = new System.Drawing.Point(38, 523);
             this.AccuracyChart.Name = "AccuracyChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.IsXValueIndexed = true;
-            series1.LabelBackColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Accuracy";
-            dataPoint1.AxisLabel = "Correct";
-            dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint2.AxisLabel = "Incorrect";
-            dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint3.AxisLabel = "Undeter";
-            dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
-            series1.Points.Add(dataPoint1);
-            series1.Points.Add(dataPoint2);
-            series1.Points.Add(dataPoint3);
-            this.AccuracyChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.IsXValueIndexed = true;
+            series3.LabelBackColor = System.Drawing.Color.Transparent;
+            series3.Legend = "Legend1";
+            series3.Name = "Accuracy";
+            dataPoint7.AxisLabel = "Correct";
+            dataPoint7.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint8.AxisLabel = "Incorrect";
+            dataPoint8.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint9.AxisLabel = "Undeter";
+            dataPoint9.LabelBackColor = System.Drawing.Color.Transparent;
+            series3.Points.Add(dataPoint7);
+            series3.Points.Add(dataPoint8);
+            series3.Points.Add(dataPoint9);
+            this.AccuracyChart.Series.Add(series3);
             this.AccuracyChart.Size = new System.Drawing.Size(372, 190);
             this.AccuracyChart.TabIndex = 4;
             this.AccuracyChart.Text = "chart1";
@@ -155,6 +171,19 @@
             // 
             this.expAccuracyBindingSource.DataSource = typeof(OpinionSharing.Env.ExpAccuracy);
             // 
+            // agentStatePanel
+            // 
+            this.agentStatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.agentStatePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.agentStatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.agentStatePanel.Location = new System.Drawing.Point(38, 176);
+            this.agentStatePanel.Name = "agentStatePanel";
+            this.agentStatePanel.Size = new System.Drawing.Size(372, 341);
+            this.agentStatePanel.TabIndex = 1;
+            this.agentStatePanel.Load += new System.EventHandler(this.agentStatePanel_Load);
+            // 
             // SettingTabControl
             // 
             this.SettingTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -162,6 +191,7 @@
             this.SettingTabControl.Controls.Add(this.NetworkTab);
             this.SettingTabControl.Controls.Add(this.LearningTab);
             this.SettingTabControl.Controls.Add(this.Animation);
+            this.SettingTabControl.Controls.Add(this.dump);
             this.SettingTabControl.Location = new System.Drawing.Point(38, 12);
             this.SettingTabControl.Name = "SettingTabControl";
             this.SettingTabControl.SelectedIndex = 0;
@@ -313,10 +343,11 @@
             this.LearningTab.Location = new System.Drawing.Point(4, 22);
             this.LearningTab.Name = "LearningTab";
             this.LearningTab.Padding = new System.Windows.Forms.Padding(3);
-            this.LearningTab.Size = new System.Drawing.Size(1024, 132);
+            this.LearningTab.Size = new System.Drawing.Size(364, 132);
             this.LearningTab.TabIndex = 1;
             this.LearningTab.Text = "Learning";
             this.LearningTab.UseVisualStyleBackColor = true;
+            this.LearningTab.Click += new System.EventHandler(this.LearningTab_Click);
             // 
             // SetAlgo_Button
             // 
@@ -400,7 +431,7 @@
             this.Animation.Controls.Add(this.Step);
             this.Animation.Location = new System.Drawing.Point(4, 22);
             this.Animation.Name = "Animation";
-            this.Animation.Size = new System.Drawing.Size(1024, 132);
+            this.Animation.Size = new System.Drawing.Size(364, 132);
             this.Animation.TabIndex = 2;
             this.Animation.Text = "Animation";
             // 
@@ -526,31 +557,26 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // figurePanel
+            // dump
             // 
-            this.figurePanel.AgentStatePanel = null;
-            this.figurePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.figurePanel.DrawLinks = true;
-            this.figurePanel.Environment = null;
-            this.figurePanel.Location = new System.Drawing.Point(3, 0);
-            this.figurePanel.Name = "figurePanel";
-            this.figurePanel.Size = new System.Drawing.Size(1031, 704);
-            this.figurePanel.TabIndex = 0;
+            this.dump.Controls.Add(this.NetworkIndeces);
+            this.dump.Location = new System.Drawing.Point(4, 22);
+            this.dump.Name = "dump";
+            this.dump.Padding = new System.Windows.Forms.Padding(3);
+            this.dump.Size = new System.Drawing.Size(364, 132);
+            this.dump.TabIndex = 3;
+            this.dump.Text = "dump";
+            this.dump.UseVisualStyleBackColor = true;
             // 
-            // agentStatePanel
+            // NetworkIndeces
             // 
-            this.agentStatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.agentStatePanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.agentStatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.agentStatePanel.Location = new System.Drawing.Point(38, 176);
-            this.agentStatePanel.Name = "agentStatePanel";
-            this.agentStatePanel.Size = new System.Drawing.Size(372, 341);
-            this.agentStatePanel.TabIndex = 1;
-            this.agentStatePanel.Load += new System.EventHandler(this.agentStatePanel_Load);
+            this.NetworkIndeces.Location = new System.Drawing.Point(6, 6);
+            this.NetworkIndeces.Name = "NetworkIndeces";
+            this.NetworkIndeces.Size = new System.Drawing.Size(103, 23);
+            this.NetworkIndeces.TabIndex = 0;
+            this.NetworkIndeces.Text = "NetworkIndeces";
+            this.NetworkIndeces.UseVisualStyleBackColor = true;
+            this.NetworkIndeces.Click += new System.EventHandler(this.NetworkIndeces_Click);
             // 
             // MyForm
             // 
@@ -577,6 +603,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SeedUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.dump.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -625,5 +652,7 @@
         private System.Windows.Forms.ComboBox GeneratorCB;
         private GUI.FigurePanel figurePanel;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.TabPage dump;
+        private System.Windows.Forms.Button NetworkIndeces;
     }
 }

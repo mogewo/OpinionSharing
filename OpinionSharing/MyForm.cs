@@ -340,8 +340,8 @@ namespace OpinionSharingForm
             var acc = env.EnvAccuracy;
             
 
-            Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
-                acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
+            //Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
+            //    acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
             //csv書き込み開始
             this.WriteCsv();
 
@@ -551,6 +551,41 @@ namespace OpinionSharingForm
         private void SplitContainer_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void LearningTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //dump用ボタン
+        private void NetworkIndeces_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                // appendをtrueにすると，既存のファイルに追記
+                //         falseにすると，ファイルを新規作成する
+                var append = false;
+                // 出力用のファイルを開く
+
+                //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+                //もしくは時間を取得してファイル名にする
+                using (var sw = new System.IO.StreamWriter(@"./NetworkIndecies.csv", append))
+                {
+                    sw.Write("nodeID,degree,cluster,degreeCentrality,closenessCentrality,AverageDistance,maxDistance,minDistance" + "\r\n");
+                    foreach (var node in env.Network.Nodes)
+	                {
+                        sw.WriteLine(node.CsvStatus);
+	                }
+                       
+                }
+            }
+                catch (System.Exception a)
+                {
+                    // ファイルを開くのに失敗したときエラーメッセージを表示
+                    System.Console.WriteLine(a.Message);
+                }                        
         }
 
 
