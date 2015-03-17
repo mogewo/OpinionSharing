@@ -139,7 +139,7 @@ namespace OpinionSharingForm
             }
             else if (generatorstr == "Random")
             {
-                generator = new RandomNetworkGenerator(agentNum, expectedDegree);//, pRewire);
+                generator = new RandomNetworkGenerator(agentNum, expectedDegree, pRewire);//, pRewire);
             }
 
             else if (generatorstr == "Leader")

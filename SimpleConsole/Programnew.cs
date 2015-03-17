@@ -71,7 +71,7 @@ namespace SimpleConsole
                 }
                 else if (netStr == "Random")
                 {
-                    generator = new RandomNetworkGenerator(size,16);
+                    generator = new RandomNetworkGenerator(size,16, 0.4);
                 }
                 //リーダーネットワークの導入　2014_0707追加
                 else if (netStr == "Leader")

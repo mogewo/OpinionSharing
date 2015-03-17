@@ -46,6 +46,42 @@ namespace GraphTheory.Net
                 }
             }
         }
+
+        public void updateBetween()
+        {
+            List<Dictionary<INode, int>> betweenDistance = Between.Between_Distance(this);
+            foreach (var nodeMiddle in Nodes)
+            {
+                //とりあえず空にしとく（リンクの増減に対応するため）                   
+                nodeMiddle.Betweens.Clear();
+                //全通り探索
+                foreach (var nodeLeft in Nodes)
+                {
+                    if (nodeMiddle != nodeLeft)
+                    {
+                        int b1 = betweenDistance[nodeLeft.ID][nodeMiddle];
+
+                        if (b1 != Int32.MaxValue)
+                        {
+                            nodeMiddle.Betweens[nodeLeft.ID].Add(nodeLeft, b1);
+                        }
+                        foreach (var nodeRight in Nodes)
+                        {
+                            //自分自身を考慮しない
+                            if (nodeLeft != nodeRight)
+                            {
+                                int b2 = betweenDistance[nodeRight.ID][nodeMiddle];
+                                //接続されていない場合は書き込まない
+                                if (b2 != Int32.MaxValue)
+                                {
+                                    nodeMiddle.Betweens[nodeRight.ID].Add(nodeRight, b2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         public void AddNode(INode node)
         {
             //Nodeがネットワークに属していなければ、OK. 自分に登録する

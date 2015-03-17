@@ -20,6 +20,9 @@ namespace GraphTheory.Net
         //距離配列
         private Dictionary<INode, int> distance = new Dictionary<INode, int>();
 
+        //媒介距離リスト
+        private List<Dictionary<INode, int>> between = new List<Dictionary<INode, int>>();
+
 
         public　string Status
         {
@@ -77,6 +80,14 @@ namespace GraphTheory.Net
             {
                 return distance;
             }            
+        }
+
+        public IList<Dictionary<INode, int>> Betweens
+        {
+            get
+            {
+                return between;
+            }
         }
 
 

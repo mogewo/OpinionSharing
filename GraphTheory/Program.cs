@@ -14,7 +14,7 @@ namespace GraphTheory
         {
             MyRandom.RandomPool.Declare("envset",0);
             //var gen = new BAModelNetworkGenerator(100, 4 , 3);
-            var gen = new RandomNetworkGenerator(100, 10);
+            var gen = new RandomNetworkGenerator(100, 10, 0.4);
             gen.NodeCreate = () => new Node();
             var net = gen.create();
             Console.WriteLine(net);

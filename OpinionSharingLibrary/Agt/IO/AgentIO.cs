@@ -281,6 +281,14 @@ namespace OpinionSharing.Agt
             }
         }
 
+        public IList<Dictionary<INode, int>> Betweens
+        {
+            get
+            {
+                return node.Betweens;
+            }
+        }
+
 
         //表示したい情報を返す
         public string Status
