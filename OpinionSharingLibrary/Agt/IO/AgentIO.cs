@@ -302,6 +302,8 @@ namespace OpinionSharing.Agt
                         "closenessCentrality," + NetworkIndexes.closenessCentrality(node) + "\r\n" +
                         "AverageDistance," + NetworkIndexes.averageDistanceNode(node) + "\r\n" +
                         "maxDistance," + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
+                        "a" +
+
                         "minDistance," + NetworkIndexes.minDistanceNode(node);
                        
             }
