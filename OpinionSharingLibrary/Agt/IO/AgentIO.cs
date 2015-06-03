@@ -281,6 +281,15 @@ namespace OpinionSharing.Agt
             }
         }
 
+        //重みエッジ
+        public IDictionary<INode, int> Edgeweighs
+        {
+            get
+            {
+                return node.Edgeweights;
+            }
+        }
+       
         public IList<Dictionary<INode, int>> Betweens
         {
             get

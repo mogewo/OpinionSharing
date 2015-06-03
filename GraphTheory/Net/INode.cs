@@ -19,6 +19,9 @@ namespace GraphTheory.Net
         //各ノードとの距離を返す
         IDictionary<INode, int> Distances { get; }
 
+        //近隣との重みを返す　valueに近隣を与えたい
+        IDictionary<INode, int> Edgeweights { get; }
+
         //媒介中心距離
         IList<Dictionary<INode, int>> Betweens { get; }
 

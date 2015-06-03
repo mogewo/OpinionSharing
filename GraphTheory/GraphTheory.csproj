@@ -45,6 +45,7 @@
     <Compile Include="Net\BAmodelNetworkGenerator.cs" />
     <Compile Include="Net\Between.cs" />
     <Compile Include="Net\CompletNetworkGenerator.cs" />
+    <Compile Include="Net\EdgeWeight.cs" />
     <Compile Include="Net\INode.cs" />
     <Compile Include="Net\Link.cs" />
     <Compile Include="Net\NetworkIndexes.cs" />

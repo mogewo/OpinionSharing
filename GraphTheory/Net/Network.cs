@@ -47,6 +47,31 @@ namespace GraphTheory.Net
             }
         }
 
+        public void updateEdgeWeight()
+        {
+            Dictionary<INode, Dictionary<INode, int>> edgeweight = EdgeWeight.edgeWeight_up(this);
+            foreach (var nodeLeft in Nodes)
+            {
+                //とりあえず空にしとく（リンクの増減に対応するため）
+                nodeLeft.Edgeweights.Clear();
+                //全通り探索
+                foreach (var nodeRight in Nodes)
+                {
+                    //自分自身を考慮しない
+                    //これはいらないかも，自分も相手からしたら重みが違うわけだし…
+                    if (nodeLeft != nodeRight)
+                    {
+                        int d = edgeweight[nodeLeft][nodeRight];
+                        //接続されていない場合は書き込まない
+                        if (d != Int32.MaxValue)
+                        {
+                            nodeLeft.Edgeweights[nodeRight] = d;
+                        }
+                    }
+                }
+            }
+        }
+
         public void updateBetween()
         {
             List<Dictionary<INode, int>> betweenDistance = Between.Between_Distance(this);
@@ -82,6 +107,7 @@ namespace GraphTheory.Net
                 }
             }
         }
+
         public void AddNode(INode node)
         {
             //Nodeがネットワークに属していなければ、OK. 自分に登録する

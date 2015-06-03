@@ -20,6 +20,9 @@ namespace GraphTheory.Net
         //距離配列
         private Dictionary<INode, int> distance = new Dictionary<INode, int>();
 
+        //重みedge配列
+        private Dictionary<INode, int> edgeweight = new Dictionary<INode, int>();
+
         //媒介距離リスト
         private List<Dictionary<INode, int>> between = new List<Dictionary<INode, int>>();
 
@@ -82,6 +85,15 @@ namespace GraphTheory.Net
             }            
         }
 
+        //重みエッジ
+        public IDictionary<INode, int> Edgeweights
+        {
+            get
+            {
+                return edgeweight;
+            }
+        }
+
         public IList<Dictionary<INode, int>> Betweens
         {
             get
@@ -89,8 +101,7 @@ namespace GraphTheory.Net
                 return between;
             }
         }
-
-
+       
         public override string ToString()
         {
  	         return string.Format("[Node id:{0}]",ID);
