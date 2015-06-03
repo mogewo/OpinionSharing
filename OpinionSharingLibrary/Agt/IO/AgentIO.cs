@@ -282,7 +282,7 @@ namespace OpinionSharing.Agt
         }
 
         //重みエッジ
-        public IDictionary<INode, int> Edgeweighs
+        public IDictionary<INode, int> Edgeweights
         {
             get
             {
@@ -311,8 +311,9 @@ namespace OpinionSharing.Agt
                         "closenessCentrality," + NetworkIndexes.closenessCentrality(node) + "\r\n" +
                         "AverageDistance," + NetworkIndexes.averageDistanceNode(node) + "\r\n" +
                         "maxDistance," + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
-                        "minDistance," + NetworkIndexes.minDistanceNode(node);
-                       
+                        "minDistance," + NetworkIndexes.minDistanceNode(node) + "\r\n" +
+                        "maxEdgeWeight," + NetworkIndexes.maxEdgeweight(node) + "\r\n" +
+                        "minEdgeWeight," + NetworkIndexes.minEdgeweight(node);                                            
             }
         }
 

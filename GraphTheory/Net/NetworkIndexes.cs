@@ -141,6 +141,16 @@ namespace GraphTheory.Net
             return node.Distances.Min(num => Convert.ToInt32(num.Value));
         }
 
+        //最小重み
+        public static int minEdgeweight(INode node)
+        {
+            return node.Edgeweights.Min(num => Convert.ToInt32(num.Value));
+        }
 
+        //最大重み
+        public static int maxEdgeweight(INode node)
+        {
+            return node.Edgeweights.Max(num => Convert.ToInt32(num.Value));
+        }
     }
 }
