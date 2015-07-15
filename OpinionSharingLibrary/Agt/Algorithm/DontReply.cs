@@ -89,9 +89,6 @@ namespace OpinionSharing.Agt
         //意見をくれたご近所
         protected DRMessageBox messageBox;
         
-
-
-
         public override void Initialize()
         {
             base.Initialize();

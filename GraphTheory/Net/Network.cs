@@ -14,12 +14,20 @@ namespace GraphTheory.Net
         private Dictionary<INode, HashSet<INode>> members = new Dictionary<INode, HashSet<INode>>();
         //距離の再計算を行うフラグ
         private bool calculateDistance = true;
+        private bool calculateEdgeWeight = true;
         public Network() {}
         //再計算フラグのプロパティ
         public bool EnableCalculateDistance
         {
             get { return calculateDistance; }
             set { calculateDistance = value; }
+        }
+
+        //重み再配置のフラグプロパティ
+        public bool EnableCalculateEdgeWeight
+        {
+            get { return calculateEdgeWeight; }
+            set { calculateEdgeWeight = value; }
         }
 
         //距離計算
@@ -47,30 +55,31 @@ namespace GraphTheory.Net
             }
         }
 
+        //重みのアップデートを行う
         public void updateEdgeWeight()
         {
-            Dictionary<INode, Dictionary<INode, int>> edgeweight = EdgeWeight.edgeWeight_up(this);
+            Dictionary<int, Dictionary<int, double>> edgeweight = EdgeWeight.edgeWeight_up(this);
+
             foreach (var nodeLeft in Nodes)
             {
                 //とりあえず空にしとく（リンクの増減に対応するため）
                 nodeLeft.Edgeweights.Clear();
                 //全通り探索
-                foreach (var nodeRight in Nodes)
+                foreach (var nodeRight in nodeLeft.Neighbours)
                 {
-                    //自分自身を考慮しない
-                    //これはいらないかも，自分も相手からしたら重みが違うわけだし…
                     if (nodeLeft != nodeRight)
                     {
-                        int d = edgeweight[nodeLeft][nodeRight];
+                        double d = edgeweight[nodeLeft.ID][nodeRight.ID];
                         //接続されていない場合は書き込まない
                         if (d != Int32.MaxValue)
                         {
-                            nodeLeft.Edgeweights[nodeRight] = d;
+                            nodeLeft.Edgeweights[nodeRight.ID] = d;
                         }
-                    }
+                    }                   
                 }
             }
         }
+
 
         public void updateBetween()
         {
@@ -152,7 +161,13 @@ namespace GraphTheory.Net
             if (calculateDistance)
             {
                 updateDistance();
-            }           
+            }
+
+            //重みを再配置
+            if (calculateEdgeWeight)
+            {
+                updateEdgeWeight();
+            }
         }
 
         public void ConnectNode(Link ln)
@@ -174,7 +189,12 @@ namespace GraphTheory.Net
             if (calculateDistance)
             {
                 updateDistance();
-            }           
+            }
+            //重みを再配置
+            if (calculateEdgeWeight)
+            {
+                updateEdgeWeight();
+            }
         }
 
         public void DisconnectNode(Link ln)
@@ -222,6 +242,7 @@ namespace GraphTheory.Net
             }
         }
         
+        //メンバーのキーを返す
         public ISet<INode> GetNeighbour(INode key)
         {
             if (members.ContainsKey(key))

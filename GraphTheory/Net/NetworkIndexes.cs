@@ -17,7 +17,7 @@ namespace GraphTheory.Net
             int nodeID = node.ID;//nodeの固定
             int k = node.Neighbours.Count;//次数
             int triangleNum = 0;//三角形の総数
-            double c = 0.0;//クラスタ係数   
+            double c = 0.0;//クラスタ係数
 
             //
 
@@ -142,15 +142,21 @@ namespace GraphTheory.Net
         }
 
         //最小重み
-        public static int minEdgeweight(INode node)
+        public static double minEdgeweight(INode node)
         {
-            return node.Edgeweights.Min(num => Convert.ToInt32(num.Value));
+            return node.Edgeweights.Min(num => Convert.ToDouble(num.Value));
         }
 
         //最大重み
-        public static int maxEdgeweight(INode node)
+        public static double maxEdgeweight(INode node)
         {
-            return node.Edgeweights.Max(num => Convert.ToInt32(num.Value));
+            return node.Edgeweights.Max(num => Convert.ToDouble(num.Value));
+        }
+
+        //平均重み
+        public static double AveEdgeweight(INode node)
+        {
+            return node.Edgeweights.Average(num => Convert.ToDouble(num.Value));
         }
     }
 }

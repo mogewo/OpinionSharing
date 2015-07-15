@@ -13,31 +13,48 @@ namespace GraphTheory.Net
         /// 重みエッジの実装
         /// リンクに重みを実装します
         /// </summary>
-        public static Dictionary<INode, Dictionary<INode, int>> edgeWeight_up(Network net)
+
+        public static Dictionary<int, Dictionary<int,double>> edgeWeight_up(Network net)
         {
-            Dictionary<INode, Dictionary<INode, int>> ew = new Dictionary<INode, Dictionary<INode, int>>();//重み保存配列
+
+            
+            Dictionary<int, Dictionary<int, double>> ew = new Dictionary<int, Dictionary<int, double>>();//重み保存配列
+            
 
             //初期化
             foreach (var nodeLeft in net.Nodes)
             {
-                ew[nodeLeft] = new Dictionary<INode, int>();
-                            
+                ew[nodeLeft.ID] = new Dictionary<int, double>();
+                       
                 foreach (var nodeRight in net.Nodes)
                 {
-                    ew[nodeLeft][nodeRight] = Int32.MaxValue;                                      
+                    ew[nodeLeft.ID][nodeRight.ID] = Int32.MaxValue;
+                                      
+                   
                 }
-            }
+            }           
+            //foreach (var nodeLeft in node.)
+            //{
+            //    //int x = nodeLeft.ID;
+            //    //net.GetNeighbour(nodeLeft);
+            //    //ew[nodeLeft] = new Dictionary<INode, double>();
+                
+                            
+            //    foreach (var nodeRight in net.Nodes)
+            //    {
+            //        ew[nodeLeft][nodeRight] = Int32.MaxValue;                                      
+            //    }
+            //}
 
             //接続されているリンクに重みを配置する 0~10までの整数を代入
             foreach (var link in net.Links)
             {
-                ew[link.Node1][link.Node2] = 1;//RandomPool.Get("weight").Next(10);
-                ew[link.Node2][link.Node1] = 1;//RandomPool.Get("weight").Next(10);
+                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble(); ;
+                ew[link.Node2.ID][link.Node1.ID] = RandomPool.Get("envset").NextDouble(); ;
             }
-      
-
-
+            
             return ew;
+
         }
     }
 }

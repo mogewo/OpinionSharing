@@ -20,6 +20,7 @@ namespace OpinionSharing.Agt
             from = a;
         }
 
+       
         public BlackWhiteSubject Subject{
             get 
             {
