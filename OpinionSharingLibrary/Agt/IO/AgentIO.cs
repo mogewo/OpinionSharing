@@ -30,6 +30,7 @@ namespace OpinionSharing.Agt
         //実際に処理する実装
         protected AgentAlgorithm algorithm;
 
+
         //センサーエージェントの場合はセンサーをもっている
         protected Sensor sensor;
 
@@ -210,12 +211,51 @@ namespace OpinionSharing.Agt
         }
 
         //他のエージェント(意見送信できるなにか)から意見をもらう OR センサーから値もらう
+        //ここで重みの確率で意見をもらうかもらわないかを行えばいい？
         public virtual void ReceiveOpinion(BWMessage message)
         {
-            //一応、いっとく。DontReplyとかで使われる。
-            algorithm.ReceiveOpinion(message);
-            //Queueに送信
-            messageQueue.Enqueue(message);
+            //messeageの送り主を近隣として扱う．
+            //初めはnull
+            INode neighbor = message.From as INode;
+
+            //確率更新用
+            //初期乱数生成
+            double rReceive = RandomPool.Get("opinionupdateset").NextDouble();
+            double aveR = NetworkIndexes.AveEdgeweight(this);
+            //
+
+            //初期化
+            double e = 1.0;
+
+            //null対策
+            //neighborがnullでならばneighbor.IDでeに重みを代入
+            if (neighbor != null)
+            {
+                e = this.Edgeweights[neighbor.ID];//意見を受け取った人と自分の重み：最初はnullなので初期化する必要あり
+            }
+            
+            
+            Console.WriteLine(e);
+
+            if (HasSensor)
+            {
+                algorithm.ReceiveOpinion(message);
+                //Queueに送信 
+                messageQueue.Enqueue(message);
+            }
+            else
+            {
+                
+                if (rReceive <= e)
+                {
+                    algorithm.ReceiveOpinion(message);
+                    
+                    //Queueに送信 
+                    messageQueue.Enqueue(message);
+                    
+                    
+                }                                 
+            }
         }
 
         //解釈する　メッセージキューを処理対象に入れる。あたらしいメッセージキューをつくる
@@ -282,13 +322,16 @@ namespace OpinionSharing.Agt
         }
 
         //重みエッジ
-        public IDictionary<INode, int> Edgeweights
+        public IDictionary<int, double> Edgeweights
         {
             get
             {
+                
                 return node.Edgeweights;
             }
         }
+
+        
        
         public IList<Dictionary<INode, int>> Betweens
         {
@@ -313,7 +356,8 @@ namespace OpinionSharing.Agt
                         "maxDistance," + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
                         "minDistance," + NetworkIndexes.minDistanceNode(node) + "\r\n" +
                         "maxEdgeWeight," + NetworkIndexes.maxEdgeweight(node) + "\r\n" +
-                        "minEdgeWeight," + NetworkIndexes.minEdgeweight(node);                                            
+                        "minEdgeWeight," + NetworkIndexes.minEdgeweight(node) + "\r\n" +
+                        "aveEdgeWeight," + NetworkIndexes.AveEdgeweight(node);                         
             }
         }
 

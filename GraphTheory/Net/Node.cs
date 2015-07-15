@@ -21,7 +21,7 @@ namespace GraphTheory.Net
         private Dictionary<INode, int> distance = new Dictionary<INode, int>();
 
         //重みedge配列
-        private Dictionary<INode, int> edgeweight = new Dictionary<INode, int>();
+        private Dictionary<int, double> edgeweight = new Dictionary<int, double>();
 
         //媒介距離リスト
         private List<Dictionary<INode, int>> between = new List<Dictionary<INode, int>>();
@@ -86,7 +86,7 @@ namespace GraphTheory.Net
         }
 
         //重みエッジ
-        public IDictionary<INode, int> Edgeweights
+        public IDictionary<int, double> Edgeweights
         {
             get
             {
