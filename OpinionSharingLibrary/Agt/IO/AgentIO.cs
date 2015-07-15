@@ -223,7 +223,6 @@ namespace OpinionSharing.Agt
             double rReceive = RandomPool.Get("opinionupdateset").NextDouble();
             double aveR = NetworkIndexes.AveEdgeweight(this);
             //
-
             //初期化
             double e = 1.0;
 
