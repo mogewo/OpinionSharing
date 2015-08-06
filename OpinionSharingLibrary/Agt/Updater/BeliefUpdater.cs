@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 using OpinionSharing.Subject;
+using GraphTheory.Net;
+using OpinionSharing.Agt;
 
 namespace OpinionSharing.Agt
 {
@@ -14,7 +16,11 @@ namespace OpinionSharing.Agt
     {
         public readonly double ImportanceLevel = 0.55;//!!!!!だめ！！
 
-
+        //8-6追記　重みのために追記
+        public AgentIO agt;
+        public BWMessage mes;
+        //protected MessageQueue messageQueue = new MessageQueue();
+        
 
         public BeliefUpdater(double v = 0.55)
         {
@@ -39,6 +45,8 @@ namespace OpinionSharing.Agt
         //更新式
         public static double updateFunc(double currentBelief, double Cupd)
         {
+            var BeliefUpdater = new BeliefUpdater();
+
             if (!(0 <= currentBelief && currentBelief <= 1)) //belief <- [0,1]
             {
                 throw new Exception("異常な信念値" + currentBelief);
@@ -58,8 +66,11 @@ namespace OpinionSharing.Agt
             //つまり、端っこからどかーんと行こうとすると落ちる
             //ImportanceLevel== 1はやっぱ禁止やな。
 
+            //重み更新　8-6
+            double ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);//重み
+    
 
-            double ret = numerator / denominator;
+            double ret = (numerator / denominator) * ew;//この更新式に重みをかける?
 
             if (ret == 1.0)
             {

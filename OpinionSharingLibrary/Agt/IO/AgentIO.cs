@@ -214,29 +214,29 @@ namespace OpinionSharing.Agt
         //ここで重みの確率で意見をもらうかもらわないかを行えばいい？
         public virtual void ReceiveOpinion(BWMessage message)
         {
-            //messeageの送り主を近隣として扱う．
-            //初めはnull
-            INode neighbor = message.From as INode;
-
+    
             //確率更新用
             //初期乱数生成
-            double rReceive = RandomPool.Get("opinionupdateset").NextDouble();
-            double aveR = NetworkIndexes.AveEdgeweight(this);
+            //double rReceive = RandomPool.Get("opinionupdateset").NextDouble();
+            //double aveR = NetworkIndexes.AveEdgeweight(this);
             //
             //初期化
-            double e = 1.0;
+            //double e = this.getEdgeWeight(message);
 
-            //null対策
-            //neighborがnullでならばneighbor.IDでeに重みを代入
-            if (neighbor != null)
-            {
-                e = this.Edgeweights[neighbor.ID];//意見を受け取った人と自分の重み：最初はnullなので初期化する必要あり
-            }
-            
-            
-            Console.WriteLine(e);
+            ////null対策
+            ////neighborがnullでならばneighbor.IDでeに重みを代入
+            //if (neighbor != null)
+            //{
+            //    e = this.Edgeweights[neighbor.ID];//意見を受け取った人と自分の重み：最初はnullなので初期化する必要あり
+            //}
 
-            if (HasSensor)
+            algorithm.ReceiveOpinion(message);
+            //Queueに送信 
+            messageQueue.Enqueue(message);
+            
+            //Console.WriteLine(e);
+
+            /*if (HasSensor)
             {
                 algorithm.ReceiveOpinion(message);
                 //Queueに送信 
@@ -254,7 +254,7 @@ namespace OpinionSharing.Agt
                     
                     
                 }                                 
-            }
+            }*/
         }
 
         //解釈する　メッセージキューを処理対象に入れる。あたらしいメッセージキューをつくる
@@ -298,6 +298,14 @@ namespace OpinionSharing.Agt
 
         #endregion override public method
 
+        //意見受け取り重み関数
+        public double getEdgeWeight(BWMessage message)
+        {
+            INode neighbor = message.From as INode;
+            double w = this.Edgeweights[neighbor.ID];
+
+            return w;
+        }
 
         internal void SetSensor(Sensor s)
         {
