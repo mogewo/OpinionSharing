@@ -229,10 +229,6 @@ namespace OpinionSharing.Agt
             //{
             //    e = this.Edgeweights[neighbor.ID];//意見を受け取った人と自分の重み：最初はnullなので初期化する必要あり
             //}
-
-            algorithm.ReceiveOpinion(message);
-            //Queueに送信 
-            messageQueue.Enqueue(message);
             
             //Console.WriteLine(e);
 
@@ -251,10 +247,12 @@ namespace OpinionSharing.Agt
                     
                     //Queueに送信 
                     messageQueue.Enqueue(message);
-                    
-                    
                 }                                 
             }*/
+
+            algorithm.ReceiveOpinion(message);
+            //Queueに送信 
+            messageQueue.Enqueue(message);
         }
 
         //解釈する　メッセージキューを処理対象に入れる。あたらしいメッセージキューをつくる

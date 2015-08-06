@@ -16,15 +16,73 @@ namespace OpinionSharing.Agt
     {
         public readonly double ImportanceLevel = 0.55;//!!!!!だめ！！
 
+        #region privateメンバ
+        private AgentIO agt;    //重みのためのエージェント
+        private BWMessage mes;  //重みのためのメッセージ
+        private double ew;      //重み格納用変数
+         #endregion privateメンバ
+
         //8-6追記　重みのために追記
-        public AgentIO agt;
-        public BWMessage mes;
+         #region プロパティ
+        //public AgentIO Agt
+        //{
+        //    get
+        //    {
+        //        if(agt == null)
+        //        {
+        //            return new AgentIO();
+        //        }
+
+        //        return agt;
+        //    }            
+        //}
+
+        //public BWMessage Mes
+        //{
+        //    get
+        //    {
+        //        if (mes == null)
+        //        {
+        //            return new BWMessage(sbj, IOpinionSender a);
+        //        }
+
+        //        return mes;
+        //    }
+        //}
+    
+        #endregion プロパティ
         //protected MessageQueue messageQueue = new MessageQueue();
         
 
         public BeliefUpdater(double v = 0.55)
         {
             ImportanceLevel = v;
+            //ew = 1.0;
+            
+        }
+
+        public AgentIO Agt
+        {
+            get
+            {
+                return agt;
+            }
+            set
+            {
+                agt = value;
+            }
+        }
+
+        public BWMessage Mes
+        {
+            get
+            {
+                return mes;
+            }
+            set
+            {
+                mes = value;
+            }
         }
 
         public double updateBelief(BlackWhiteSubject sbj, double belief)
@@ -46,7 +104,7 @@ namespace OpinionSharing.Agt
         public static double updateFunc(double currentBelief, double Cupd)
         {
             var BeliefUpdater = new BeliefUpdater();
-
+   
             if (!(0 <= currentBelief && currentBelief <= 1)) //belief <- [0,1]
             {
                 throw new Exception("異常な信念値" + currentBelief);
@@ -67,10 +125,10 @@ namespace OpinionSharing.Agt
             //ImportanceLevel== 1はやっぱ禁止やな。
 
             //重み更新　8-6
-            double ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);//重み
-    
+            //null対策
+            BeliefUpdater.ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);
 
-            double ret = (numerator / denominator) * ew;//この更新式に重みをかける?
+            double ret = (numerator / denominator) * BeliefUpdater.ew;//この更新式に重みをかける?
 
             if (ret == 1.0)
             {
