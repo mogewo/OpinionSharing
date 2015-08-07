@@ -49,8 +49,18 @@ namespace GraphTheory.Net
             //接続されているリンクに重みを配置する 0~10までの整数を代入
             foreach (var link in net.Links)
             {
-                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble(); ;
-                ew[link.Node2.ID][link.Node1.ID] = RandomPool.Get("envset").NextDouble(); ;
+                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble();
+                ew[link.Node2.ID][link.Node1.ID] = RandomPool.Get("envset").NextDouble();
+            }
+
+            foreach (var link in net.Links)
+            {
+                if (link.Node1.Neighbours.Count <= 10)
+                {
+
+                }
+                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble();
+                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble();
             }
             
             return ew;
