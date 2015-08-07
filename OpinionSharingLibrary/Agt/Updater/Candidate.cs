@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 
+
 namespace OpinionSharing.Agt
 {
     public class Candidate
     {
+        #region privateメンバ
         private int jumpNum;
         private int otherJumpNum;
         private BeliefUpdater beliefUpdater;// ここからImportanceLevelなどが派生する
         private double awarenessRate;
         private List<bool> determinedRound;
+        //private AgentIO agt;    //重みのためのエージェント
+        //private BWMessage mes;  //重みのためのメッセージ
+        //private INode node;
+        #endregion privateメンバ
 
+        #region プロパティ
         public Candidate(int JN, double IL, double AR = 0)
         {
             jumpNum = JN;
@@ -27,6 +34,7 @@ namespace OpinionSharing.Agt
         public int JumpNum { get { return jumpNum; } }          // ...-3 -2 -1  +1 +2 +3...
         public int OtherJumpNum { get { return otherJumpNum; } set { otherJumpNum = value; } }// ... 2  3  4  -4 -3 -2...
 
+        
         public int JumpNumRight
         {
             get
@@ -65,6 +73,43 @@ namespace OpinionSharing.Agt
             }
         }
 
+        //public AgentIO Agt
+        //{
+        //    get
+        //    {
+        //        return agt;
+        //    }
+        //    set
+        //    {
+        //        agt = value;
+        //    }
+        //}
+
+        //public BWMessage Mes
+        //{
+        //    get
+        //    {
+        //        return mes;
+        //    }
+        //    set
+        //    {
+        //        mes = value;
+        //    }
+        //}
+
+        //public INode Node
+        //{
+        //    get
+        //    {
+        //        return node;
+        //    }
+        //    set
+        //    {
+        //        node = value;
+        //    }
+        //}
+        #endregion プロパティ
+
         public int RequiredUpdateNum(int direction) //Right: 1 , Left: -1
         {
             Debug.Assert(direction == 1 || direction == -1, "direction should be 1 or -1");
@@ -88,6 +133,7 @@ namespace OpinionSharing.Agt
         public void EstimateAwarenessRate(bool determined)
         {
 //            Console.Write("estimate awareness rate to {0}",ImportanceLevel);
+            //double ew = 1.0;
             determinedRound.Add(determined);
 
             //意見を決められた数を求める
@@ -99,6 +145,17 @@ namespace OpinionSharing.Agt
                     determinedNum++;
                 }
             }
+
+            //if (BeliefUpdater.Agt != null)
+            //{
+            //    INode neighbor = BeliefUpdater.Mes.From as INode;//意見受け取り元
+            //    //null対策
+            //    if (neighbor != null)
+            //    {
+            //        ew = beliefUpdater.Node.Edgeweights[neighbor.ID];//重み
+            //        //ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);
+            //    }
+            //}
 
             awarenessRate = (double)determinedNum / determinedRound.Count;
 

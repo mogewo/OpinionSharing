@@ -7,6 +7,9 @@ using System.Diagnostics;
 
 using OpinionSharing.Subject;
 using OpinionSharing.Agt.Algorithm;
+using OpinionSharing.Subject;
+using GraphTheory.Net;
+using OpinionSharing.Agt;
 
 namespace OpinionSharing.Agt
 {
@@ -22,6 +25,10 @@ namespace OpinionSharing.Agt
 
         private Candidate currentCandidate;
 
+        //1007重みは各候補に対応したものと紐づけたい，ならばここでやるのが吉か？
+        private AgentIO agt;    //重みのためのエージェント
+        private BWMessage mes;  //重みのためのメッセージ
+        private INode node;
 
         public readonly object CandidateLock = new Object();
 
@@ -82,6 +89,42 @@ namespace OpinionSharing.Agt
                 }
             }
         }
+
+        public AgentIO Agt
+            {
+                get
+                {
+                    return agt;
+                }
+                set
+                {
+                    agt = value;
+                }
+            }
+
+        public BWMessage Mes
+            {
+                get
+                {
+                    return mes;
+                }
+                set
+                {
+                    mes = value;
+                }
+            }
+
+        public INode Node
+            {
+                get
+                {
+                    return node;
+                }
+                set
+                {
+                    node = value;
+                }
+            }
 
     #endregion プロパティ
 
@@ -227,6 +270,9 @@ namespace OpinionSharing.Agt
                 //↑can.EstimateAwarenessRateに入れてしまってもいいが入れられない．結構依存が大きい OpinionFormedはImportaceLevelを使う
 
                 //推定値を更新 //意見が更新できたか
+                //1006ここで各候補の意見形成率を更新
+                //つまりcandidateクラスで反映すべき内容か？ほしい情報は候補のkeyと近隣エージェントをひもづけすること．
+                //そうすれば各重みに反映した重みを生かすことが出来る
                 can.EstimateAwarenessRate(formed);
 
             }

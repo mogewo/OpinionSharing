@@ -60,6 +60,11 @@ namespace MyRandom
             return rand.NextDouble();
         }
 
+        public virtual double NextDouble(double min, double max)
+        {
+            return rand.NextDouble();
+        }
+
         //public virtual int Rand(int linkNum)// 2014/8/30 リーダーをランダムに配置するためのランダム
         //{
         //    return rand.Next(linkNum);
