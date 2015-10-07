@@ -52,6 +52,7 @@ namespace GraphTheory.Net
                 ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble();
                 ew[link.Node2.ID][link.Node1.ID] = RandomPool.Get("envset").NextDouble();
 
+
                 ////お試し版重み分布　08/06
                 ////次数が10以上のagtは重みを重視される 0.8<=ew<=1.0
                 //if (link.Node1.Neighbours.Count <= 10)
@@ -62,6 +63,18 @@ namespace GraphTheory.Net
                 //{
                 //    ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble(0.8, 1.0);
                 //}
+
+            }
+
+            foreach (var link in net.Links)
+            {
+                if (link.Node1.Neighbours.Count <= 10)
+                {
+
+                }
+                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble();
+                ew[link.Node1.ID][link.Node2.ID] = RandomPool.Get("envset").NextDouble();
+
             }
             return ew;
 

@@ -111,6 +111,7 @@ namespace OpinionSharing.Agt
             //ImportanceLevel== 1はやっぱ禁止やな。
 
             //重み更新　8-6
+
             //if (BeliefUpdater.agt != null)
             //{
             //    INode neighbor = BeliefUpdater.mes.From as INode;//意見受け取り元
@@ -121,6 +122,18 @@ namespace OpinionSharing.Agt
             //        //ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);
             //    }
             //}
+
+            if (BeliefUpdater.agt != null)
+            {
+                INode neighbor = BeliefUpdater.mes.From as INode;//意見受け取り元
+                //null対策
+                if (neighbor != null)
+                {
+                    ew = BeliefUpdater.agt.Edgeweights[neighbor.ID];//重み
+                    //ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);
+                }
+            }
+
            
 
             double ret = (numerator / denominator) * ew;//この更新式に重みをかける?
