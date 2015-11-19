@@ -73,7 +73,7 @@ namespace OpinionSharing.Agt
         //意見が変わったかどうか。
         public bool ChangedOpinion { get; set; }
 
-        public AgentIO Body
+        public virtual AgentIO Body
         {
             get
             {

@@ -58,26 +58,26 @@ namespace GraphTheory.Net
         //重みのアップデートを行う
         public void updateEdgeWeight()
         {
-            Dictionary<int, Dictionary<int, double>> edgeweight = EdgeWeight.edgeWeight_up(this);
+            //Dictionary<int, Dictionary<int, double>> edgeweight = EdgeWeight.edgeWeight_up(this);
 
-            foreach (var nodeLeft in Nodes)
-            {
-                //とりあえず空にしとく（リンクの増減に対応するため）
-                nodeLeft.Edgeweights.Clear();
-                //全通り探索
-                foreach (var nodeRight in nodeLeft.Neighbours)
-                {
-                    if (nodeLeft != nodeRight)
-                    {
-                        double d = edgeweight[nodeLeft.ID][nodeRight.ID];
-                        //接続されていない場合は書き込まない
-                        if (d != Int32.MaxValue)
-                        {
-                            nodeLeft.Edgeweights[nodeRight.ID] = d;
-                        }
-                    }                   
-                }
-            }
+            //foreach (var nodeLeft in Nodes)
+            //{
+            //    //とりあえず空にしとく（リンクの増減に対応するため）
+            //    nodeLeft.Edgeweights.Clear();
+            //    //全通り探索
+            //    foreach (var nodeRight in nodeLeft.Neighbours)
+            //    {
+            //        if (nodeLeft != nodeRight)
+            //        {
+            //            double d = edgeweight[nodeLeft.ID][nodeRight.ID];
+            //            //接続されていない場合は書き込まない
+            //            if (d != Int32.MaxValue)
+            //            {
+            //                nodeLeft.Edgeweights[nodeRight.ID] = d;
+            //            }
+            //        }                   
+            //    }
+            //}
         }
 
 

@@ -79,17 +79,23 @@ namespace OpinionSharing.Agt
 
         //受け取った意見とimportancelevelからCupdを決める
         //AAT ImportanceLevelというclassを使ってもいいかもね。
-        protected static double decideCupd(BlackWhiteSubject sbj, double importanceLevel)
+        public static double decideCupd(BlackWhiteSubject sbj, double importanceLevel)
         {
             return sbj == BlackWhiteSubject.White ? importanceLevel : 1 - importanceLevel;
+
+            /*
+             * 
+            if(BlackWhiteSubject.White == true)
+              retur  importanceLevel;
+            else
+              return 1- i;
+             */
         }
 
 
         //更新式
         public static double updateFunc(double currentBelief, double Cupd)
         {
-            var BeliefUpdater = new BeliefUpdater();
-            double ew = 1.0;
    
             if (!(0 <= currentBelief && currentBelief <= 1)) //belief <- [0,1]
             {
@@ -111,7 +117,6 @@ namespace OpinionSharing.Agt
             //ImportanceLevel== 1はやっぱ禁止やな。
 
             //重み更新　8-6
-
             //if (BeliefUpdater.agt != null)
             //{
             //    INode neighbor = BeliefUpdater.mes.From as INode;//意見受け取り元
@@ -123,20 +128,11 @@ namespace OpinionSharing.Agt
             //    }
             //}
 
-            if (BeliefUpdater.agt != null)
-            {
-                INode neighbor = BeliefUpdater.mes.From as INode;//意見受け取り元
-                //null対策
-                if (neighbor != null)
-                {
-                    ew = BeliefUpdater.agt.Edgeweights[neighbor.ID];//重み
-                    //ew = BeliefUpdater.agt.getEdgeWeight(BeliefUpdater.mes);
-                }
-            }
+            
 
            
 
-            double ret = (numerator / denominator) * ew;//この更新式に重みをかける?
+            double ret = (numerator / denominator);//この更新式に重みをかける?
 
             if (ret == 1.0)
             {

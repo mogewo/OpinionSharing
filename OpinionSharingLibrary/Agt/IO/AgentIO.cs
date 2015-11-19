@@ -7,7 +7,6 @@ using OpinionSharing.Subject;
 
 using MyRandom;
 using GraphTheory.Net;
-
 using OpinionSharing.Agt.Algorithm;
 
 
@@ -92,6 +91,20 @@ namespace OpinionSharing.Agt
 
                 //新アルゴリズムを登録
                 algorithm = value;
+
+                //近隣の追加 WeightedNeighbourアルゴリズム
+                //if (algorithm is WeightedNeighbour)
+                //{
+                //    (algorithm as WeightedNeighbour).Neighbours = this.Neighbours;
+                //}
+
+                //重みの追加 WeightedNeighbourアルゴリズム
+                //if (algorithm is WeightedNeighbour)
+                //{
+                //    (algorithm as WeightedNeighbour).Edgeweights = this.Edgeweights;
+                //}
+
+
 
                 //新アルゴリズムにイベントを追加
                 AddEvents();
@@ -297,13 +310,13 @@ namespace OpinionSharing.Agt
         #endregion override public method
 
         //意見受け取り重み関数
-        public double getEdgeWeight(BWMessage message)
-        {
-            INode neighbor = message.From as INode;
-            double w = this.Edgeweights[neighbor.ID];
+        //public double getEdgeWeight(BWMessage message)
+        //{
+        //    INode neighbor = message.From as INode;
+        //    double w = this.Edgeweights[neighbor.ID];
 
-            return w;
-        }
+        //    return w;
+        //}
 
         internal void SetSensor(Sensor s)
         {
@@ -327,14 +340,14 @@ namespace OpinionSharing.Agt
         }
 
         //重みエッジ
-        public IDictionary<int, double> Edgeweights
-        {
-            get
-            {
-                
-                return node.Edgeweights;
-            }
-        }
+        //public IDictionary<int, double> Edgeweights
+        //{
+        //    get
+        //    {
+
+        //        return node.Edgeweights;
+        //    }
+        //}
 
         
        
@@ -359,10 +372,10 @@ namespace OpinionSharing.Agt
                         "closenessCentrality," + NetworkIndexes.closenessCentrality(node) + "\r\n" +
                         "AverageDistance," + NetworkIndexes.averageDistanceNode(node) + "\r\n" +
                         "maxDistance," + NetworkIndexes.maxDistanceNode(node) + "\r\n" +
-                        "minDistance," + NetworkIndexes.minDistanceNode(node) + "\r\n" +
-                        "maxEdgeWeight," + NetworkIndexes.maxEdgeweight(node) + "\r\n" +
-                        "minEdgeWeight," + NetworkIndexes.minEdgeweight(node) + "\r\n" +
-                        "aveEdgeWeight," + NetworkIndexes.AveEdgeweight(node);                         
+                        "minDistance," + NetworkIndexes.minDistanceNode(node) + "\r\n";
+                        //"maxEdgeWeight," + NetworkIndexes.maxEdgeweight(node) + "\r\n" +
+                        //"minEdgeWeight," + NetworkIndexes.minEdgeweight(node) + "\r\n" +
+                        //"aveEdgeWeight," + NetworkIndexes.AveEdgeweight(node);                         
             }
         }
 
@@ -382,6 +395,25 @@ namespace OpinionSharing.Agt
 
             }
         }
+
+        //public string CsvAwarenessRate(IAATBasedAgent thisAgent)
+        //{
+    
+        //    foreach (var can in thisAgent.Candidates)
+        //    {
+        //        if (can == thisAgent.CandidateSelector.CurrentCandidate)
+        //        {
+        //            return
+        //                "nodeID," + node.ID + "\r\n" +
+        //                "JumpNumLeft," + can.JumpNumLeft + "\r\n" +
+        //                "JumpNumRight," + can.JumpNumRight + "\r\n" +
+        //                "ImportanceLevel" + can.ImportanceLevel + "\r\n" +
+        //                "AwarenessRate" + can.AwarenessRate;
+        //        }
+        //    }
+        //    return "値が代入できていません";
+
+        //}
 
         //目的をセットする
         //もしかしたらいらないかも

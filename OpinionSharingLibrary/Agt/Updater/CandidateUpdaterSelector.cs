@@ -7,7 +7,6 @@ using System.Diagnostics;
 
 using OpinionSharing.Subject;
 using OpinionSharing.Agt.Algorithm;
-using OpinionSharing.Subject;
 using GraphTheory.Net;
 using OpinionSharing.Agt;
 
@@ -268,7 +267,6 @@ namespace OpinionSharing.Agt
                 //この候補は意見形成できるか？
                 bool formed = OpinionFormed(can,Opinion,counter);
                 //↑can.EstimateAwarenessRateに入れてしまってもいいが入れられない．結構依存が大きい OpinionFormedはImportaceLevelを使う
-
                 //推定値を更新 //意見が更新できたか
                 //1006ここで各候補の意見形成率を更新
                 //つまりcandidateクラスで反映すべき内容か？ほしい情報は候補のkeyと近隣エージェントをひもづけすること．

@@ -28,6 +28,18 @@ namespace OpinionSharing.Agt
         //whiteをもらったら++, Blackをもらったら--
         protected UpdateCounter counter = new UpdateCounter();
 
+        /*
+        public ISet<INode> neighbours;
+        public ISet<INode> Neighbours{
+            get{
+                return neighbours;
+            }
+            set{
+                neighbours = value;
+            }
+        };
+         * */
+
     #endregion private メンバ
 
         public Algorithm.AgentSpec publishSpec() //IAATBasedAgent
@@ -285,6 +297,7 @@ namespace OpinionSharing.Agt
         public virtual void UpdateOpinion(BlackWhiteSubject sub, BeliefUpdater updater)
         {
             thought.Belief = updater.updateBelief(sub, thought.Belief);
+
 
             ////Console.WriteLine("AAT: UpdateOpinion()");
             //意見を変える際に、カウント

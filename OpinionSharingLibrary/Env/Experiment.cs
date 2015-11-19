@@ -40,9 +40,9 @@ namespace OpinionSharing.Env
         public void SetSensorSeed(int s){
             RandomPool.Declare("sensor", s);//ちゃんとinitEnvでseedの設定してるよ
         }
-        public void SetOpinionupdateSeed(int s)
+        public void SetWeightSeed(int s)
         {
-            RandomPool.Declare("opinionupdateset", s);//ちゃんとinitEnvでseedの設定してるよ/重みを生かした意見更新用
+            RandomPool.Declare("WeightSet", s);//ちゃんとinitEnvでseedの設定してるよ
         }
 
 
@@ -267,8 +267,7 @@ namespace OpinionSharing.Env
 
             //センサーのシードをラウンドIDで初期化
             this.SetSensorSeed(seed.Value);
-            //意見更新のシードをラウンドIDで初期化
-            this.SetOpinionupdateSeed(seed.Value);
+            
         }
 
         public bool IsRoundFinished

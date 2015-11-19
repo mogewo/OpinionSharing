@@ -21,7 +21,7 @@ namespace GraphTheory.Net
         private Dictionary<INode, int> distance = new Dictionary<INode, int>();
 
         //重みedge配列
-        private Dictionary<int, double> edgeweight = new Dictionary<int, double>();
+        //private Dictionary<int, double> edgeweight = new Dictionary<int, double>();
 
         //媒介距離リスト
         private List<Dictionary<INode, int>> between = new List<Dictionary<INode, int>>();
@@ -41,6 +41,14 @@ namespace GraphTheory.Net
             }
 
         }
+
+        //public string CsvAwarenessRate
+        //{
+        //    get
+        //    {
+        //        return "test";
+        //    }
+        //}
 
         public Node()
         {
@@ -86,13 +94,13 @@ namespace GraphTheory.Net
         }
 
         //重みエッジ
-        public IDictionary<int, double> Edgeweights
-        {
-            get
-            {
-                return edgeweight;
-            }
-        }
+        //public IDictionary<int, double> Edgeweights
+        //{
+        //    get
+        //    {
+        //        return edgeweight;
+        //    }
+        //}
 
         public IList<Dictionary<INode, int>> Betweens
         {

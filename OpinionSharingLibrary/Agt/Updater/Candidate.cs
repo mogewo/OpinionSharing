@@ -14,8 +14,10 @@ namespace OpinionSharing.Agt
         #region privateメンバ
         private int jumpNum;
         private int otherJumpNum;
+
         private BeliefUpdater beliefUpdater;// ここからImportanceLevelなどが派生する
         private double awarenessRate;
+
         private List<bool> determinedRound;
         //private AgentIO agt;    //重みのためのエージェント
         //private BWMessage mes;  //重みのためのメッセージ

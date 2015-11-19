@@ -62,7 +62,7 @@ namespace MyRandom
 
         public virtual double NextDouble(double min, double max)
         {
-            return rand.NextDouble();
+            return (max  - min) * rand.NextDouble() + min;
         }
 
         //public virtual int Rand(int linkNum)// 2014/8/30 リーダーをランダムに配置するためのランダム

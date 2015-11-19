@@ -20,7 +20,7 @@ namespace GraphTheory.Net
         IDictionary<INode, int> Distances { get; }
 
         //近隣との重みを返す　valueに近隣を与えたい
-        IDictionary<int, double> Edgeweights { get; }
+        //IDictionary<int, double> Edgeweights { get; }
 
         //媒介中心距離
         IList<Dictionary<INode, int>> Betweens { get; }
@@ -29,6 +29,8 @@ namespace GraphTheory.Net
         string Status { get;}
 
         string CsvStatus { get; }
+
+        //string CsvAwarenessRate { get; }
 
     }
 }

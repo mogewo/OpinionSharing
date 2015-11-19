@@ -14,6 +14,8 @@ namespace GraphTheory.Net
         /// リンクに重みを実装します
         /// </summary>
 
+
+        //int→INodeに変える
         public static Dictionary<int, Dictionary<int,double>> edgeWeight_up(Network net)
         {
 
@@ -28,7 +30,7 @@ namespace GraphTheory.Net
                        
                 foreach (var nodeRight in net.Nodes)
                 {
-                    ew[nodeLeft.ID][nodeRight.ID] = Int32.MaxValue;
+                    ew[nodeLeft.ID][nodeRight.ID] = 1;
                                       
                    
                 }

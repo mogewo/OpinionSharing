@@ -56,6 +56,7 @@ namespace OpinionSharingForm
             initAlgoTable();
 
             exp.SetEnvsetSeed(0);   //initEnvでseedの設定してるよ
+            exp.SetWeightSeed(0);   //重みのシード：
             exp.SetFactSeed(0);     //ちゃんとinitEnvでseedの設定してるよ
             exp.SetSensorSeed(0);   //ラウンドの始まりに初期化されますよ．
 
@@ -75,7 +76,8 @@ namespace OpinionSharingForm
                  "LimitedBelief",       
                  "EatingWords",       
                  "PartialLimitedBelief",  
-                 "SubOpinion",       
+                 "SubOpinion",   
+                 "WeightedNeighbour"
             };
 
 
@@ -123,6 +125,9 @@ namespace OpinionSharingForm
 
             //環境つくるためのシードをセット これは環境つくるためのメソッドなのでOK．
             exp.SetEnvsetSeed(seed);
+
+            //重みをつくるためのシードをセット
+            //exp.SetWeightSeed(seed);
             
             //新しいネットワークジェネレータで
             //NetworkGenerator generator = new WSmodelNetworkGenerator(agentNum, expectedDegree, pRewire);
@@ -586,6 +591,41 @@ namespace OpinionSharingForm
                     // ファイルを開くのに失敗したときエラーメッセージを表示
                     System.Console.WriteLine(a.Message);
                 }                        
+        }
+
+        //private void AgentOpinionStatus_Click(object sender, EventArgs e)
+        //{
+            
+        //}
+
+        private void AgtOpinionStatus_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                // appendをtrueにすると，既存のファイルに追記
+                //         falseにすると，ファイルを新規作成する
+                var append = false;
+                // 出力用のファイルを開く
+
+                //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+                //もしくは時間を取得してファイル名にする
+                using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
+                {
+                    foreach (var node in env.Network.Nodes)
+                    {
+                        IAATBasedAgent n = node as IAATBasedAgent;
+
+                        sw.Write("nodeID,"+node.ID);
+                        sw.WriteLine(agentStatePanel.AgtOpinionStatus(n));
+                    }
+                }
+            }
+            catch (System.Exception a)
+            {
+                // ファイルを開くのに失敗したときエラーメッセージを表示
+                System.Console.WriteLine(a.Message);
+            }
         }
 
 

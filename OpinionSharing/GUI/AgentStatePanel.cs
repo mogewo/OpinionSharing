@@ -244,6 +244,41 @@ namespace OpinionSharingForm.GUI
 
             //Candidates_CB.SelectedValueChanged += CandidateCB_SelectedValueChanged;
         }
+
+
+        //ボタン押したときにAgtの意見に関するステータスを返す関数
+        public string AgtOpinionStatus(IAATBasedAgent aat1)
+        {
+
+            if (aat1.Candidates == null)
+            {
+                return "test1";
+            }
+
+            lock (aat1.CandidateLock)
+            {
+                var cands1 = aat1.Candidates;
+                var orderedCands1 = cands1.OrderBy((c) => c.ImportanceLevel);
+
+                foreach (var can in orderedCands1)
+                {
+                    //選択された意見形成率のみを表示
+                    if (can == registeredAgent.CandidateSelector.CurrentCandidate)
+                    {
+                       return
+                        "JumpNumLeft," + can.JumpNumLeft + "\r\n" +
+                        "JumpNumRight," + can.JumpNumRight + "\r\n" +
+                        "ImportanceLevel" + can.ImportanceLevel + "\r\n" +
+                        "AwarenessRate" + can.AwarenessRate;
+                    }
+
+                }
+            }
+
+            return "test failed";
+
+            
+        }
         
 
 

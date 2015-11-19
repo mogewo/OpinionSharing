@@ -48,6 +48,7 @@
     <Compile Include="Agt\Algorithm\StackOpinion.cs" />
     <Compile Include="Agt\Algorithm\UpdateCounter.cs" />
     <Compile Include="Agt\Algorithm\NewDontReply.cs" />
+    <Compile Include="Agt\Algorithm\WeightedNeighbour.cs" />
     <Compile Include="Agt\Factory\AlgorithmFactory.cs" />
     <Compile Include="Agt\IO\AATBasedAgentIO.cs" />
     <Compile Include="Agt\Algorithm\AgentAlgorithm.cs" />

@@ -21,6 +21,7 @@ namespace OpinionSharing.Agt.Factory
              {"PartialLimitedBelief",() => new PartialLimitedBelief()},  
              {"EatingWords",      () => new EatingWords()},  
              {"SubOpinion",       () => new SubOpinion()},
+             {"WeightedNeighbour", () => new WeightedNeighbour()},
              //{"StackOpinion",     () => new StackOpinion()},
         };
 

@@ -142,21 +142,21 @@ namespace GraphTheory.Net
         }
 
         //最小重み
-        public static double minEdgeweight(INode node)
-        {
-            return node.Edgeweights.Min(num => Convert.ToDouble(num.Value));
-        }
+        //public static double minEdgeweight(INode node)
+        //{
+        //    return node.Edgeweights.Min(num => Convert.ToDouble(num.Value));
+        //}
 
-        //最大重み
-        public static double maxEdgeweight(INode node)
-        {
-            return node.Edgeweights.Max(num => Convert.ToDouble(num.Value));
-        }
+        ////最大重み
+        //public static double maxEdgeweight(INode node)
+        //{
+        //    return node.Edgeweights.Max(num => Convert.ToDouble(num.Value));
+        //}
 
-        //平均重み
-        public static double AveEdgeweight(INode node)
-        {
-            return node.Edgeweights.Average(num => Convert.ToDouble(num.Value));
-        }
+        ////平均重み
+        //public static double AveEdgeweight(INode node)
+        //{
+        //    return node.Edgeweights.Average(num => Convert.ToDouble(num.Value));
+        //}
     }
 }
