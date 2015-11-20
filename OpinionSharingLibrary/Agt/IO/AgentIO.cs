@@ -27,7 +27,11 @@ namespace OpinionSharing.Agt
         protected MessageQueue messageQueue = new MessageQueue();
 
         //実際に処理する実装
-        protected AgentAlgorithm algorithm;
+        //protected AgentAlgorithm algorithm;
+
+        //解析のためとりあえずpublicにしました 11/20
+        public AgentAlgorithm algorithm;
+
 
 
         //センサーエージェントの場合はセンサーをもっている
@@ -68,6 +72,7 @@ namespace OpinionSharing.Agt
             get
             {
                 return algorithm;
+                 
             }
             set
             {
@@ -103,7 +108,6 @@ namespace OpinionSharing.Agt
                 //{
                 //    (algorithm as WeightedNeighbour).Edgeweights = this.Edgeweights;
                 //}
-
 
 
                 //新アルゴリズムにイベントを追加
@@ -398,7 +402,7 @@ namespace OpinionSharing.Agt
 
         //public string CsvAwarenessRate(IAATBasedAgent thisAgent)
         //{
-    
+        //    this.Network.
         //    foreach (var can in thisAgent.Candidates)
         //    {
         //        if (can == thisAgent.CandidateSelector.CurrentCandidate)

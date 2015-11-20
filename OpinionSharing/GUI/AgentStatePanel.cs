@@ -111,6 +111,8 @@ namespace OpinionSharingForm.GUI
                 AlgorithmLabel.Text = aat.GetType().Name;
                 TargetAwarenessRateLabel.Text = aat.TargetAwarenessRate.ToString();
                 PrepareCandidatesCB(aat);
+                //追記
+                //AgtOpinionStatus(aat);
 
                 /*各指標の表示*/
                 otherStates.Text = bodyAsINode.Status;
@@ -140,14 +142,53 @@ namespace OpinionSharingForm.GUI
                     if (candidate == registeredAgent.CandidateSelector.CurrentCandidate)
                     {
                         Console.Write("<==== this one!");
-                    }
 
-                    Console.WriteLine();
+
+                        //とりあえず整理もくそもない出力
+                        #region CSV出力
+
+
+                        //    int x = candidate.JumpNumLeft;
+                        //    string s0 = x.ToString();
+                        //     int y = candidate.JumpNumRight;
+                        //    string s1 = y.ToString();
+                        //     double z = candidate.ImportanceLevel;
+                        //    string s2 = z.ToString();
+                        //     double w = candidate.AwarenessRate;
+                        //    string s3 = w.ToString();
+
+                        //    try
+                        //    {
+                        //        // appendをtrueにすると，既存のファイルに追記
+                        //        //         falseにすると，ファイルを新規作成する
+                        //        var append = false;
+                        //        // 出力用のファイルを開く
+                        //        List<string> opinionStatus = new List<string>(){s0+","+s1+","+s2+","+s3};
+                        //        //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+                        //        //もしくは時間を取得してファイル名にする
+                        //        using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
+                        //        {
+                        //            foreach (string str in opinionStatus)
+                        //            {
+                        //                sw.WriteLine(str);
+                        //            }
+                        //        }     
+                        //    }
+
+                        //    catch (System.Exception a)
+                        //    {
+                        //        // ファイルを開くのに失敗したときエラーメッセージを表示
+                        //        System.Console.WriteLine(a.Message);
+                        //    }
+                        //}
+                        #endregion
+
+                        Console.WriteLine();
+                    }
                 }
-            }
 
         #endregion
-
+            }
             }
 
       
@@ -247,38 +288,72 @@ namespace OpinionSharingForm.GUI
 
 
         //ボタン押したときにAgtの意見に関するステータスを返す関数
-        public string AgtOpinionStatus(IAATBasedAgent aat1)
-        {
+        //public void AgtOpinionStatusCsv(IAATBasedAgent a1)
+        //{
+        //    if (a1.Candidates == null)
+        //    {
+        //        return;
+        //    }
+        //    #region 試行錯誤
+        //    //lock (a1.CandidateLock)
+        //    //{
+        //    //    var cands1 = a1.Candidates;
+        //    //    var orderedCands1 = cands1.OrderBy((c) => c.ImportanceLevel);
 
-            if (aat1.Candidates == null)
-            {
-                return "test1";
-            }
+        //    //    foreach (var can in orderedCands1)
+        //    //    {
+        //    //        //選択された意見形成率のみを表示
+        //    //        if (can == registeredAgent.CandidateSelector.CurrentCandidate)
+        //    //        {
+        //    //           return
+        //    //            "JumpNumLeft," + can.JumpNumLeft + "\r\n" +
+        //    //            "JumpNumRight," + can.JumpNumRight + "\r\n" +
+        //    //            "ImportanceLevel" + can.ImportanceLevel + "\r\n" +
+        //    //            "AwarenessRate" + can.AwarenessRate;
+        //    //        }
 
-            lock (aat1.CandidateLock)
-            {
-                var cands1 = aat1.Candidates;
-                var orderedCands1 = cands1.OrderBy((c) => c.ImportanceLevel);
+        //    //    }
+        //    //}
 
-                foreach (var can in orderedCands1)
-                {
-                    //選択された意見形成率のみを表示
-                    if (can == registeredAgent.CandidateSelector.CurrentCandidate)
-                    {
-                       return
-                        "JumpNumLeft," + can.JumpNumLeft + "\r\n" +
-                        "JumpNumRight," + can.JumpNumRight + "\r\n" +
-                        "ImportanceLevel" + can.ImportanceLevel + "\r\n" +
-                        "AwarenessRate" + can.AwarenessRate;
-                    }
+        //    //return "test failed";
+        //    #endregion
+        //    try
+        //    {
+        //        // appendをtrueにすると，既存のファイルに追記
+        //        //         falseにすると，ファイルを新規作成する
+        //        var append = false;
+        //        // 出力用のファイルを開く
 
-                }
-            }
+        //        //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+        //        //もしくは時間を取得してファイル名にする
+        //        using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
+        //        {
+                    
+        //                var cand_agt = a1.Candidates;
+        //                var orderedCand_agt = cand_agt.OrderBy((c) => c.ImportanceLevel);
+        //                foreach (var can in orderedCand_agt)
+        //                {
+        //                    if (can == registeredAgent.CandidateSelector.CurrentCandidate)
+        //                    {
+        //                        sw.WriteLine("nodeID:{4}, JunmNumLeft:{0}, JunmNumLeft:{1}, ImportanceLevel:{2}, AwarenessRate:{3},",
+        //                            can.JumpNumLeft.ToString(),
+        //                            can.JumpNumRight.ToString(),
+        //                            can.ImportanceLevel.ToString(),
+        //                            can.AwarenessRate.ToString()
+        //                            );
+        //                    }
 
-            return "test failed";
+        //                }
+        //            }
+        //    }
+        //    catch (System.Exception a)
+        //    {
+        //        // ファイルを開くのに失敗したときエラーメッセージを表示
+        //        System.Console.WriteLine(a.Message);
+        //    }
 
             
-        }
+        //}
         
 
 

@@ -247,6 +247,55 @@ namespace OpinionSharingForm
             }
         }
 
+        private void WriteOpinionStatusCsv()
+        {
+
+            //IAATBasedAgent agt = agentStatePanel.Agent;
+            //if (agt.Candidates == null)
+            //{
+            //    return;
+            //}
+
+            //try
+            //{
+            //    // appendをtrueにすると，既存のファイルに追記
+            //    //         falseにすると，ファイルを新規作成する
+            //    var append = false;
+            //    // 出力用のファイルを開く
+
+            //    //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+            //    //もしくは時間を取得してファイル名にする
+            //    using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
+            //    {
+            //        foreach (var node in env.Network.Nodes)
+            //        {
+            //            IAATBasedAgent agt1 = node as IAATBasedAgent;
+            //            var cand_agt = agt1.Candidates;
+            //            var orderedCand_agt = cand_agt.OrderBy((c) => c.ImportanceLevel);
+            //            foreach (var can in orderedCand_agt)
+            //            {
+            //                if (can == agt.CandidateSelector.CurrentCandidate)
+            //                {
+            //                    sw.WriteLine("nodeID:{4}, JunmNumLeft:{0}, JunmNumLeft:{1}, ImportanceLevel:{2}, AwarenessRate:{3},", 
+            //                        node.ID,
+            //                        can.JumpNumLeft.ToString(),
+            //                        can.JumpNumRight.ToString(),
+            //                        can.ImportanceLevel.ToString(),
+            //                        can.AwarenessRate.ToString()
+            //                        );
+            //                }
+
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (System.Exception a)
+            //{
+            //    // ファイルを開くのに失敗したときエラーメッセージを表示
+            //    System.Console.WriteLine(a.Message);
+            //}
+        }
+
 
         private void updateStepInfo()
         {
@@ -429,8 +478,28 @@ namespace OpinionSharingForm
             {
                 
 
+
                 Invoke(new Action(() => LearningProcess.Value = 100));
 
+                using (var sw = new System.IO.StreamWriter(@"result.csv", false))
+                {
+                    
+                    sw.WriteLine("ID,Awareness Rate, Importance Level, JumpNumleft, JumpNumRight");
+                }
+
+                foreach (var node in env.Network.Nodes)
+                {
+
+                    AgentIO agt = node as AgentIO;
+
+                    using (var sw = new System.IO.StreamWriter(@"result.csv", true))
+                    {
+                        sw.WriteLine("{0},{1},{2},{3},{4}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight);
+                    }
+
+                }
+                
+                
                 MessageBox.Show("learning finished!");
 
                 Invoke(new Action(() => LearningProcess.Value = 0));
@@ -563,7 +632,7 @@ namespace OpinionSharingForm
 
         }
 
-        //dump用ボタン
+        //************************dumpで各種指標，意見形成率などを出力したい********
         private void NetworkIndeces_Click(object sender, EventArgs e)
         {
 
@@ -593,41 +662,54 @@ namespace OpinionSharingForm
                 }                        
         }
 
-        //private void AgentOpinionStatus_Click(object sender, EventArgs e)
-        //{
-            
-        //}
-
+     
+        //実装ボロボロ
         private void AgtOpinionStatus_Click(object sender, EventArgs e)
         {
-           
-            try
-            {
-                // appendをtrueにすると，既存のファイルに追記
-                //         falseにすると，ファイルを新規作成する
-                var append = false;
-                // 出力用のファイルを開く
+            //agentStatePanel.OpinionStatusCsv(agentStatePanel.Agent);
+            #region 試行錯誤
+            //try
+            //{
+            //    // appendをtrueにすると，既存のファイルに追記
+            //    //         falseにすると，ファイルを新規作成する
+            //    var append = false;
+            //    // 出力用のファイルを開く
 
-                //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
-                //もしくは時間を取得してファイル名にする
-                using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
-                {
-                    foreach (var node in env.Network.Nodes)
-                    {
-                        IAATBasedAgent n = node as IAATBasedAgent;
+            //    //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+            //    //もしくは時間を取得してファイル名にする
+            //    using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
+            //    {
+            //        foreach (var node in env.Network.Nodes)
+            //        {
+            //            IAATBasedAgent agt1 = node as IAATBasedAgent;
+            //            var cand_agt = agt1.Candidates;
+            //            var orderedCand_agt = cand_agt.OrderBy((c) => c.ImportanceLevel);
+            //            foreach (var can in orderedCand_agt)
+            //            {
+            //                if (can == agt.CandidateSelector.CurrentCandidate)
+            //                {
+            //                    sw.WriteLine("nodeID:{4}, JunmNumLeft:{0}, JunmNumLeft:{1}, ImportanceLevel:{2}, AwarenessRate:{3},",
+            //                        node.ID,
+            //                        can.JumpNumLeft.ToString(),
+            //                        can.JumpNumRight.ToString(),
+            //                        can.ImportanceLevel.ToString(),
+            //                        can.AwarenessRate.ToString()
+            //                        );
+            //                }
 
-                        sw.Write("nodeID,"+node.ID);
-                        sw.WriteLine(agentStatePanel.AgtOpinionStatus(n));
-                    }
-                }
-            }
-            catch (System.Exception a)
-            {
-                // ファイルを開くのに失敗したときエラーメッセージを表示
-                System.Console.WriteLine(a.Message);
-            }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (System.Exception a)
+            //{
+            //    // ファイルを開くのに失敗したときエラーメッセージを表示
+            //    System.Console.WriteLine(a.Message);
+            //}
+            #endregion
         }
 
+        //********************************************************************
 
     }
 }
