@@ -247,55 +247,89 @@ namespace OpinionSharingForm
             }
         }
 
-        private void WriteOpinionStatusCsv()
+        //private void WriteOpinionStatusCsv()
+        //{
+
+        //    //IAATBasedAgent agt = agentStatePanel.Agent;
+        //    //if (agt.Candidates == null)
+        //    //{
+        //    //    return;
+        //    //}
+
+        //    //try
+        //    //{
+        //    //    // appendをtrueにすると，既存のファイルに追記
+        //    //    //         falseにすると，ファイルを新規作成する
+        //    //    var append = false;
+        //    //    // 出力用のファイルを開く
+
+        //    //    //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
+        //    //    //もしくは時間を取得してファイル名にする
+        //    //    using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
+        //    //    {
+        //    //        foreach (var node in env.Network.Nodes)
+        //    //        {
+        //    //            IAATBasedAgent agt1 = node as IAATBasedAgent;
+        //    //            var cand_agt = agt1.Candidates;
+        //    //            var orderedCand_agt = cand_agt.OrderBy((c) => c.ImportanceLevel);
+        //    //            foreach (var can in orderedCand_agt)
+        //    //            {
+        //    //                if (can == agt.CandidateSelector.CurrentCandidate)
+        //    //                {
+        //    //                    sw.WriteLine("nodeID:{0}, JunmNumLeft:{1}, JunmNumLeft:{2}, ImportanceLevel:{3}, AwarenessRate:{4},",
+        //    //                        node.ID,
+        //    //                        can.JumpNumLeft.ToString(),
+        //    //                        can.JumpNumRight.ToString(),
+        //    //                        can.ImportanceLevel.ToString(),
+        //    //                        can.AwarenessRate.ToString()
+        //    //                        );
+        //    //                }
+
+        //    //            }
+        //    //        }
+        //    //    }
+        //    //}
+        //    //catch (System.Exception a)
+        //    //{
+        //    //    // ファイルを開くのに失敗したときエラーメッセージを表示
+        //    //    System.Console.WriteLine(a.Message);
+        //    //}
+
+        //}
+
+
+        
+
+        /***************agentの意見の推移をCsvファイルで出力***********/
+        private void OpinionStatusCsv()
         {
+            try
+            {
+                using (var sw = new System.IO.StreamWriter(@"AgtOpinionStatus.csv", false))
+                {
 
-            //IAATBasedAgent agt = agentStatePanel.Agent;
-            //if (agt.Candidates == null)
-            //{
-            //    return;
-            //}
+                    sw.WriteLine("ID,Awareness Rate, Importance Level, BlackNum, WhiteNum, blackCount, WhiteCount");//~Numは意見を形成に必要な意見数，~Countは実際にもらった意見
+                }
 
-            //try
-            //{
-            //    // appendをtrueにすると，既存のファイルに追記
-            //    //         falseにすると，ファイルを新規作成する
-            //    var append = false;
-            //    // 出力用のファイルを開く
+                foreach (var node in env.Network.Nodes)
+                {
 
-            //    //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
-            //    //もしくは時間を取得してファイル名にする
-            //    using (var sw = new System.IO.StreamWriter(@"./AgentOpinionStatus.csv", append))
-            //    {
-            //        foreach (var node in env.Network.Nodes)
-            //        {
-            //            IAATBasedAgent agt1 = node as IAATBasedAgent;
-            //            var cand_agt = agt1.Candidates;
-            //            var orderedCand_agt = cand_agt.OrderBy((c) => c.ImportanceLevel);
-            //            foreach (var can in orderedCand_agt)
-            //            {
-            //                if (can == agt.CandidateSelector.CurrentCandidate)
-            //                {
-            //                    sw.WriteLine("nodeID:{4}, JunmNumLeft:{0}, JunmNumLeft:{1}, ImportanceLevel:{2}, AwarenessRate:{3},", 
-            //                        node.ID,
-            //                        can.JumpNumLeft.ToString(),
-            //                        can.JumpNumRight.ToString(),
-            //                        can.ImportanceLevel.ToString(),
-            //                        can.AwarenessRate.ToString()
-            //                        );
-            //                }
+                    AgentIO agt = node as AgentIO;
 
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (System.Exception a)
-            //{
-            //    // ファイルを開くのに失敗したときエラーメッセージを表示
-            //    System.Console.WriteLine(a.Message);
-            //}
+                    using (var sw = new System.IO.StreamWriter(@"AgtOpinionStatus.csv", true))
+                    {
+                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight, agt.BlackCount, agt.WhiteCount);
+                    }
+
+                }
+            }
+            catch (System.Exception a)
+            {
+                // ファイルを開くのに失敗したときエラーメッセージを表示
+                System.Console.WriteLine(a.Message);
+            }
+
         }
-
 
         private void updateStepInfo()
         {
@@ -396,8 +430,11 @@ namespace OpinionSharingForm
 
             //Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
             //    acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
+
+
             //csv書き込み開始
             this.WriteCsv();
+            //this.OpinionStatusCsv();
 
             Invoke(new Action(updateStepInfo));
 
@@ -474,6 +511,8 @@ namespace OpinionSharingForm
         {
             StopAnimation();
 
+            
+
             Task.Factory.StartNew(learning).ContinueWith((Task t) =>
             {
                 
@@ -484,18 +523,24 @@ namespace OpinionSharingForm
                 using (var sw = new System.IO.StreamWriter(@"result.csv", false))
                 {
                     
-                    sw.WriteLine("ID,Awareness Rate, Importance Level, JumpNumleft, JumpNumRight");
+                    sw.WriteLine("ID,Awareness Rate, Importance Level, JumpNumleft, JumpNumRight, BlackCount, WhiteCount");
                 }
+
 
                 foreach (var node in env.Network.Nodes)
                 {
 
                     AgentIO agt = node as AgentIO;
 
+                    //一度カウントを0にする
+                    agt.BlackCount = 0;
+                    agt.WhiteCount = 0;
+
                     using (var sw = new System.IO.StreamWriter(@"result.csv", true))
                     {
-                        sw.WriteLine("{0},{1},{2},{3},{4}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight);
+                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight, agt.BlackCount, agt.WhiteCount);
                     }
+
 
                 }
                 

@@ -17,7 +17,7 @@ namespace Log
         static public Dictionary<string, ILogger> logDict { get; private set; }
         static public HashSet<string> logNotCache { get; private set; }
 
-        static private string dirName = "";
+        static private string dirName = "WeightedNeighbour_result";
 
         /// <summary>
         /// フォルダ名にする日付、時分秒

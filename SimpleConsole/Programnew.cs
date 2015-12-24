@@ -78,6 +78,10 @@ namespace SimpleConsole
                 {
                     generator = new LeaderNetworkGenerator(size, expd, 0.12, linkNum);
                 }
+                //else if (netStr == "WeightedNeighbour")
+                //{
+                //    generator = new WeightedNeighbour();
+                //}
 
 
                 //シェルを作る
@@ -119,8 +123,8 @@ namespace SimpleConsole
 
             //string algoStr = "NewDontReply";
             //string netStr = "WS";
-            string algoStr = "AAT";//リーダーネットワークでAAT　2014_0707追加
-            string netStr = "Leader";
+            string algoStr = "WeightedNeighbour";//リーダーネットワークでAAT　2014_0707追加
+            string netStr = "WS";
             int envseed = 0;
             double cluster = 0;
  

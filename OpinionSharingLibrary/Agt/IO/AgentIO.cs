@@ -33,6 +33,10 @@ namespace OpinionSharing.Agt
         public AgentAlgorithm algorithm;
 
 
+        /******どちらの意見を受け取ったカウントする用の変数*********/
+        private int whiteCount = 0;
+        private int blackCount = 0;
+
 
         //センサーエージェントの場合はセンサーをもっている
         protected Sensor sensor;
@@ -154,6 +158,17 @@ namespace OpinionSharing.Agt
             }
         }
 
+        public int WhiteCount
+        {
+            get { return this.whiteCount; }
+            set { whiteCount = value; }
+        }
+
+        public int BlackCount
+        {
+            get { return this.blackCount; }
+            set { blackCount = value; }
+        }
 
         #endregion プロパティ
 
@@ -231,6 +246,15 @@ namespace OpinionSharing.Agt
         //ここで重みの確率で意見をもらうかもらわないかを行えばいい？
         public virtual void ReceiveOpinion(BWMessage message)
         {
+
+            if (message.Subject == BlackWhiteSubject.Black)
+            {
+                blackCount++;
+            }
+            if (message.Subject == BlackWhiteSubject.White)
+            {
+                whiteCount++;
+            }
     
             //確率更新用
             //初期乱数生成
