@@ -11,6 +11,7 @@ namespace GraphTheory.Net
     public class Network
     {
         //こいつがagentsとmembersをあらわす。エージェントからそのご近所さんへのマップ
+        //あらかじめ，ご近所を計算しておき，いちいち計算しなくてよいようにする．
         private Dictionary<INode, HashSet<INode>> members = new Dictionary<INode, HashSet<INode>>();
         //距離の再計算を行うフラグ
         private bool calculateDistance = true;
@@ -184,6 +185,10 @@ namespace GraphTheory.Net
             }
             members[a1].Remove(a2);
             members[a2].Remove(a1);
+
+            //それぞれに通知
+            a1.disconnected(a2);
+            a2.disconnected(a1);
 
             //距離を再計算
             if (calculateDistance)

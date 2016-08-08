@@ -127,6 +127,16 @@ namespace OpinionSharing.Agt
             }
         }
 
+        public void connected(INode neighbour)
+        {
+            this.algorithm.connected(neighbour);
+        }
+        // disconnectmo!!!
+        public void disconnected(INode neighbour)
+        {
+            this.algorithm.disconnected(neighbour);
+        }
+
         protected virtual void AddEvents()
         {
 

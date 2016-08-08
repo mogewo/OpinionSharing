@@ -63,7 +63,7 @@ namespace SimpleConsole
                 //環境を作る
                 if (netStr == "WS")
                 {
-                    generator = new WSmodelNetworkGenerator(size, expd, 0.12);
+                    generator = new Dynamic_WSmodelNetworkGenerator(size, expd, 0.12);
                 }
                 else if (netStr == "BA")
                 {

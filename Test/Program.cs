@@ -27,7 +27,7 @@ namespace Test
             //RandomPool.Get();
             
             
-            NetworkGenerator generator = new WSmodelNetworkGenerator(100, 8, 0.12);
+            NetworkGenerator generator = new Dynamic_WSmodelNetworkGenerator(100, 8, 0.12);
             generator.NodeCreate += () => new Node();
             //          =  generator.NodeCreate += createNode;
             Network net = generator.create();

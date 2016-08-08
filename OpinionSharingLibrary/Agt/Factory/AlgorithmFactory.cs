@@ -18,7 +18,7 @@ namespace OpinionSharing.Agt.Factory
              {"DontReply",        () => new DontReply()},  
              {"NewDontReply",        () => new NewDontReply()},  
              {"LimitedBelief",     () => new LimitedBelief()},  
-             {"PartialLimitedBelief",() => new PartialLimitedBelief()},  
+             {"PartialLimitedBelief",() => new DynamicAAT()},  
              {"EatingWords",      () => new EatingWords()},  
              {"SubOpinion",       () => new SubOpinion()},
              {"WeightedNeighbour", () => new WeightedNeighbour()},

@@ -76,6 +76,16 @@ namespace GraphTheory.Net
             }
         }
 
+        public void Connected(INode neighbour)
+        {
+            net.ConnectNode(net.Links.ElementAt(neighbour.ID));
+ 
+        }
+        public void disConnected(INode neighbour)
+        {
+
+        }
+
 
         public ISet<INode> Neighbours
         {

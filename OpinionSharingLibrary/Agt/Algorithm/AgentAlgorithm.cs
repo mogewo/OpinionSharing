@@ -21,6 +21,20 @@ namespace OpinionSharing.Agt
         {
         }
 
+        public virtual void connected(INode neighbour)
+        {
+            Console.WriteLine("connected to " + neighbour);
+            return ;
+        }
+
+        public virtual void disconnected(INode neighbour)
+        {
+            Console.WriteLine("disconnected from" + neighbour);
+
+            return;
+        }
+
+
     #region private&protectedメンバ
         private AgentIO body;
 

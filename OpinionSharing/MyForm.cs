@@ -151,6 +151,10 @@ namespace OpinionSharingForm
             {
                 generator = new LeaderNetworkGenerator(agentNum, expectedDegree, pRewire,99);//, pRewire);
             }
+            else if (generatorstr == "DWS")
+            {
+                generator = new Dynamic_WSmodelNetworkGenerator(agentNum, expectedDegree, pRewire);
+            }
 
 
 

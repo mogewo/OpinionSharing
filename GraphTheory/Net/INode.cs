@@ -16,6 +16,12 @@ namespace GraphTheory.Net
         //近隣を返す
         ISet<INode> Neighbours{get;}//重複がないSet
 
+        //他とつながれたときにNetworkから呼ばれる
+        void connected(INode neighbour);
+
+        //他と分断されたときにNetworkから呼ばれる
+        void disconnected(INode neighbour); 
+
         //各ノードとの距離を返す
         IDictionary<INode, int> Distances { get; }
 

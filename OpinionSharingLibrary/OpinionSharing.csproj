@@ -49,6 +49,7 @@
     <Compile Include="Agt\Algorithm\UpdateCounter.cs" />
     <Compile Include="Agt\Algorithm\NewDontReply.cs" />
     <Compile Include="Agt\Algorithm\WeightedNeighbour.cs" />
+    <Compile Include="Agt\Algorithm\DynamicAAT.cs" />
     <Compile Include="Agt\Factory\AlgorithmFactory.cs" />
     <Compile Include="Agt\IO\AATBasedAgentIO.cs" />
     <Compile Include="Agt\Algorithm\AgentAlgorithm.cs" />
@@ -73,9 +74,7 @@
     <Compile Include="Agt\Algorithm\DontReply.cs" />
     <Compile Include="Agt\Updater\CandidateUpdaterSelector.cs" />
     <Compile Include="Agt\Updater\ThoughtTwin.cs" />
-    <Compile Include="Influential\Infuential.cs" />
     <Compile Include="Network\LeaderNetworkGenerator.cs" />
-    <Compile Include="Subject\Purpose.cs" />
     <Compile Include="Subject\UserSensor.cs" />
     <Compile Include="Agt\IO\AgentIO.cs" />
     <Compile Include="Env\Environment.cs" />

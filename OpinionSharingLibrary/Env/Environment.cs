@@ -32,6 +32,27 @@ namespace OpinionSharing.Env
         public List<double> ImportanceLevel { get; private set;}
 
 
+        public void disconnectSomething()
+        {
+
+            //消す奴をきめる
+            //List<int> indexes = new InitableRandom.getRandomIndexes(Network.Links.Count,5);
+            //var selectedDisconecctedIndexes = RandomPool.Get("disconnectedset").getRandomIndexes(this.Network.Links.Count(), 5);
+            List<int> indexes= RandomPool.Get("disconnectedset").getRandomIndexes(this.Network.Links.Count(), 5);
+            
+            List<Link> selectedDisLinks = new List<Link>();
+          
+            foreach (var i in indexes)
+            {
+                Link l = this.Network.Links.ElementAt(i);
+                selectedDisLinks.Add(l);                           
+            }
+            foreach (Link link in selectedDisLinks)
+            {
+                Network.DisconnectNode(link);
+            }
+
+        }
 
         internal void Initialize()
         {

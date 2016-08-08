@@ -7,9 +7,9 @@ using System.Text;
 using OpinionSharing.Subject;
 using MyRandom;
 
-namespace OpinionSharing.Agt.Algorithm
+namespace OpinionSharing.Agt
 {
-    public class PartialLimitedBelief : AAT //NoMoreの上位互換。h_trg=1のとき、チート。
+    public class DynamicAAT : AAT //NoMoreの上位互換。h_trg=1のとき、チート。
     {
 
 
