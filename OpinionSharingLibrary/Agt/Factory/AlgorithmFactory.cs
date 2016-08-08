@@ -22,6 +22,7 @@ namespace OpinionSharing.Agt.Factory
              {"EatingWords",      () => new EatingWords()},  
              {"SubOpinion",       () => new SubOpinion()},
              {"WeightedNeighbour", () => new WeightedNeighbour()},
+             {"DynamicAAT", () => new DynamicAAT()},
              //{"StackOpinion",     () => new StackOpinion()},
         };
 

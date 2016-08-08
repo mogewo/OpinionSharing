@@ -77,7 +77,8 @@ namespace OpinionSharingForm
                  "EatingWords",       
                  "PartialLimitedBelief",  
                  "SubOpinion",   
-                 "WeightedNeighbour"
+                 "WeightedNeighbour",
+                 "DynamicAAT"
             };
 
 
@@ -756,6 +757,11 @@ namespace OpinionSharingForm
             //    System.Console.WriteLine(a.Message);
             //}
             #endregion
+        }
+
+        private void figurePanel_Load_1(object sender, EventArgs e)
+        {
+
         }
 
         //********************************************************************

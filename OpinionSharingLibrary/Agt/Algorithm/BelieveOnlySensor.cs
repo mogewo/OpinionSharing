@@ -9,7 +9,7 @@ using MyRandom;
 
 namespace OpinionSharing.Agt
 {
-    public class DynamicAAT : AAT //NoMoreの上位互換。h_trg=1のとき、チート。
+    public class believeOnlySensor : AAT //NoMoreの上位互換。h_trg=1のとき、チート。
     {
 
 

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.6D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.3D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.1D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.6D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.3D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0.1D);
             this.AnimationTimer = new System.Windows.Forms.Timer(this.components);
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
             this.figurePanel = new OpinionSharingForm.GUI.FigurePanel();
@@ -76,9 +76,9 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Label();
             this.dump = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.NetworkIndeces = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
@@ -135,34 +135,35 @@
             this.figurePanel.Name = "figurePanel";
             this.figurePanel.Size = new System.Drawing.Size(1031, 704);
             this.figurePanel.TabIndex = 0;
+            this.figurePanel.Load += new System.EventHandler(this.figurePanel_Load_1);
             // 
             // AccuracyChart
             // 
             this.AccuracyChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.AccuracyChart.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.AccuracyChart.ChartAreas.Add(chartArea1);
             this.AccuracyChart.DataSource = this.expAccuracyBindingSource;
-            legend2.Name = "Legend1";
-            this.AccuracyChart.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.AccuracyChart.Legends.Add(legend1);
             this.AccuracyChart.Location = new System.Drawing.Point(38, 523);
             this.AccuracyChart.Name = "AccuracyChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.IsXValueIndexed = true;
-            series2.LabelBackColor = System.Drawing.Color.Transparent;
-            series2.Legend = "Legend1";
-            series2.Name = "Accuracy";
-            dataPoint4.AxisLabel = "Correct";
-            dataPoint4.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint5.AxisLabel = "Incorrect";
-            dataPoint5.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint6.AxisLabel = "Undeter";
-            dataPoint6.LabelBackColor = System.Drawing.Color.Transparent;
-            series2.Points.Add(dataPoint4);
-            series2.Points.Add(dataPoint5);
-            series2.Points.Add(dataPoint6);
-            this.AccuracyChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.IsXValueIndexed = true;
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.Name = "Accuracy";
+            dataPoint1.AxisLabel = "Correct";
+            dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint2.AxisLabel = "Incorrect";
+            dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint3.AxisLabel = "Undeter";
+            dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            this.AccuracyChart.Series.Add(series1);
             this.AccuracyChart.Size = new System.Drawing.Size(372, 190);
             this.AccuracyChart.TabIndex = 4;
             this.AccuracyChart.Text = "chart1";
@@ -565,6 +566,16 @@
             this.dump.Text = "dump";
             this.dump.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.AgtOpinionStatus_Click);
+            // 
             // NetworkIndeces
             // 
             this.NetworkIndeces.Location = new System.Drawing.Point(6, 6);
@@ -579,16 +590,6 @@
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AgtOpinionStatus_Click);
             // 
             // MyForm
             // 

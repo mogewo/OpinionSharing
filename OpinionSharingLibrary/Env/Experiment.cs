@@ -215,10 +215,10 @@ namespace OpinionSharing.Env
                 // 実行結果：ImportanceLevelを受け取る
                 ExpAgentsParam aveIL = calcAverageImportanceLevel();
 
-                if (Step % 10 == 0)
-                {
-                    Environment.disconnectSomething();
-                }
+                //if (Step % 10 == 0)
+                //{
+                //    Environment.disconnectSomething();
+                //}
 
                 if (learning)
                 {
