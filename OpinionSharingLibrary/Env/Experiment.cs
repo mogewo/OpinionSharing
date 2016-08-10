@@ -48,14 +48,14 @@ namespace OpinionSharing.Env
         {
             RandomPool.Declare("WeightSet", s);//ちゃんとinitEnvでseedの設定してるよ
         }
-        public void SetDisconnectedSeed(int s)
-        {
-            RandomPool.Declare("disconnectedset", s);//ちゃんとinitEnvでseedの設定してるよ
-        }
-        public void SetConnectedSeed(int s)
-        {
-            RandomPool.Declare("connectedset", s);//ちゃんとinitEnvでseedの設定してるよ
-        }
+        //public void SetDisconnectedSeed(int s)
+        //{
+        //    RandomPool.Declare("envset", s);//ちゃんとinitEnvでseedの設定してるよ
+        //}
+        //public void SetConnectedSeed(int s)
+        //{
+        //    RandomPool.Declare("connectedset", s);//ちゃんとinitEnvでseedの設定してるよ
+        //}
 
 
         public BlackWhiteSubject? Fact{get;set;}
@@ -209,16 +209,17 @@ namespace OpinionSharing.Env
 
             ManySteps(SensorRate);
 
+            ///
+            //ネットワークの再設定を行う必要あり
+            ///
+
                 // 実行結果:Accuracyを受け取る 
                 ExpAccuracy res = this.EnvAccuracy;
 
                 // 実行結果：ImportanceLevelを受け取る
                 ExpAgentsParam aveIL = calcAverageImportanceLevel();
 
-                //if (Step % 10 == 0)
-                //{
-                //    Environment.disconnectSomething();
-                //}
+
 
                 if (learning)
                 {
@@ -299,6 +300,11 @@ namespace OpinionSharing.Env
         public void ExecStep(double sensorPercent ) // Step
         {
             Step++;
+
+            if (Step % 10 == 0)
+            {
+                Environment.disconnectSomething();
+            }
 
             //センサーエージェントは観測
             SensorObservation();

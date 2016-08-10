@@ -78,12 +78,12 @@ namespace GraphTheory.Net
 
         public void connected(INode neighbour)
         {
-            net.ConnectNode(net.Links.ElementAt(neighbour.ID));
+            //net.ConnectNode(net.Links.ElementAt(neighbour.ID));
  
         }
         public void disconnected(INode neighbour)
         {
-            net.DisconnectNode(net.Links.ElementAt(neighbour.ID));
+            //net.DisconnectNode(net.Links.ElementAt(neighbour.ID));
         }
 
 

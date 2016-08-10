@@ -115,7 +115,7 @@ namespace OpinionSharingForm.GUI
                 //AgtOpinionStatus(aat);
 
                 /*各指標の表示*/
-                otherStates.Text = bodyAsINode.Status;
+                //otherStates.Text = bodyAsINode.Status;
                                    
             }));
             

@@ -38,19 +38,32 @@ namespace OpinionSharing.Env
             //消す奴をきめる
             //List<int> indexes = new InitableRandom.getRandomIndexes(Network.Links.Count,5);
             //var selectedDisconecctedIndexes = RandomPool.Get("disconnectedset").getRandomIndexes(this.Network.Links.Count(), 5);
-            List<int> indexes= RandomPool.Get("disconnectedset").getRandomIndexes(this.Network.Links.Count(), 5);
+            if (this.Network.Links == null)
+            {
+                Console.WriteLine("disconnectSomethingのNetworkはnullです");
+            }
+            else
+            {
+                var count = this.Network.Links.Count();
+                if (count < 10)
+                {
+                    return;
+                }
+                List<int> dindexes = RandomPool.Get("WeightSet").getRandomIndexes(count, 5);
+
+                List<Link> selectedDisLinks = new List<Link>();
+
+                foreach (var i in dindexes)
+                {
+                    Link l = this.Network.Links.ElementAt(i);
+                    selectedDisLinks.Add(l);
+                }
+                foreach (Link link in selectedDisLinks)
+                {
+                    Network.DisconnectNode(link);
+                }
+            }
             
-            List<Link> selectedDisLinks = new List<Link>();
-          
-            foreach (var i in indexes)
-            {
-                Link l = this.Network.Links.ElementAt(i);
-                selectedDisLinks.Add(l);                           
-            }
-            foreach (Link link in selectedDisLinks)
-            {
-                Network.DisconnectNode(link);
-            }
 
         }
 

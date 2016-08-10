@@ -131,7 +131,7 @@ namespace OpinionSharing.Agt
         {
             if (neighbour == null)
             {
-                Console.WriteLine("neighbourがnullです");
+                throw new Exception("neighbourがnullです");
                 
             }
             else
@@ -143,16 +143,19 @@ namespace OpinionSharing.Agt
         // disconnectmo!!!
         public void disconnected(INode neighbour)
         {
-           
-            if (neighbour != null)
+            if (neighbour == null)
             {
-                Console.WriteLine("neighbourがnullです");
-                
+                throw new Exception("neighbourがnullです");
+
             }
             else
             {
-                this.algorithm.disconnected(neighbour);
+                if (this.algorithm != null)
+                {
+                    this.algorithm.disconnected(neighbour);
+                }
             }
+            
         }
 
         protected virtual void AddEvents()

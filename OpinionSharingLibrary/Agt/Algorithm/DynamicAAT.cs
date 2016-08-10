@@ -28,7 +28,7 @@ namespace OpinionSharing.Agt.Algorithm
         public override void disconnected(GraphTheory.Net.INode neighbour)
         {
             base.disconnected(neighbour);
-            candidateSelector.prevCand(this.CurrentCandidate);
+            candidateSelector.prevCand();
             // neighbourを自分の住所録に削除
         }
 

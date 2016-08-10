@@ -160,9 +160,9 @@ namespace OpinionSharing.Agt
 
     #endregion イベント
 
-        public Candidate prevCand(Candidate currentCandidate)
+        public Candidate prevCand()
         {
-            Candidate prevCandidate;
+            
             IEnumerable<Candidate> sorted = Candidates.OrderBy((el) => el.ImportanceLevel);
             Candidate[] sortedCandidates = sorted.ToArray();
 
@@ -181,33 +181,12 @@ namespace OpinionSharing.Agt
                     //return;
                 }
 
-                if (i == -1)
-                {
-                    throw new Exception("おかしいんでない？");
-                }
-
-                //小さければ一個すすめる
-                if (sortedCandidates[i].AwarenessRate < currentCandidate.AwarenessRate)
-                {
-                    i++;
-                }
-                //一個下がh_trg以上ならば戻る．
-                else if ((i > 0) && (sortedCandidates[i - 1].AwarenessRate > currentCandidate.AwarenessRate))//ここに=が入るかどうかは大問題。=入れて実験してみたい。=入れれば0.94ではなく0.9になったりして。
-                {
-                    i--;
-                }
-                else
-                {
-                    ;//現状維持 
-                }
-
-                i = Math.Max(0, Math.Min(sortedCandidates.Length - 1, i));
+                i = Math.Max(0, Math.Min(sortedCandidates.Length - 1, i-1));
 
                 CurrentCandidate = sortedCandidates[i];
 
-                CurrentCandidate = sortedCandidates[i];
-                prevCandidate = sortedCandidates[i - 1];
-                CurrentCandidate = prevCandidate;
+
+
                 return CurrentCandidate;
 
             }
