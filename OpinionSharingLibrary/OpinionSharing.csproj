@@ -75,6 +75,7 @@
     <Compile Include="Agt\Algorithm\DontReply.cs" />
     <Compile Include="Agt\Updater\CandidateUpdaterSelector.cs" />
     <Compile Include="Agt\Updater\ThoughtTwin.cs" />
+    <Compile Include="Agt\Updater\WeightedBeliefUpdater.cs" />
     <Compile Include="Network\LeaderNetworkGenerator.cs" />
     <Compile Include="Subject\UserSensor.cs" />
     <Compile Include="Agt\IO\AgentIO.cs" />

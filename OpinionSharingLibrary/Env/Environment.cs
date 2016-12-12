@@ -49,7 +49,7 @@ namespace OpinionSharing.Env
                 {
                     return;
                 }
-                List<int> dindexes = RandomPool.Get("WeightSet").getRandomIndexes(count, 5);
+                List<int> dindexes = RandomPool.Get("WeightSet").getRandomIndexes(count, 1);
 
                 List<Link> selectedDisLinks = new List<Link>();
 
@@ -66,6 +66,66 @@ namespace OpinionSharing.Env
             
 
         }
+
+        //ごり押しの極み 重みを任意のタイミングで変更するための関数
+        public void updateWeight(IAgent agent)
+        {
+
+            //foreach (var item in Network.Nodes.Count())
+            //{
+            //    AgentIO agent = this.Network.Nodes.ElementAt(i) as AgentIO;
+            //}
+            
+            if (this.Network.Links == null)
+            {
+                Console.WriteLine("updataWeightのagentはnullです");
+            }
+            else
+            {
+                AgentIO a = agent as AgentIO;
+                foreach (var i in a.Neighbours)
+                {
+                    var n = i as IAgent;
+                    //a.updateEdgeWeight(n);
+
+                    if (a.Algorithm is WeightedNeighbour)
+                    {
+                        (a.Algorithm as WeightedNeighbour).updateEdgeWeight(n);
+                    }
+                }
+                //var opinion = a.Opinion as BlackWhiteSubject;
+                //var mes = new BWMessage(a.Opinion, a);
+                //foreach (var n in a.Neighbours)
+                //{
+                //    algo.updateEdgeWeight(a, mes);
+                //    algo.ProcessMessage();
+                //}
+               
+                //foreach (var n in agent.Neighbours)
+                //{
+                //    algo.updateEdgeWeight(n, message);
+                //}                            
+            }
+
+
+            //var selectedIndexes = RandomPool.Get("envset").getRandomIndexes(this.Network.Nodes.Count(), sensorNum);
+
+            //foreach (var i in selectedIndexes)
+            //{
+            //    //センサーを生成
+            //    Sensor s = new Sensor(TheFact);
+
+            //    //センサーにエージェントをセット(内部でAgentのhavesensorをtrueにしてる．微妙に密結合)
+            //    AgentIO agent = this.Network.Nodes.ElementAt(i) as AgentIO;
+            //    s.SetAgent(agent);
+            //    agent.SetSensor(s);
+            //    this.Sensors.Add(s);
+            //}
+
+
+        }
+
+
 
         internal void Initialize()
         {
@@ -98,7 +158,7 @@ namespace OpinionSharing.Env
 
 
 
-        private void PrepareSensor(int sensorNum)
+        protected virtual void PrepareSensor(int sensorNum)
         {
            //センサー
             Sensors = new List<Sensor>();
@@ -116,7 +176,10 @@ namespace OpinionSharing.Env
                 s.SetAgent(agent);
                 agent.SetSensor(s);
                 this.Sensors.Add(s);
+        
             }
+            //20161208 sensorの精度をバラバラにする
+            //this.Sensors.First().Accuracy = 0.1;
         }
 
         //インフルエンシャルの割り当て

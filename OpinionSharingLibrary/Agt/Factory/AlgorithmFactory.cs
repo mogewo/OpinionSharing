@@ -49,6 +49,7 @@ namespace OpinionSharing.Agt.Factory
             //最後に初期化
             algo.Initialize();
 
+
             return algo as AgentAlgorithm;
         }
     }

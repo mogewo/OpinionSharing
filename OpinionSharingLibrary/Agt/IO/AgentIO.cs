@@ -158,6 +158,8 @@ namespace OpinionSharing.Agt
             
         }
 
+
+
         protected virtual void AddEvents()
         {
 
@@ -340,10 +342,10 @@ namespace OpinionSharing.Agt
             algorithm.RoundInit();
         }
 
-        //
-        public virtual void RoundFinished()
+       
+        public virtual void RoundFinished(BlackWhiteSubject blackWhiteSubject)
         {
-            algorithm.RoundFinished();
+            algorithm.RoundFinished(blackWhiteSubject);
         }
 
         #endregion IAgentを実装
@@ -359,6 +361,8 @@ namespace OpinionSharing.Agt
         public virtual void ProcessMessage(BWMessage mes)
         {
         }
+
+        
 
         #region override public method
         public override string ToString()
@@ -495,6 +499,7 @@ namespace OpinionSharing.Agt
 
         //    }
         //}
+
     }
 }
 

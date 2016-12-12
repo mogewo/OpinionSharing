@@ -13,7 +13,7 @@ namespace OpinionSharing.Subject
 
     public class Sensor : IOpinionSender
     {
-        private readonly double accuracy = 0.55;
+        protected double? accuracy = 0.55;
 
         private IAgent agent; //センサーの値を受け取るエージェント
 
@@ -35,6 +35,10 @@ namespace OpinionSharing.Subject
             get
             {
                 return accuracy;
+            }
+            set {
+                
+                accuracy = value; 
             }
         }
         public IAgent Agent

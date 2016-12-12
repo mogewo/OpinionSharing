@@ -297,13 +297,16 @@ namespace OpinionSharing.Env
 
 
         //ステップ センサーに値が行き、エージェントは聴き、考える。
+        //formをクリックしたときに呼ばれる
         public void ExecStep(double sensorPercent ) // Step
         {
             Step++;
 
-            if (Step % 10 == 0)
+            if (Step % 1000 == 0)
             {
-                Environment.disconnectSomething();
+                //Environment.disconnectSomething();
+                Link();
+                
             }
 
             //センサーエージェントは観測
@@ -349,6 +352,62 @@ namespace OpinionSharing.Env
 
         }
 
+        //動的にリンク切り替える
+        public void ExecStep_weight(double sensorPercent) // Step
+        {
+            Step++;
+
+            //if (Step % 200 == 0)
+            //{
+            //    //Environment.disconnectSomething();
+            //    //Link();
+
+            //}
+
+            //センサーエージェントは観測
+            SensorObservation();
+
+
+            //意見を受け取ったエージェントは、一度耳を閉じて
+            Listen();
+
+
+            //聞いたことを考える
+            Think();
+
+            //現在の環境の状態を表示
+            #region SHOW
+            /*
+            if (Round >= 150 && Round < 153)
+            {
+                double aveBelief = 0;
+                int CorrectNum = 0;
+                int UndeterNum = 0;
+                foreach (IAATBasedAgent aat in Environment.Network.Nodes)
+                {
+                    aveBelief += aat.Belief;
+                    CorrectNum += aat.Opinion == Environment.TheFact.Value ? 1 : 0 ;
+                    UndeterNum += aat.Opinion == null ? 1 : 0 ;
+                }
+                int N = Environment.Network.Nodes.Count();
+
+                double CorrectRate = (double)CorrectNum / N;
+                double UndeterRate = (double)UndeterNum / N;
+                double IncorrectRate = 1.0 - CorrectRate - UndeterRate;
+
+                aveBelief /= N;
+
+                L.g("stepbelief").WriteLine(
+                    string.Format("step: {0} belief: {1} correct: {2} incorrect: {3} undeter: {4}",
+                    Step,aveBelief,CorrectRate,IncorrectRate,UndeterRate));
+            }
+            */
+
+            #endregion SHOW
+
+        }
+
+
         //センサーエージェントは、センサーの値を観測
         private void SensorObservation()
         {
@@ -392,6 +451,16 @@ namespace OpinionSharing.Env
             //*/
         }
 
+        //重みの動的更新
+        private void Link()
+        {
+            
+            foreach (IAgent agent in Environment.Network.Nodes)
+            {
+                Environment.updateWeight(agent);//もっといい名前がほしい！！！！！
+            }
+        }
+
         //それぞれのエージェントが、考える。意見をいうかもしれない。
         private void Think()
         {
@@ -419,14 +488,14 @@ namespace OpinionSharing.Env
                 return Environment.EnvAccuracy;
             }
         }
-
         //
         public void FinishRound()
         {
             //ラウンドが終了 -> AATアルゴリズムを実行，エージェントを初期化
-            foreach (IAgent a in Environment.Network.Nodes)
+            foreach (AgentIO a in Environment.Network.Nodes)
             {
-                a.RoundFinished();
+                a.RoundFinished(Environment.TheFact.Value);
+               
             }
         }
 
@@ -436,12 +505,10 @@ namespace OpinionSharing.Env
             foreach (IAgent a in Environment.Network.Nodes)
             {
                 a.RoundInit();
+                
             }
         }
 
-        public void DynamicRound()
-        {
-        }
 
     }
 }

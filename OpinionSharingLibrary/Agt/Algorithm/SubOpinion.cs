@@ -379,7 +379,7 @@ namespace OpinionSharing.Agt
 
 
         //ラウンドが終わったら、step2,3を実行
-        public override void RoundFinished()
+        public override void RoundFinished(BlackWhiteSubject thefact)
         {
             //AATを実行
 

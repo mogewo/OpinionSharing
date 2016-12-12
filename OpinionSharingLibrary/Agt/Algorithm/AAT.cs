@@ -283,9 +283,12 @@ namespace OpinionSharing.Agt
         public override void ProcessMessage(BWMessage message)
         {
             //センサーからのメッセージならば、センサーの精度分信じる
-            if (message.From != null && message.From.Accuracy != null)
+            if (message.From is Sensor)
             {
-                UpdateOpinion(message.Subject, new BeliefUpdater( message.From.Accuracy.Value));//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+                //UpdateOpinion(message.Subject, new BeliefUpdater( message.From.Accuracy.Value));//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+                UpdateOpinion(message.Subject, new BeliefUpdater( 0.55 ));//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+                //注意！！センサーの精度を決め打ちで0.55と信じちゃってるエージェント．
+                //だからこそ，今は精度の低いセンサーに騙されちゃってるから好都合だからこうしてる．
             }
             //それ以外は、自分のImportanceLevelを使う
             else
@@ -312,7 +315,7 @@ namespace OpinionSharing.Agt
         }
 
         //ラウンドが終わったら、step2,3を実行
-        public override void RoundFinished()
+        public override void RoundFinished(BlackWhiteSubject thefact)
         {
             //AATを実行
 

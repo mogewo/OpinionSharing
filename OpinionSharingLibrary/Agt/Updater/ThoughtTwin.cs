@@ -58,6 +58,7 @@ namespace OpinionSharing.Agt.Updater
             set
             {
                 CurrentThought.Belief = value;
+              
             }
         }
 

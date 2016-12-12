@@ -17,10 +17,10 @@ namespace OpinionSharing.Agt
 
         void ReceiveOpinion(BWMessage message);
         void ProcessMessage(BWMessage message);
-
+        //void updateEdgeWeight();//重みをセットする 具体的な処理はweightedNeighbourで
         void PrepareAlgorithm();
         void RoundInit();
-        void RoundFinished();
+        void RoundFinished(BlackWhiteSubject thefact);
 
     }
 }

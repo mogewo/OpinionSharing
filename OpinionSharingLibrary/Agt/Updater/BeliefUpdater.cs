@@ -16,15 +16,7 @@ namespace OpinionSharing.Agt
     {
         public readonly double ImportanceLevel = 0.55;//!!!!!だめ！！
 
-        #region privateメンバ
-        private AgentIO agt;    //重みのためのエージェント
-        private BWMessage mes;  //重みのためのメッセージ
-        private INode node;
-        //private double ew;      //重み格納用変数
-         #endregion privateメンバ
-
         //8-6追記　重みのために追記
-         #region プロパティ                
         public BeliefUpdater(double v = 0.55)
         {
             ImportanceLevel = v;
@@ -32,45 +24,7 @@ namespace OpinionSharing.Agt
             
         }
 
-        public AgentIO Agt
-        {
-            get
-            {
-                return agt;
-            }
-            set
-            {
-                agt = value;
-            }
-        }
-
-        public BWMessage Mes
-        {
-            get
-            {
-                return mes;
-            }
-            set
-            {
-                mes = value;
-            }
-        }
-
-        public INode Node
-        {
-            get
-            {
-                return node;
-            }
-            set
-            {
-                node = value;
-            }
-        }
-
-         #endregion プロパティ
-
-        public double updateBelief(BlackWhiteSubject sbj, double belief)
+        public virtual double updateBelief(BlackWhiteSubject sbj, double belief)
         {
             double cupd = decideCupd(sbj, ImportanceLevel);
 

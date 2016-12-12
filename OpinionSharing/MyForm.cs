@@ -239,7 +239,9 @@ namespace OpinionSharingForm
 
                 //同じファイルに上書きされているので，クラスの一番上なので宣言して新しくファイルを作成する必要あり
                 //もしくは時間を取得してファイル名にする
-                using (var sw = new System.IO.StreamWriter(@"./SimpleTest.csv", append))
+                var now = DateTime.Now;
+                var filename = @"./SimpleTest"+ now.ToString("yyyyMMdd")  +".csv";
+                using (var sw = new System.IO.StreamWriter(filename, append))
                 {
                         sw.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
                 acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
@@ -387,13 +389,14 @@ namespace OpinionSharingForm
         private void StepButton_Click(object sender, EventArgs e)
         {
             StopAnimation();
-            execStep();
+            //execStep();
+            execStep_weight();
         }
 
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            execStep();
-
+            //execStep();
+            execStep_weight();
         }
 
 
@@ -430,6 +433,7 @@ namespace OpinionSharingForm
         {
             exp.ExecStep(sensorRate);
             //表示を更新
+
             var acc = env.EnvAccuracy;
             
 
@@ -444,6 +448,28 @@ namespace OpinionSharingForm
             Invoke(new Action(updateStepInfo));
 
         }
+
+        //重み用
+        private void execStep_weight()
+        {
+            exp.ExecStep_weight(sensorRate);
+            //表示を更新
+
+            var acc = env.EnvAccuracy;
+
+
+            //Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
+            //    acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
+
+
+            //csv書き込み開始
+            this.WriteCsv();
+            //this.OpinionStatusCsv();
+
+            Invoke(new Action(updateStepInfo));
+
+        }
+
 
         private void InitAnimation()//ラウンドの中身を実行するわけだよ。
         {
@@ -541,6 +567,7 @@ namespace OpinionSharingForm
                     agt.BlackCount = 0;
                     agt.WhiteCount = 0;
 
+                    //意見を受け取った回数のカウント，CSVで出力
                     using (var sw = new System.IO.StreamWriter(@"result.csv", true))
                     {
                         sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight, agt.BlackCount, agt.WhiteCount);

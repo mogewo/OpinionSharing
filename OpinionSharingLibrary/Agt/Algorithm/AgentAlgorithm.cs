@@ -21,6 +21,7 @@ namespace OpinionSharing.Agt
         {
         }
 
+
         public virtual void connected(INode neighbour)
         {
             Console.WriteLine("connected to " + neighbour);
@@ -185,7 +186,7 @@ namespace OpinionSharing.Agt
 
         public abstract void RoundInit();
 
-        public abstract void RoundFinished();
+        public abstract void RoundFinished(BlackWhiteSubject thefact);
 
     #endregion public method
 

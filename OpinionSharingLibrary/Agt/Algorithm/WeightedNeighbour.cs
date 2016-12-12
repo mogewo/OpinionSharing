@@ -11,22 +11,81 @@ using Log;
 namespace OpinionSharing.Agt
 {
     using Subject;
+    using OpinionSharing.Agt.Updater;
 
-    //意見を決めるまでに、意見をもらった人を覚えておいて、そいつには意見を投げない
-    //AwarenessRateの推定がおかしくなる。
-    //渡さないのではなくて、解釈しない　＝＞NoMoreBeliefへ。
+    //意見を決めるまでに、意見をもらった人を覚えておいて、正解と比較する
+    public class WNMessageBox
+    {
+        Queue<BWMessage> messages;
 
+        public WNMessageBox()
+        {
+            messages = new Queue<BWMessage>();
+        }
 
-    public class WeightedNeighbour : AAT
+        public IEnumerable<IOpinionSender> Senders
+        {
+            get
+            {
+                HashSet<IOpinionSender> senders = new HashSet<IOpinionSender>();
+
+                foreach (var message in messages)
+                {
+                    senders.Add(message.From);
+                }
+
+                return senders;
+            }
+        }
+
+        public IEnumerable<BWMessage> Messages
+        {
+            get
+            {
+                foreach (var item in messages)
+                {
+                    yield return item;
+                }
+            }
+        }
+
+        public bool ReceivedFrom(IOpinionSender sender)
+        {
+            foreach (var message in messages)
+            {
+                if (message.From == sender)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void Enqueue(BWMessage message)
+        {
+            messages.Enqueue(message);
+        }
+    }
+
+    public class WeightedNeighbour : LimitedBelief
     {
         //意見をくれたご近所
         //protected DRMessageBox messageBox;
         //public ISet<IAgent> Neighbours { get; set; }
         //public ISet<INode> Neighbours { get; set; }
-        
+        //意見をくれたご近所
+        protected WNMessageBox messageBox;
+
 
         #region 各種プロパティ
         public IDictionary<IAgent, double> EdgeWeights{ get; set; }
+
+        public override void RoundInit()
+        {
+            base.RoundInit();
+
+            messageBox = new WNMessageBox();
+        }
 
         public override AgentIO Body
         {
@@ -56,7 +115,7 @@ namespace OpinionSharing.Agt
         {
             if (this.Neighbours.Contains(a))
             {
-                return this.EdgeWeights[a] == null ? 1.0 : this.EdgeWeights[a];
+                return this.EdgeWeights[a];
             }
             else
             {
@@ -77,12 +136,82 @@ namespace OpinionSharing.Agt
             }            
         }
 
+        public void updateEdgeWeight(IAgent neighbour)
+        {
+            //20161122
+            //if (neighbour != null)
+            //{
+
+            //    if (neighbour.Opinion != null)
+            //    {
+            //        var o = neighbour.Opinion as BlackWhiteSubject;
+            //    }
+
+            //    var mes = new BWMessage(neighbour.Opinion, neighbour);
+            //    IAgent neighbor = mes.From as IAgent;
+
+            //    if (this.Neighbours.Contains(neighbor))
+            //    {
+            //        this.EdgeWeights[neighbour] = RandomPool.Get("envset").NextDouble(0.9, 1.0); //とりあえず0.9~1.0
+            //        double w = this.EdgeWeights[neighbour];
+
+            //        if (mes.From != null && mes.From.Accuracy != null)
+            //        {
+            //            UpdateOpinionWithWeight(mes.Subject, new BeliefUpdater(mes.From.Accuracy.Value), w);//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+            //        }
+            //        //それ以外は、自分のImportanceLevelを使う
+            //        else
+            //        {
+            //            UpdateOpinionWithWeight(mes.Subject, candidateSelector.BeliefUpdater, w);
+            //        }
+            //    }
+            //}
+            
+            ////if (this.Neighbours != null)
+            ////{
+            ////    IAgent n = neighbour as IAgent;
+            ////    if (this.Neighbours.Contains(n))
+            ////    {
+            ////        this.EdgeWeights[n] = RandomPool.Get("envset").NextDouble(0.9, 1.0); //とりあえず0.9~1.0
+            ////        double weight = this.EdgeWeights[n];
+            ////        return weight;
+            ////        //this.ProcessMessage(message);    
+            ////    }
+            ////    //this.EdgeWeights[a] = 0.9;//
+            ////}
+            ////else
+            ////{
+            ////    throw new Exception(this.ID + " : 友達じゃない" + neighbour+ "のことをきかないでください！");
+            ////}
+        }
+
         public override void Initialize()
         {
             base.Initialize();
             EdgeWeights = new Dictionary<IAgent, double>();
+            messageBox = new WNMessageBox();
         }
 
+        //重みの平均を計算する関数
+        public double ave_getEdgeWeight(IAgent a)
+        {
+            double sum = 0;
+
+            if (this.Neighbours != null)
+                foreach (var node in this.Neighbours)
+                {
+                    sum += this.EdgeWeights[node];
+                }
+
+            else
+            {
+                throw new Exception(this.ID + " : の友達はいないです！");
+            }
+
+            double ave = sum / EdgeWeights.Count;
+
+            return ave;
+        }
 
 
         //public override void ProcessMessage(BWMessage message)
@@ -94,43 +223,101 @@ namespace OpinionSharing.Agt
 
         public override void ProcessMessage(BWMessage message)
         {
+            if (message.From != null && message.From is AgentIO)//送信者がエージェントの場合のみ貯める
+            {
+                messageBox.Enqueue(message);
+            }
+
             double w;
 
             if (message.From is Sensor)
             {
-                w = 1.0;
+                w = 0.5;
             }
             else if(message.From is IAgent)
             {
                 IAgent neighbor = message.From as IAgent;
                 w = getEdgeWeight(neighbor);
+                //w = ave_getEdgeWeight(neighbor);
+                //w = 0.5;
             }
             else
             {
-                w = 1;
+                w = 0.5;
             }
+           
+            //tの更新関数
+
+            //base.ProcessMessage();
 
 
-            if (message.From != null && message.From.Accuracy != null)
+            //センサーからのメッセージならば、センサーの精度分信じる
+            if (message.From is Sensor)
             {
-                UpdateOpinionWithWeight(message.Subject, new BeliefUpdater(message.From.Accuracy.Value), w);//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+                //UpdateOpinion(message.Subject, new BeliefUpdater( message.From.Accuracy.Value));//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+                UpdateOpinion(message.Subject, new BeliefUpdater( 0.55 ));//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+                //注意！！センサーの精度を決め打ちで0.55と信じちゃってるエージェント．
+                //だからこそ，今は精度の低いセンサーに騙されちゃってるから好都合だからこうしてる．            
             }
             //それ以外は、自分のImportanceLevelを使う
             else
             {
-                UpdateOpinionWithWeight(message.Subject, candidateSelector.BeliefUpdater, w);
+                UpdateOpinion(
+                    message.Subject, 
+                    new WeightedBeliefUpdater(candidateSelector.BeliefUpdater.ImportanceLevel,w)
+                );
             }
+
+            
+
+            //if (message.From != null && message.From.Accuracy != null)
+            //{
+            //    UpdateOpinionWithWeight(message.Subject, new BeliefUpdater(message.From.Accuracy.Value), w);//センサーの精度をもとに新たなUpdaterを生成。Accuracy をdouble じゃなくてupdaterにしてもいいかもな
+            //}
+            ////それ以外は、自分のImportanceLevelを使う
+            //else
+            //{
+            //    UpdateOpinionWithWeight(message.Subject, candidateSelector.BeliefUpdater, w);
+            //}
         }
+
+        public void checkFact(BlackWhiteSubject fact)
+        {
+           /*自分が所持するメッセージリストと比較し，答え合わせをする*/
+            foreach (var mes in messageBox.Messages)
+            {
+                double updateWidth = 0;
+
+                if (mes.Subject == fact)
+                {
+                    //wを挙げる
+                    updateWidth =0.55;
+                }
+                else
+                {
+                    //wを下げる
+                    updateWidth =0.45;
+                }
+
+                var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
+
+            }
+
+        }
+
       
 
         public void ProcessMessageWithEdgeWeight(BWMessage message, double w)
         {
+            
+            //IAgent neighbor = message.From as IAgent;
+            //INode n = neighbor as INode;
 
-            IAgent neighbor = message.From as IAgent;
-            if (neighbor == null)
-            {
-                w = getEdgeWeight(neighbor);
-            }
+            //if (neighbor == null)
+            //{
+            //    w = updateEdgeWeight();
+            //    w = ave_getEdgeWeight(neighbor);//平均でやるときはこっち
+            //}
 
             if (message.From != null && message.From.Accuracy != null)
             {
@@ -176,49 +363,20 @@ namespace OpinionSharing.Agt
             
         }
 
-        public void neighborsAwarenessrate()
+        public override void RoundFinished(BlackWhiteSubject thefact)
         {
-            if (this.Neighbours != null)
-            {
-                
-            }
-
-            else
-            {
-                throw new Exception(this.ID + " : の友達はいないです！");
-            }
-
+            this.checkFact(thefact);
+            base.RoundFinished(thefact);
         }
 
-        //public override void ProcessMessage(BWMessage message)
-        //{
-        //    //ここじゃだめかも。Receiveのところでもいっこ穴開けなきゃ行けないかもしれない。！！！！！！！
-        //    if (message.From != null && message.From is AgentIO)//送信者がエージェントの場合のみ貯める
-        //    {
-        //        //messageBox.Enqueue(message);
-        //    }
+        //ラウンドの最後に「近隣の重み」を「選択された信用度」を一括で表示する
+        public void weightlog()
+        {
+            //this.ID
+            foreach (var mes in messageBox.Messages)
+            {
 
-
-        //    base.ProcessMessage(message);
-
-        //}
-
-        //みんなに知らせる。自分の意見はこうですよと。
-        //protected override void NotifyOthers(BlackWhiteSubject? myOpinion = null) 
-        //{
-        //    BlackWhiteSubject opinion = checkOpinion(myOpinion);
-
-        //    //ご近所さん全員に伝える
-        //    //foreach (IAgent neighbour in this.Neighbours)
-        //    //    if (!messageBox.ReceivedFrom(neighbour) || //ただし、意見をくれたやつにはあげる必要ない。
-        //    //        messageBox.OpinionOf(neighbour) != this.Opinion)//くれてるやつでも、違う意見もってるやつには投げる。
-        //    //    {
-        //    //        SendOpinion(opinion, neighbour);
-        //    //    }
-
-        //    //messageBox = new DRMessageBox();
-        //}
-
-
+            }
+        }
     }
 }

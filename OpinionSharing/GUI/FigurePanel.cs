@@ -360,6 +360,20 @@ namespace OpinionSharingForm.GUI
                     //選択中のものならばそう表示
                     if (selected != null && (agent1.Algorithm == selected || agent2.Algorithm == selected))
                     {
+                        if(selected is WeightedNeighbour){
+                            var wn_agent = selected as WeightedNeighbour;
+
+                            AgentIO neighbour = (wn_agent.ID == agent1.ID) ? agent2 : agent1;
+                            var weight = wn_agent.getEdgeWeight(neighbour);
+
+                            Font fnt = new Font("MS UI Gothic", 20);
+                            Point p_ave = new Point((p1.X + p2.X) / 2, (p1.Y + p2.Y) / 2);
+
+                            g.DrawString(weight.ToString(), fnt, Brushes.Black, p_ave);
+
+
+                        }
+
                         g.DrawLine(selectedLinkPen, p1, p2);
                     }
 
