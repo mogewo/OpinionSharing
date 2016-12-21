@@ -38,7 +38,7 @@ namespace OpinionSharing.Agt
         }
 
 
-        public override void RoundFinished(BlackWhiteSubject thefact)
+        public override void RoundFinished(BlackWhiteSubject? thefact)
         {
 
             if (this.Opinion != null)

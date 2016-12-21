@@ -493,8 +493,17 @@ namespace OpinionSharing.Env
         {
             //ラウンドが終了 -> AATアルゴリズムを実行，エージェントを初期化
             foreach (AgentIO a in Environment.Network.Nodes)
-            {
-                a.RoundFinished(Environment.TheFact.Value);
+            {         
+                if (Round % 10 == 0)
+                {
+                    //a.checkfact(Environment.TheFact.Value);
+                    a.RoundFinished(Environment.TheFact.Value);
+                }
+                else
+                {
+                    a.RoundFinished(null);
+                }
+                
                
             }
         }

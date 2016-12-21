@@ -17,10 +17,12 @@ namespace OpinionSharing.Agt
     public class WNMessageBox
     {
         Queue<BWMessage> messages;
+        Dictionary<IOpinionSender, BWMessage> latestMessages;
 
         public WNMessageBox()
         {
             messages = new Queue<BWMessage>();
+            latestMessages = new Dictionary<IOpinionSender, BWMessage>();
         }
 
         public IEnumerable<IOpinionSender> Senders
@@ -48,6 +50,17 @@ namespace OpinionSharing.Agt
                 }
             }
         }
+        public IEnumerable<BWMessage> LatestMessages
+        {
+            get
+            {
+                foreach (var item in latestMessages)
+                {
+                    yield return item.Value;
+                }
+            }
+        }
+
 
         public bool ReceivedFrom(IOpinionSender sender)
         {
@@ -64,6 +77,8 @@ namespace OpinionSharing.Agt
         public void Enqueue(BWMessage message)
         {
             messages.Enqueue(message);
+            latestMessages[message.From] = message;
+           
         }
     }
 
@@ -127,8 +142,8 @@ namespace OpinionSharing.Agt
         {
             if (this.Neighbours.Contains(a))
             {
-                this.EdgeWeights[a] = RandomPool.Get("WeightSet").NextDouble(0.9, 1.0); //とりあえず0.9~1.0
-                //this.EdgeWeights[a] = 0.9;//
+                //this.EdgeWeights[a] = RandomPool.Get("WeightSet").NextDouble(0.9, 1.0); //とりあえず0.9~1.0
+                this.EdgeWeights[a] = 0.5;
             }
             else
             {
@@ -284,26 +299,68 @@ namespace OpinionSharing.Agt
         public void checkFact(BlackWhiteSubject fact)
         {
            /*自分が所持するメッセージリストと比較し，答え合わせをする*/
-            foreach (var mes in messageBox.Messages)
+            foreach (var mes in messageBox.LatestMessages)
             {
                 double updateWidth = 0;
 
+                double widthDiff = 0.01;
                 if (mes.Subject == fact)
                 {
                     //wを挙げる
-                    updateWidth =0.55;
+                    updateWidth =0.5 + widthDiff;
                 }
                 else
                 {
                     //wを下げる
-                    updateWidth =0.45;
+                    updateWidth =0.5 - widthDiff;
                 }
 
                 var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
+                
+                //w>=0.5にならないようにする．精度の低いセンサーの意見のみを弾くため，if文いらなくね？                
+                double min = System.Math.Min(newWeight, 0.5);
+                newWeight = min;
 
+
+                this.EdgeWeights[mes.From as IAgent] = newWeight;
             }
 
         }
+
+        //public void checkFactLastmes(BlackWhiteSubject fact)
+        //{
+        //    //opinionsenderの意見をリスト（）で保存
+        //    //dictionaryは添え字が同じなら上書きされるので，そちらを参照したほうがいいかも
+        //    //List<BlackWhiteSubject> indiviual_messages = new List<BlackWhiteSubject>();
+ 
+        //    /*自分が所持するメッセージリストの内，最後の意見をを答え合わせをする*/
+        //    foreach (var mes in messageBox.Messages)
+        //    {
+                
+        //        double updateWidth = 0;
+
+        //        if (mes.Subject == fact)
+        //        {
+        //            //wを挙げる
+        //            updateWidth = 0.51;
+        //        }
+        //        else
+        //        {
+        //            //wを下げる
+        //            updateWidth = 0.49;
+        //        }
+
+        //        var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
+        //        if (newWeight >= 0.5)
+        //        {
+        //            double max = System.Math.Min(newWeight, 0.5);
+        //            newWeight = max;
+        //        }
+
+        //        this.EdgeWeights[mes.From as IAgent] = newWeight;
+        //    }
+
+        //}
 
       
 
@@ -363,9 +420,12 @@ namespace OpinionSharing.Agt
             
         }
 
-        public override void RoundFinished(BlackWhiteSubject thefact)
+        public override void RoundFinished(BlackWhiteSubject? thefact)
         {
-            this.checkFact(thefact);
+            if (thefact.HasValue)
+            {
+                this.checkFact(thefact.Value);
+            }
             base.RoundFinished(thefact);
         }
 

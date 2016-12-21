@@ -179,7 +179,7 @@ namespace OpinionSharing.Env
         
             }
             //20161208 sensorの精度をバラバラにする
-            //this.Sensors.First().Accuracy = 0.1;
+            this.Sensors.First().Accuracy = 0.1;
         }
 
         //インフルエンシャルの割り当て
