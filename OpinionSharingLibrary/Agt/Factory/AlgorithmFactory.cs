@@ -14,7 +14,8 @@ namespace OpinionSharing.Agt.Factory
 
         //Algorithmであることも保証してくれるようなInterfaceがほしい。
         static Dictionary<string,Func<IAATBasedAgent>> creators = new Dictionary<string,Func<IAATBasedAgent>>(){  
-             {"AAT",              () => new AAT()},  
+             {"AAT",              () => new AAT()},
+             {"AAT_log",              () => new AAT_log()},
              {"DontReply",        () => new DontReply()},  
              {"NewDontReply",        () => new NewDontReply()},  
              {"LimitedBelief",     () => new LimitedBelief()},  

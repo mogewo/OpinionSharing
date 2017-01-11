@@ -70,7 +70,8 @@ namespace OpinionSharingForm
         private void initAlgoTable()
         {
             List<string> creatorsName = new List<string>{
-                 "AAT",              
+                 "AAT",
+                 "AAT_log",
                  "DontReply",        
                  "NewDontReply",        
                  "LimitedBelief",       
@@ -551,30 +552,31 @@ namespace OpinionSharingForm
 
                 Invoke(new Action(() => LearningProcess.Value = 100));
 
-                using (var sw = new System.IO.StreamWriter(@"result.csv", false))
-                {
+                //解析用，各種ステップ数とか見るよう
+                //using (var sw = new System.IO.StreamWriter(@"result.csv", false))
+                //{
                     
-                    sw.WriteLine("ID,Awareness Rate, Importance Level, JumpNumleft, JumpNumRight, BlackCount, WhiteCount");
-                }
+                //    sw.WriteLine("ID,Awareness Rate, Importance Level, JumpNumleft, JumpNumRight, BlackCount, WhiteCount");
+                //}
 
 
-                foreach (var node in env.Network.Nodes)
-                {
+                //foreach (var node in env.Network.Nodes)
+                //{
 
-                    AgentIO agt = node as AgentIO;
+                //    AgentIO agt = node as AgentIO;
 
-                    //一度カウントを0にする
-                    agt.BlackCount = 0;
-                    agt.WhiteCount = 0;
+                //    //一度カウントを0にする
+                //    agt.BlackCount = 0;
+                //    agt.WhiteCount = 0;
 
-                    //意見を受け取った回数のカウント，CSVで出力
-                    using (var sw = new System.IO.StreamWriter(@"result.csv", true))
-                    {
-                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight, agt.BlackCount, agt.WhiteCount);
-                    }
+                //    //意見を受け取った回数のカウント，CSVで出力
+                //    using (var sw = new System.IO.StreamWriter(@"result.csv", true))
+                //    {
+                //        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", node.ID, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.AwarenessRate, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.ImportanceLevel, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumLeft, ((OpinionSharing.Agt.AAT)(agt.algorithm)).CurrentCandidate.JumpNumRight, agt.BlackCount, agt.WhiteCount);
+                //    }
 
 
-                }
+                //}
                 
                 
                 MessageBox.Show("learning finished!");

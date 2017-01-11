@@ -186,7 +186,7 @@ namespace OpinionSharing.Agt
 
         public abstract void RoundInit();
 
-        public abstract void RoundFinished(BlackWhiteSubject? thefact);
+        public abstract void RoundFinished(BlackWhiteSubject? thefact, int? round);
 
     #endregion public method
 

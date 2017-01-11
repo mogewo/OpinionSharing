@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agt\Algorithm\AAT.cs" />
+    <Compile Include="Agt\Algorithm\AAT_log.cs" />
     <Compile Include="Agt\Algorithm\AgentSpec.cs" />
     <Compile Include="Agt\Algorithm\BelifeUpdaterWithRelyability.cs" />
     <Compile Include="Agt\Algorithm\EmptyAlgoritm.cs" />

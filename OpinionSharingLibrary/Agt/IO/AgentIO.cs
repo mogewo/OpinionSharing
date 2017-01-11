@@ -343,9 +343,9 @@ namespace OpinionSharing.Agt
         }
 
        
-        public virtual void RoundFinished(BlackWhiteSubject? blackWhiteSubject)
+        public virtual void RoundFinished(BlackWhiteSubject? blackWhiteSubject, int? round)
         {
-            algorithm.RoundFinished(blackWhiteSubject);
+            algorithm.RoundFinished(blackWhiteSubject,round);
         }  
 
         #endregion IAgentを実装

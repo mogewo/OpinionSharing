@@ -315,7 +315,7 @@ namespace OpinionSharing.Agt
         }
 
         //ラウンドが終わったら、step2,3を実行
-        public override void RoundFinished(BlackWhiteSubject? thefact)
+        public override void RoundFinished(BlackWhiteSubject? thefact, int? round)
         {
             //AATを実行
 
@@ -331,11 +331,20 @@ namespace OpinionSharing.Agt
                 SelectTheBest();
             }
 
+            //普段はコメントアウト推奨，別のクラスを考える必要あり．
+            if (this.ID == 15 || this.ID == 23)
+            {
+                own_log(round);
+            }               
+
             //状態の変更を通知 ここはOpinionChangedじゃないはず。
             //OnOpinionChanged(new OpinionEventArgs(this.Opinion));//おそらくいらない。SelectTheBestでできてるはず。
 
             //candidate以外を初期化
             RoundInit();
+
+            
+            
         }
 
         public virtual void EstimateAwarenessRate()
@@ -371,5 +380,38 @@ namespace OpinionSharing.Agt
                 return string.Format("[Agent ID:{0:000}, opinion:{1}]", ID, thought);
             }
         }
+
+        //普段はコメントアウト推奨，別のクラスを考える必要あり．
+        public virtual void own_log(int? round)
+        {
+            //try
+            //{
+            //    //近隣がsensorかどうかのフラグ
+            //    string s = "0";
+            //    foreach (var n in this.Neighbours)
+            //    {
+            //        AgentIO neighbor = n as AgentIO;
+            //        if (neighbor.HasSensor)
+            //        {
+            //            s = "1";
+            //        }
+            //    }
+            //    using (var sw = new System.IO.StreamWriter(@"AAT" + "Round" + round + "_agent_" + this.ID + "_inf" + ".csv", append))
+            //    {
+            //        sw.WriteLine("round,agent_ID,this_Awareness Rate, this_Importance Level, sensor");                                        
+            //    }
+
+            //    using (var sw = new System.IO.StreamWriter(@"AAT" + "Round" + round + "_agent_" + this.ID + "_inf" + ".csv", true))
+            //    {
+            //        sw.WriteLine("{0},{1},{2},{3},{4}", round, this.ID, this.CurrentCandidate.AwarenessRate, this.CurrentCandidate.ImportanceLevel, s);
+            //    }
+            //}
+            //catch (System.Exception a)
+            //{
+            //    // ファイルを開くのに失敗したときエラーメッセージを表示
+            //    System.Console.WriteLine(a.Message);
+            //}
+        }
+
     }
 }

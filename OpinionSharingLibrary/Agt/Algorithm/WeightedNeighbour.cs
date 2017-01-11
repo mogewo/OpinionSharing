@@ -303,7 +303,7 @@ namespace OpinionSharing.Agt
             {
                 double updateWidth = 0;
 
-                double widthDiff = 0.01;
+                double widthDiff = 0.03;
                 if (mes.Subject == fact)
                 {
                     //wを挙げる
@@ -317,9 +317,9 @@ namespace OpinionSharing.Agt
 
                 var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
                 
-                //w>=0.5にならないようにする．精度の低いセンサーの意見のみを弾くため，if文いらなくね？                
-                double min = System.Math.Min(newWeight, 0.5);
-                newWeight = min;
+                ////w>=0.5にならないようにする．精度の低いセンサーの意見のみを弾くため，if文いらなくね？                
+                //double min = System.Math.Min(newWeight, 0.5);
+                //newWeight = min;
 
 
                 this.EdgeWeights[mes.From as IAgent] = newWeight;
@@ -327,40 +327,74 @@ namespace OpinionSharing.Agt
 
         }
 
-        //public void checkFactLastmes(BlackWhiteSubject fact)
-        //{
-        //    //opinionsenderの意見をリスト（）で保存
-        //    //dictionaryは添え字が同じなら上書きされるので，そちらを参照したほうがいいかも
-        //    //List<BlackWhiteSubject> indiviual_messages = new List<BlackWhiteSubject>();
- 
-        //    /*自分が所持するメッセージリストの内，最後の意見をを答え合わせをする*/
-        //    foreach (var mes in messageBox.Messages)
-        //    {
-                
-        //        double updateWidth = 0;
+        //自分と同じ意見のAgtに重きを置く
+        public void checkOwn()
+        {
+            /*自分が所持するメッセージリストと比較し，答え合わせをする*/
+            foreach (var mes in messageBox.LatestMessages)
+            {
+                double updateWidth = 0;
 
-        //        if (mes.Subject == fact)
-        //        {
-        //            //wを挙げる
-        //            updateWidth = 0.51;
-        //        }
-        //        else
-        //        {
-        //            //wを下げる
-        //            updateWidth = 0.49;
-        //        }
+                double widthDiff = 0.01;
 
-        //        var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
-        //        if (newWeight >= 0.5)
-        //        {
-        //            double max = System.Math.Min(newWeight, 0.5);
-        //            newWeight = max;
-        //        }
+                if (mes.Subject == this.Opinion)
+                {
+                    //wを挙げる
+                    updateWidth = 0.5 + widthDiff;
+                }
+                else
+                {
+                    //wを下げる
+                    updateWidth = 0.5 - widthDiff;
+                }
 
-        //        this.EdgeWeights[mes.From as IAgent] = newWeight;
-        //    }
+                var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
 
-        //}
+                ////w>=0.5にならないようにする．精度の低いセンサーの意見のみを弾くため，if文いらなくね？                
+                //double min = System.Math.Min(newWeight, 0.5);
+                //newWeight = min;
+
+
+                this.EdgeWeights[mes.From as IAgent] = newWeight;
+            }
+
+        }
+
+        //20170111試作版：つかってない
+        public void checkFactLastmes(BlackWhiteSubject fact)
+        {
+            //opinionsenderの意見をリスト（）で保存
+            //dictionaryは添え字が同じなら上書きされるので，そちらを参照したほうがいいかも
+            //List<BlackWhiteSubject> indiviual_messages = new List<BlackWhiteSubject>();
+
+            /*自分が所持するメッセージリストの内，最後の意見をを答え合わせをする*/
+            foreach (var mes in messageBox.Messages)
+            {
+
+                double updateWidth = 0;
+
+                if (mes.Subject == fact)
+                {
+                    //wを挙げる
+                    updateWidth = 0.51;
+                }
+                else
+                {
+                    //wを下げる
+                    updateWidth = 0.49;
+                }
+
+                var newWeight = BeliefUpdater.updateFunc(this.EdgeWeights[mes.From as IAgent], updateWidth);
+                if (newWeight >= 0.5)
+                {
+                    double max = System.Math.Min(newWeight, 0.5);
+                    newWeight = max;
+                }
+
+                this.EdgeWeights[mes.From as IAgent] = newWeight;
+            }
+
+        }
 
       
 
@@ -420,23 +454,64 @@ namespace OpinionSharing.Agt
             
         }
 
-        public override void RoundFinished(BlackWhiteSubject? thefact)
-        {
-            if (thefact.HasValue)
-            {
-                this.checkFact(thefact.Value);
-            }
-            base.RoundFinished(thefact);
-        }
-
         //ラウンドの最後に「近隣の重み」を「選択された信用度」を一括で表示する
-        public void weightlog()
+        public override void own_log(int? round)
         {
-            //this.ID
-            foreach (var mes in messageBox.Messages)
+            try
             {
+                using (var sw = new System.IO.StreamWriter(@"WeightedNeighbour"+"Round" + round + "_agent_" + this.ID + "_inf" + ".csv", false))
+                {
+                    sw.WriteLine("Round," + round);
+                    sw.WriteLine("agent_ID,this_Awareness Rate, this_Importance Level");
+                    sw.WriteLine("{0},{1},{2}", this.ID, this.CurrentCandidate.AwarenessRate, this.CurrentCandidate.ImportanceLevel);
+                    sw.WriteLine("ID, weight,New_Importance Level,sensor");
+                }
 
+                foreach (var n in this.Neighbours)
+                {
+
+                    AgentIO neighbor = n as AgentIO;
+                    var w = this.EdgeWeights[neighbor];
+                    string s = "0";//sensorAgentのフラグ
+
+                    if (neighbor.HasSensor)
+                    {
+                        s = "1";
+                    }
+
+
+                    //重みを掛けたときの信用度を計算（表示のため）
+                    var newImportanceLevel = BeliefUpdater.updateFunc(this.CurrentCandidate.ImportanceLevel, w);
+
+                    using (var sw = new System.IO.StreamWriter(@"WeightedNeighbour"+"Round" + round + "_agent_" + this.ID + "_inf" + ".csv", true))
+                    {
+                        sw.WriteLine("{0},{1},{2},{3}", neighbor.ID, w, newImportanceLevel, s);
+                    }
+
+                }
+            }
+            catch (System.Exception a)
+            {
+                // ファイルを開くのに失敗したときエラーメッセージを表示
+                System.Console.WriteLine(a.Message);
             }
         }
+
+        public override void RoundFinished(BlackWhiteSubject? thefact, int? round)
+        {
+            if (thefact.HasValue && round.HasValue)
+            {
+                //this.checkFact(thefact.Value);
+                this.checkOwn();
+                //if (this.ID == 15 || this.ID == 23)
+                //{
+                //    this.own_log(round);   
+                //}                
+            }
+            base.RoundFinished(thefact, round);
+        }
+
+        
+        
     }
 }

@@ -305,7 +305,7 @@ namespace OpinionSharing.Env
             if (Step % 1000 == 0)
             {
                 //Environment.disconnectSomething();
-                Link();
+                //Link();
                 
             }
 
@@ -497,11 +497,12 @@ namespace OpinionSharing.Env
                 if (Round % 10 == 0)
                 {
                     //a.checkfact(Environment.TheFact.Value);
-                    a.RoundFinished(Environment.TheFact.Value);
+                    //factとroundはweightedNeighbor.csでしか使ってません
+                    a.RoundFinished(Environment.TheFact.Value, Round);
                 }
                 else
                 {
-                    a.RoundFinished(null);
+                    a.RoundFinished(null, null);
                 }
                 
                

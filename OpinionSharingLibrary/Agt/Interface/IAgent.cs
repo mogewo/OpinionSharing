@@ -20,7 +20,7 @@ namespace OpinionSharing.Agt
         //void updateEdgeWeight();//重みをセットする 具体的な処理はweightedNeighbourで
         void PrepareAlgorithm();
         void RoundInit();
-        void RoundFinished(BlackWhiteSubject? thefact);
+        void RoundFinished(BlackWhiteSubject? thefact, int? round);
 
     }
 }
