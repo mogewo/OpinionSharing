@@ -61,7 +61,7 @@ namespace OpinionSharing.Env
         public BlackWhiteSubject? Fact{get;set;}
 
 
-        public Experiment(OSEnvironment e, int rn = 150, int sn = 3000, double sr = 0.1)
+        public Experiment(OSEnvironment e, int rn = 120, int sn = 3000, double sr = 0.1)
         {
             RoundNum = rn;
             StepNum = sn;
@@ -72,7 +72,7 @@ namespace OpinionSharing.Env
             Initialize();
         }
 
-        public Experiment(int rn = 150, int sn = 3000, double sr = 0.1)
+        public Experiment(int rn = 120, int sn = 3000, double sr = 0.1)
         {
             RoundNum = rn;
             StepNum = sn;

@@ -331,8 +331,8 @@ namespace OpinionSharing.Agt
                 SelectTheBest();
             }
 
-            //普段はコメントアウト推奨，別のクラスを考える必要あり．
-            if (this.ID == 15 || this.ID == 23)
+            ////普段はコメントアウト推奨，別のクラスを考える必要あり．
+            if (this.ID == 68 || this.ID == 71 || this.ID == 15 || this.ID == 23)
             {
                 own_log(round);
             }               
