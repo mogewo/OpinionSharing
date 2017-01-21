@@ -459,7 +459,7 @@ namespace OpinionSharing.Agt
         {
             try
             {
-                using (var sw = new System.IO.StreamWriter(@"WeightedNeighbour"+"Round" + round + "_agent_" + this.ID + "_inf" + ".csv", false))
+                using (var sw = new System.IO.StreamWriter(@"WeightedNeighbour"+ "_agent_" + this.ID + "_inf" + ".csv", true))
                 {
                     sw.WriteLine("Round," + round);
                     sw.WriteLine("agent_ID,this_Awareness Rate, this_Importance Level");
@@ -483,7 +483,7 @@ namespace OpinionSharing.Agt
                     //重みを掛けたときの信用度を計算（表示のため）
                     var newImportanceLevel = BeliefUpdater.updateFunc(this.CurrentCandidate.ImportanceLevel, w);
 
-                    using (var sw = new System.IO.StreamWriter(@"WeightedNeighbour"+"Round" + round + "_agent_" + this.ID + "_inf" + ".csv", true))
+                    using (var sw = new System.IO.StreamWriter(@"WeightedNeighbour"+ "_agent_" + this.ID + "_inf" + ".csv", true))
                     {
                         sw.WriteLine("{0},{1},{2},{3}", neighbor.ID, w, newImportanceLevel, s);
                     }

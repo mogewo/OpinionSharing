@@ -179,42 +179,24 @@ namespace OpinionSharing.Env
         
             }
             //20161208 sensorの精度をバラバラにする
+            
             //this.Sensors.First().Accuracy = 0.1;
             //this.Sensors.Last().Accuracy = 0.9;
         }
 
-        //インフルエンシャルの割り当て
-        //private void PreparePurpose(double ImportanceLevel)//Network net INode node, BeliefUpdater importanceLevel)
-        //{
-        //    AgentIO sensorAgent = this.Network.Nodes
-        //    for (int i = 0; i < length; i++)
-        //    {
-			 
-        //    }
+        //sensorの精度を変える関数
+        public virtual void SensorAccChange(int round)
+        {
+            //センサー
+            if (round == 150)
+            {
+                this.Sensors.First().Accuracy = 0.3;
+                this.Sensors.Last().Accuracy = 0.7;             
+            }
             
+        }
 
-        //    //List<double> ImportanceLevelList = new List<double>{};
-        //    //for (int i = 0; i < this.Network.Nodes.Count(); i++)
-        //    //{
-        //    // AgentIO agent = this.Network.Nodes.ElementAt(i) as AgentIO;
-        //    //    AgentIO n
-        //    //    List<AgentIO> neighbours = new List<AgentIO>{};
-        //    //    if (agent.HasSensor)
-        //    //    {
-        //    //        agent = agent.Neighbours;
-        //    //    }
-		 	                                
-            
-        //    ////センサーの近隣エージェントかどうか
-        //    ////信用度の高いエージェントをセットする
-
-
-        //    //if ()
-        //    //{
-                
-        //    //}
-        //    //}
-        //}
+      
 
         public override string ToString()
         {

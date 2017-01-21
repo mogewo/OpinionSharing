@@ -61,7 +61,7 @@ namespace OpinionSharing.Env
         public BlackWhiteSubject? Fact{get;set;}
 
 
-        public Experiment(OSEnvironment e, int rn = 120, int sn = 3000, double sr = 0.1)
+        public Experiment(OSEnvironment e, int rn = 300, int sn = 3000, double sr = 0.1)
         {
             RoundNum = rn;
             StepNum = sn;
@@ -72,7 +72,7 @@ namespace OpinionSharing.Env
             Initialize();
         }
 
-        public Experiment(int rn = 120, int sn = 3000, double sr = 0.1)
+        public Experiment(int rn = 300, int sn = 3000, double sr = 0.1)
         {
             RoundNum = rn;
             StepNum = sn;
@@ -492,6 +492,7 @@ namespace OpinionSharing.Env
         public void FinishRound()
         {
             //ラウンドが終了 -> AATアルゴリズムを実行，エージェントを初期化
+            Environment.SensorAccChange(Round);
             foreach (AgentIO a in Environment.Network.Nodes)
             {         
                 if (Round % 10 == 0)
@@ -503,10 +504,13 @@ namespace OpinionSharing.Env
                 else
                 {
                     a.RoundFinished(null, null);
-                }
-                
-               
+                }                          
             }
+
+
+            
+
+
         }
 
         public void CancelRound()

@@ -390,14 +390,14 @@ namespace OpinionSharingForm
         private void StepButton_Click(object sender, EventArgs e)
         {
             StopAnimation();
-            //execStep();
-            execStep_weight();
+            execStep();
+            //execStep_weight();
         }
 
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            //execStep();
-            execStep_weight();
+            execStep();
+            //execStep_weight();
         }
 
 
@@ -451,25 +451,25 @@ namespace OpinionSharingForm
         }
 
         //重み用
-        private void execStep_weight()
-        {
-            exp.ExecStep_weight(sensorRate);
-            //表示を更新
+        //private void execStep_weight()
+        //{
+        //    exp.ExecStep_weight(sensorRate);
+        //    //表示を更新
 
-            var acc = env.EnvAccuracy;
-
-
-            //Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
-            //    acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
+        //    var acc = env.EnvAccuracy;
 
 
-            //csv書き込み開始
-            this.WriteCsv();
-            //this.OpinionStatusCsv();
+        //    //Console.WriteLine("step:{3}, correct:, {0}, incorrrect:, {1}, undeter:, {2}",
+        //    //    acc.Correct, acc.Incorrect, acc.Undeter, exp.Step);
 
-            Invoke(new Action(updateStepInfo));
 
-        }
+        //    //csv書き込み開始
+        //    this.WriteCsv();
+        //    //this.OpinionStatusCsv();
+
+        //    Invoke(new Action(updateStepInfo));
+
+        //}
 
 
         private void InitAnimation()//ラウンドの中身を実行するわけだよ。

@@ -14,7 +14,7 @@ namespace OpinionSharing.Agt.Algorithm
             {
                 //近隣がsensorかどうかのフラグ                
                 string s = "0";
-                
+
                 foreach (var n in this.Neighbours)
                 {
                     AgentIO neighbor = n as AgentIO;
@@ -23,23 +23,53 @@ namespace OpinionSharing.Agt.Algorithm
                         s = "1";
                     }
                 }
-                using (var sw = new System.IO.StreamWriter(@"AAT_log"+ round +  "_agent_" + this.ID + "_inf" + ".csv", false))
+                using (var sw = new System.IO.StreamWriter(@"AAT_log" + "_agent_" + this.ID + "_inf" + ".csv", true))
                 {
                     sw.WriteLine("round,agent_ID,this_Awareness Rate, this_Importance Level, sensor");
                 }
 
-                using (var sw = new System.IO.StreamWriter(@"AAT_log" + round + "_agent_" + this.ID + "_inf" + ".csv", true))
+                using (var sw = new System.IO.StreamWriter(@"AAT_log" +  "_agent_" + this.ID + "_inf" + ".csv", true))
                 {
                     sw.WriteLine("{0},{1},{2},{3},{4}", round, this.ID, this.CurrentCandidate.AwarenessRate, this.CurrentCandidate.ImportanceLevel, s);
                 }
-                
-                
+
+
             }
             catch (System.Exception a)
             {
                 // ファイルを開くのに失敗したときエラーメッセージを表示
                 System.Console.WriteLine(a.Message);
             }
+            //try
+            //{
+            //    //近隣がsensorかどうかのフラグ                
+            //    string s = "0";
+                
+            //    foreach (var n in this.Neighbours)
+            //    {
+            //        AgentIO neighbor = n as AgentIO;
+            //        if (neighbor.HasSensor)
+            //        {
+            //            s = "1";
+            //        }
+            //    }
+            //    using (var sw = new System.IO.StreamWriter(@"AAT_log"+ round +  "_agent_" + this.ID + "_inf" + ".csv", false))
+            //    {
+            //        sw.WriteLine("round,agent_ID,this_Awareness Rate, this_Importance Level, sensor");
+            //    }
+
+            //    using (var sw = new System.IO.StreamWriter(@"AAT_log" + round + "_agent_" + this.ID + "_inf" + ".csv", true))
+            //    {
+            //        sw.WriteLine("{0},{1},{2},{3},{4}", round, this.ID, this.CurrentCandidate.AwarenessRate, this.CurrentCandidate.ImportanceLevel, s);
+            //    }
+                
+                
+            //}
+            //catch (System.Exception a)
+            //{
+            //    // ファイルを開くのに失敗したときエラーメッセージを表示
+            //    System.Console.WriteLine(a.Message);
+            //}
         }
 
     }
